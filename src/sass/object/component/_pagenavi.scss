@@ -1,0 +1,125 @@
+$pagenavi_borders : false;
+.single-pagenavi{
+	margin-bottom: 30px;
+	display: flex;
+	width: 100%;
+	@if $pagenavi_borders{
+		border: 1px solid $gray-400;
+		border-left: none;
+	}
+	text-align: center;
+	overflow: hidden;
+	@media(max-width: 767px){
+		border-bottom: none;
+		display: block;
+	}
+	>a,>span{
+		width: 33.3%;
+		-webkit-flex: 33.3%;
+		    -ms-flex: 33.3%;
+		        flex: 33.3%;
+		text-decoration: none;
+		color: #111;
+		position: relative;
+		@if $pagenavi_borders{
+			border-left: 1px solid $gray-400;
+		}
+		@media(max-width: 767px){
+			width: 100%;
+			max-width: 100%;
+			display: block;
+		}
+		&.arrow-left{
+			
+			a:before{
+				content:"\f104";
+				font-family: $icon-font-family;
+				position: absolute;
+				left: 10px;
+				top: 50%;
+				line-height: 100%;
+				margin-top: -10px;
+				font-size: 1.3rem;
+			}
+		}
+		&.arrow-right{
+			
+			a:after{
+				content:"\f105";
+				font-family: $icon-font-family;
+				position: absolute;
+				right:10px;
+				top: 50%;
+				line-height: 100%;
+				margin-top: -10px;
+				font-size: 1.3rem;
+			}
+		}
+		
+		a{
+			text-decoration: none;
+			display: block;
+			padding: 30px;
+			white-space: nowrap;  
+			overflow: hidden;  
+			text-overflow: ellipsis;  
+			-webkit-text-overflow: ellipsis;  
+			-o-text-overflow: ellipsis; 
+			font-size: .9rem;
+            @include easeOutQuart(400ms);
+            transition-property: background,color;
+			&:hover{
+				// background: $gray-400;
+				text-decoration: underline;
+			}
+			@media(max-width: 767px){
+				padding: 10px 30px;
+				@if $pagenavi_borders{
+					border-bottom: 1px solid $gray-400;
+				}
+			}
+		}
+	}
+	
+}
+
+.wp-pagenavi{
+	text-align: center;
+	padding-bottom:30px;
+    padding-top: 30px;
+    width: 100%;
+	>span,>a{
+        vertical-align: middle;
+        display: inline-block;
+		padding: 0 11px ;
+		margin-right: 5px;
+		line-height: 28px;
+		background: #fff;
+		color:darken($pagenavi-color,20%);
+        border-radius: 2px;
+        font-size: 0.9rem;
+		border: 1px solid #eee;
+		text-decoration: none;
+		@include easeOutQuart(400ms);
+		@media (max-width:767px){
+			margin-bottom: 8px;
+		}
+	}
+	a:hover{
+		background: $pagenavi-color;
+		color:#fff;
+		border-color: $pagenavi-color;
+	}
+	span{
+		background: $pagenavi-color;
+		color: #fff;
+		border-color: $pagenavi-color;
+		&.extend{
+			background: none;
+			color:$gray-400;
+			padding: 0 5px;
+			border:none;
+			font-size: 12px;
+		}
+	}
+}

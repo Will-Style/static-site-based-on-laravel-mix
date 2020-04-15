@@ -1,0 +1,297 @@
+// input[type=text],input[type=email],input[type=tel],input[type=date],input[type=time],textarea{
+// 	@extend .form-control;
+// 	font-size: 16px;
+// }
+// input[type=submit]{
+// 	@extend .btn;
+// 	@extend .btn-primary;
+// 	min-width: 240px;
+// 	padding: 1rem 1.5rem;
+// }
+// #contact {
+// 	input[type=submit]{
+// 		color: #FFF;
+// 	}
+// }
+
+//   /* Webkit */
+// input::-webkit-input-placeholder {
+//     color: #888!important;
+//     opacity: 1;
+// }
+// /* Firefox 18 以前 */
+// input:-moz-placeholder {
+//     color: #888!important;
+// }
+// /* Firefox 19 以降 */
+// input::-moz-placeholder {
+//     color: #888!important;
+
+//     /* Firefox 19 以降のデフォルトでは */
+//     /* color ではなく opacity で色合いを調整しているため */
+//     /* 文字色を指定する場合、opacity を 1 にする必要がある */
+//     opacity: 1;
+// }
+// /* IE 10 以降 */
+// input::-ms-input-placeholder,input:-ms-input-placeholder {
+//     color: #888!important;
+// }
+
+// .form-control::-ms-input-placeholder {
+//   color: #888 !important;
+// }
+
+// /* CSS4では以下のような名前の擬似クラスになるらしい */
+// /* おそらく今のところ対応ブラウザはない */
+// input:placeholder-shown {
+//     color: #888!important;
+// } 
+// .mw_wp_form_confirm{
+// 	.select-wrap{
+// 		&:after{
+// 			content:none;
+// 		}
+// 	}
+// 	.form-group{
+// 		@media(max-width: 767px){
+
+//     		border-bottom: 1px solid #ebebeb;
+// 			margin-left: 0;
+// 			margin-right: 0;
+// 	    	padding-bottom: 15px;
+// 	    }
+// 	}
+// 	.form-group>label{
+// 		@media(max-width: 991px){
+// 			padding-bottom: 5px;
+// 			padding-left: 0px;
+// 			padding-right: 0px;
+// 		}
+// 		@media(max-width: 767px){
+// 			padding-bottom: 0;
+// 		}
+// 	}
+// 	.form-group>div{
+// 		padding-top:  calc(.8rem - 1px * 2);;
+// 		@media(max-width: 991px){
+// 			padding-left: 0px;
+// 			padding-right: 0px;
+// 			padding-top:  calc(.8rem - 1px * 2);
+// 		}
+// 	}
+// 	.input-group-file{
+// 		input{
+// 			display: none;
+// 		}
+// 		.input-group-btn{
+// 			display: none;
+// 		}
+// 	}
+// 	#policy-check{
+// 		display: none;
+// 	}
+// }
+
+// .form-group{
+// 	margin-bottom: 20px;
+// 	@media(max-width: 767px){
+// 		margin-bottom: 10px;
+// 	}
+// }
+// .select-wrap{
+// 	position: relative;
+// 	background: #FFF;
+// 	-webkit-box-shadow: none;
+// 	        box-shadow: none;
+// 	&:after{
+// 	 	z-index: 3;
+//     	position: absolute;
+//     	right: 10px;
+//     	top: 50%;
+//     	content:$icon-arrow-down;
+//     	font-family:$icon-font-family;
+//     	margin-top: -.8rem;
+//     	color: $primary;
+//     	font-size: 1.6rem;
+//     	pointer-events: none;
+//     	line-height: 100%;
+//     }
+//     select{
+//     	position: relative;
+//     	z-index: 1;
+//     	background: none;
+//     	padding-left: 15px;
+//     	padding-right: 15px;
+//     }
+// }
+// select{
+//     -moz-appearance: none;
+//     text-indent: 0.01px;
+//     text-overflow: '';
+   
+// 	-webkit-box-shadow: none;
+// 	        box-shadow: none;
+//     background: none transparent;
+//     vertical-align: middle;
+//     font-size: inherit;
+//     color: inherit;
+//     -webkit-appearance: button;
+//     -moz-appearance: button;
+//     appearance: button;
+//     appearance: none;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     @extend .form-control;
+//     font-size: 16px;
+// 	&:focus,&:hover,&:active{
+// 		outline: none;
+// 		-webkit-box-shadow: 0 0 2px $info;
+// 		        box-shadow: 0 0 2px $info;
+// 	}
+// 	@media(max-width:767px){
+// 		font-size: 18px;
+// 		height: 40px;
+// 	}
+// }
+
+// textarea{
+// 	height: auto;
+// }
+// select::-ms-expand{
+// 	 display: none;
+// }
+// select.form-control:not([size]):not([multiple]), select:not([size]):not([multiple]){
+// 	height: 40px;
+// }
+// .mwform-radio-field label,.radio{
+// 	position: relative;
+// 	padding-left: 30px;
+// 	padding-right: 15px;
+// 	&.radio-block{
+// 		display: block;
+// 		padding-right: 0;
+// 	}
+// 	cursor: pointer;
+// 	font-weight: normal;
+// 	input[type="radio"]{
+// 		display: none;
+// 		&:checked + span:before{
+// 			border-color: $primary;
+// 		}
+// 		&:checked + span:after{
+// 			opacity: 1;
+// 			background: $primary;
+// 			@include transform(scale(1));
+// 		}
+// 	}
+// 	span{
+// 		line-height: 25px;
+// 	}
+// 	span:before{
+// 		content:'';
+// 		border: 2px solid darken($input-border-color,10%);
+// 		width: 20px;
+// 		height: 20px;
+// 		position: absolute;
+// 		left: 0;
+// 		top: 2px;
+// 		margin-right: 10px;
+// 		display: inline-block;
+// 		vertical-align: middle;
+// 		border-radius:10px;
+// 		@include easeInOutQuart(500ms);
+		
+// 	}
+// 	span:after{
+// 		content:'';
+// 		@include transform(scale(3));
+// 		opacity: 0;
+// 		position: absolute;
+// 		left: 4px;
+// 		top: 6px;
+// 		width:12px;
+// 		height: 12px;
+// 		background: #FFF;
+// 		-webkit-border-radius: 100%;
+// 		        border-radius: 100%;
+// 		@include easeOutExpo(400ms);
+		
+// 	}
+// }
+// .col-form-label{
+// 	font-weight: normal;
+// 	color: lighten($gray-700,10%);	
+// }
+// .mwform-checkbox-field.horizontal-item,.mwform-radio-field.horizontal-item{
+// 	margin-left: 0 !important;
+// 	margin-bottom: 10px;
+// 	display: block;
+// }
+// .mwform-checkbox-field label,.checkbox{
+// 	position: relative;
+// 	padding-left: 30px;
+// 	padding-right: 15px;
+// 	&.checkbox-block{
+// 		display: block;
+// 		padding-right: 0;
+// 	}
+// 	span{
+// 		line-height: 25px;
+// 	}
+// 	cursor: pointer;
+// 	font-weight: normal;
+// 	input[type="checkbox"]{
+// 		display: none;
+// 		&:checked + span:before{
+// 			@include transform(scale(3));
+// 			opacity: 0;
+// 		}
+// 		&:checked + span:after{
+// 			opacity: 1;
+// 			position: absolute;
+// 			left: .5rem;
+// 			top: .2rem;
+// 			width:8px;
+// 			height: 16px;
+// 			border-right: 2px solid $primary;
+// 			border-bottom: 2px solid $primary;
+// 			transform:rotate(40deg);
+// 		}
+// 	}
+
+// 	span:before{
+// 		content:'';
+// 		border: 2px solid darken($input-border-color,10%);
+// 		width: 20px;
+// 		height: 20px;
+// 		position: absolute;
+// 		left:0;
+// 		top: 2px;
+// 		margin-right: 10px;
+// 		display: inline-block;
+// 		vertical-align: middle;
+// 		border-radius:0;
+// 		@include easeInOutQuart(500ms);
+		
+// 	}
+// 	span:after{
+// 		content:'';
+// 		opacity: 0;
+// 		position: absolute;
+// 		left:.5rem;
+// 		top: .2rem;
+// 		width:8px;
+// 		height: 16px;
+// 		border-right: 2px solid transparent;
+// 		border-bottom: 2px solid transparent;
+// 		transform:rotate(-200deg);
+// 		@include easeOutExpo(400ms);
+		
+// 	}
+// }
+
+// .input-group-file{
+// 	input[type="file"]{
+// 		display: none;
+// 	}
+// }

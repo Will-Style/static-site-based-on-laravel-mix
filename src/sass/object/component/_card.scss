@@ -1,0 +1,239 @@
+.card--image{
+	position: relative;
+	width: 100%;
+	display: block;
+	background-position: center center;
+	-webkit-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+	line-height: 0;
+	font-size: 1px;
+	&:before{
+		content:"";
+		display: block;
+		position: relative;
+		width: 100%;		
+		padding-top: 65%;
+	}
+
+	&.square{
+		&:before{
+			padding-top: 100%;
+		}
+	}
+}
+.card{
+	border: none!important;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
+	position: relative;
+}
+.card--wrapper{
+    max-width: 350px;
+    margin: 0 auto;
+    
+}
+.card-hover {
+	overflow: hidden;
+	.card--image{
+		@include easeOutQuart(600ms);
+        @include transform(scale(1));
+		&:hover,&:focus,&:active{
+            @include transform(scale(1.05));
+		}
+	}
+}
+
+.c-card__report{
+    background: transparent;
+    margin-bottom: 1.5rem;
+    .c-card__report--body{
+        padding: 1rem 5px;
+        .c-card__report--title{
+            font-size: 0.9rem;
+            letter-spacing: .4px;
+            a{
+                color: $default;
+                &:hover,&:focus,&:active{
+                    text-decoration: none;
+                    color: $default;
+                }
+            }
+        }
+        .c-card__report--tag{
+            a{
+                margin-right: 1rem;
+                letter-spacing: .4px;
+                font-size: 0.8rem;
+                color: #9293a4;
+                &:before{
+                    content:"#";
+                }
+            }
+        }
+    }
+}
+
+.c-card__plan{
+    background: transparent;
+    margin-bottom: 1.5rem;
+    display: block;
+    color: $default;
+    &:hover,&:focus,&:active{
+        text-decoration: none;
+        color: $default;
+        .card--image{
+            @include transform(scale(1.05));
+        }
+    }
+    .c-card__plan--body{
+        padding: 1rem 5px;
+        .c-card__plan--title{
+            font-size: 1rem;
+            letter-spacing: .4px;
+        }
+        .c-card__plan--price{
+            
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            span{
+                color: darken($primary,20%);
+            }
+        }
+    }
+}
+
+.c-card__fair{
+    background: transparent;
+    margin-bottom: 1.5rem;
+    display: block;
+    color: $default;
+    &:hover,&:focus,&:active{
+        text-decoration: none;
+        color: $default;
+        .card--image{
+            @include transform(scale(1.05));
+        }
+    }
+    .c-card__fair--body{
+        padding: 1rem 5px;
+        .c-card__fair--title{
+            font-size: 1rem;
+            letter-spacing: .4px;
+        }
+        .c-card__fair--price{
+            
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            span{
+                color: darken($primary,20%);
+            }
+        }
+    }
+
+    .c-card__fair--date{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 90px;
+        background-color: #fff;
+        @media(max-width:575px){
+            width: 75px;
+        }
+        &:hover,&:focus,&:active{
+            text-decoration: none;
+            color: $default;
+            .card--image{
+                @include transform(scale(1.05));
+            }
+        }
+        >span{
+            display: block;
+            text-align: center;
+            &.c-card__fair--date-ym{
+                font-size: 0.9rem;
+                line-height:100%;
+                padding-top: 15px;
+                color: $gray-500;
+                @media(max-width:575px){
+                    padding-top: 12px;
+                }
+            }
+            &.c-card__fair--date-d{
+                font-size: 2.5rem;
+                line-height:100%;
+                color: #45433d;
+                @media(max-width:575px){
+                    font-size: 2.2rem;
+                }
+            }
+            &.c-card__fair--date-w{
+                font-size: 0.8rem;
+                line-height:120%;
+                padding-bottom: 15px;
+                color: $gray-500;
+                letter-spacing: 1px;
+                @media(max-width:575px){
+                    padding-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+.c-card__fair--vertical{
+    background-color: #fff;
+    height: 100%;
+    .c-card__fair--v-cat{
+        margin-bottom: 0.8rem;
+    }
+    .c-card__fair--v-title{
+        font-size: 1.05rem;
+        line-height: 160%;
+        margin-bottom: 0.8rem;
+        a{
+            color: $default;
+            &:hover,&:focus,&:active{
+                text-decoration: none;
+                color: $default;
+            }
+        }
+    }
+    .c-card__fair--v-comment{
+        color: $gray;
+        font-size: 0.9rem;
+        line-height: 160%;
+        margin-bottom: 1rem;
+        a{
+            color: $gray;
+            &:hover,&:focus,&:active{
+                text-decoration: none;
+                color: $gray;
+            }
+        }
+    }
+    .c-card__fair--v-detail{
+        color: $gray-800;
+        font-size: 0.9rem;
+        line-height: 160%;
+        margin-bottom: 1rem;
+    }
+    .c-card__fair--v-btns{
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .btn{
+            margin: 0 5px;
+            padding: 10px 10px;
+            font-size: 0.9rem;
+            width: 35%;
+            flex-basis: 35%;
+            @media(max-width: 575px){
+                width: calc(45% - 10px);
+                flex-basis: calc(45% - 10px);
+
+            }
+        }
+    }
+}

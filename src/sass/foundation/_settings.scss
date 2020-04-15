@@ -1,0 +1,84 @@
+// flexboxに対応するか
+$enable-flex : true;
+// 和文フォントを使うかどうか
+$use-web-font: false;
+// デフォルトで明朝フォントを使うかどうか
+$use-min-font: false;
+
+
+$container-max-widths: (
+  sm: 600px,
+  md: 800px,
+  lg: 1100px,
+  xl: 1340px
+);
+// グリッドのガター幅
+
+$grid-gutter-width: 40px;
+// フォントサイズベース
+$font-size-base: 1rem;
+$h1-font-size: 2rem;
+$h2-font-size: 1.75rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.2rem;
+$h5-font-size: 1.1rem;
+$h6-font-size: 1rem;
+
+// ブランドカラー
+$default:#1f2425;
+$dark:#05173f;
+$primary:#345bcc;
+$success:#22BC66;
+$secondary:#91c5d3;
+$info:#91c5d3;
+$warning:#FFD54F;
+$danger:#ec4c4c;
+$gray: #9a9d9f;
+
+$brand-twitter:#1da1f3;
+$brand-facebook:#3b5998;
+$brand-google:#d34836;
+
+//パンくずの背景色
+$breadcrumb-bg:#fff;
+
+$padding-base-vertical:12px;
+$padding-base-horizontal:20px;
+
+//　テーブル関連
+$table-cell-padding : 20px 30px;
+$table-border-color : #e8e8e8;
+
+// ボタン関連
+$btn-padding-y:.7rem ;
+$btn-padding-x:1.5rem ;
+
+// フォーム関連
+$input-btn-padding-y: .5rem;
+$input-btn-padding-x: .8rem;
+$input-border-color:#ddd;
+$input-border-focus: lighten($info,20%);
+
+$font-weight-light:300;
+$font-weight-normal:300;
+$font-weight-bold:500;
+
+
+$link-color:    #9293A2;
+//　角丸
+$border-radius: 3px;
+
+// カード関連
+$card-border-color:#e8e8e8;
+
+$pagenavi-color: #91c5d3;
+
+$en-font : 'Public Sans';
+// ベースフォント
+$base-font:$en-font,'Noto Sans JP',"ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",YuGothic,"メイリオ", Meiryo,sans-serif;
+// 明朝フォント
+$min-font: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro","游明朝体",YuMincho, "Yu Mincho","ＭＳ Ｐ明朝", "MS PMincho", serif;
+
+
+$icon-font-family: "Font Awesome 5 Pro";
+$icon-font-family02: "Font Awesome 5 Brands";

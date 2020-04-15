@@ -1,0 +1,195 @@
+
+@mixin easeInQuad($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	   -moz-transition: $proparty $time cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	     -o-transition: $proparty $time cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	        transition: $proparty $time cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+
+	-webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	   -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	     -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	        transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+}
+@mixin easeInCubic($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	   -moz-transition: $proparty $time cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	     -o-transition: $proparty $time cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	        transition: $proparty $time cubic-bezier(0.550, 0.055, 0.675, 0.190); /* easeInCubic */
+
+	-webkit-transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	   -moz-transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	     -o-transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+	        transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); /* easeInCubic */
+}
+@mixin easeInQuart($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	   -moz-transition: $proparty $time cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	     -o-transition: $proparty $time cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	        transition: $proparty $time cubic-bezier(0.895, 0.030, 0.685, 0.220); /* easeInQuart */
+
+	-webkit-transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	   -moz-transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	     -o-transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+	        transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220); /* easeInQuart */
+}
+@mixin easeOutCubic($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	        transition: $proparty $time cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
+
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+	        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
+}
+@mixin easeOutQuart($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	        transition: $proparty $time cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+
+	-webkit-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	        transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+}
+@mixin easeOutBack($time,$proparty:all){
+-webkit-transition: $proparty $time cubic-bezier(0.175, 0.885, 0.320, 1); /* older webkit */
+-webkit-transition: $proparty $time cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+   -moz-transition: $proparty $time cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+     -o-transition: $proparty $time cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+        transition: $proparty $time cubic-bezier(0.175, 0.885, 0.320, 1.275); /* easeOutBack */
+
+-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+   -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+     -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); 
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); /* easeOutBack */
+}
+@mixin easeOutExpo($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	        transition: $proparty $time cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+
+	-webkit-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	        transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+@mixin easeInBack($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.600, 0, 0.735, 0.045); /* older webkit */
+	-webkit-transition: $proparty $time cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	   -moz-transition: $proparty $time cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	     -o-transition: $proparty $time cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	        transition: $proparty $time cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
+
+	-webkit-transition-timing-function: cubic-bezier(0.600, 0, 0.735, 0.045); /* older webkit */
+	-webkit-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	   -moz-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	     -o-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+	        transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
+}
+
+@mixin easeInOutQuart($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	        transition: $proparty $time cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+	-webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	        transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+}
+@mixin easeInOutCubic($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	        transition: $proparty $time cubic-bezier(0.645, 0.045, 0.355, 1.000); /* easeInOutCubic */
+
+	-webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+	        transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); /* easeInOutCubic */
+}
+@mixin easeInOutExpo($time,$proparty:all){
+	-webkit-transition: $proparty $time cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	   -moz-transition: $proparty $time cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	     -o-transition: $proparty $time cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	        transition: $proparty $time cubic-bezier(1.000, 0.000, 0.000, 1.000); /* easeInOutExpo */
+
+	-webkit-transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+	        transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000); /* easeInOutExpo */
+}
+@mixin transform($param){
+	
+	-webkit-transform: $param;
+	   -moz-transform: $param;
+		-ms-transform: $param;	
+		    transform: $param;
+}
+
+
+
+@mixin linear-gradient($start-color, $end-color, $orientation){
+	background: $start-color;
+	@if $orientation == vertical
+	{
+		// vertical
+		background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+		background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+		background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+		background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+		background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+	}
+	@else if $orientation == horizontal
+	{
+		// horizontal
+		background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+		background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+		background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+		background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+		background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+	}
+	@else
+	{
+		// radial
+		background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+		background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+		background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+		background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+		background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+	}
+}
+
+
+@mixin keyframes($animation-name: animaton) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}

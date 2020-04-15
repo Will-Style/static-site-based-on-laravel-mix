@@ -1,0 +1,68 @@
+#main--image{
+    position: relative;
+	width: 100%;
+	background-color:#fafafa;
+    overflow: hidden;
+    
+    .main--bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-background-size: cover;
+             -o-background-size: cover;
+                background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        &.main-fair{
+            background-image: url('../../img/main/main-fair.jpg');
+        }
+        &.main-plan{
+            background-image: url('../../img/main/main-plan.jpg');
+        }
+        &.main-report{
+            background-image: url('../../img/main/main-report.jpg');
+            background-position: right 30% center;
+        }
+    }
+   
+	.main--title{
+        position: relative;
+        z-index: 2;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 250px;
+        padding-bottom:200px;
+        @media(max-width: 991px){
+            padding-top: 220px;
+            padding-bottom: 160px;
+        }
+        @media(max-width: 575px){
+            padding-top: 180px;
+            padding-bottom: 120px;
+        }
+        
+		h2{
+			color: #FFF;
+			text-align: center;
+			font-size: .9rem;
+			font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+            span{
+                font-size: 2rem;
+                letter-spacing:.2rem;
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 300;
+                @media(max-width: 575px){
+                    font-size: 1.8rem;
+				}
+            }
+		
+		}
+	}
+	
+}
