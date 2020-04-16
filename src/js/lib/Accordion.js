@@ -8,7 +8,7 @@ export default class{
         this.accordion_wrapper = "js-accordion__wrapper"
         this.accordion__trigger = "js-accordion__trigger"
         this.accordion__content = "js-accordion__content"
-        this.active_class = 'js-accordion__active'
+        this.active_class = 'c-accordion__active'
 
         barba.hooks.afterOnce((data) => {
             this.init()

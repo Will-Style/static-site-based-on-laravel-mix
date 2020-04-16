@@ -37,9 +37,9 @@ export default class{
 
     }
     top( event ) {
-        console.log('Sidebar has stuck top of viewport.');
+        // console.log('Sidebar has stuck top of viewport.');
     }
     bottom (event) {
-        console.log('Sidebar has stuck bottom of viewport.');
+        // console.log('Sidebar has stuck bottom of viewport.');
     }
 }

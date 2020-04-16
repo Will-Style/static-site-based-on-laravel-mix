@@ -1,6 +1,6 @@
-.blog-slider{
+.c-blog__slider{
     padding-bottom: 30px;
-    .blog-slider__pagination{
+    .c-blog__slider__pagination{
         background-color: #fff;
         position: absolute;
         right: 10px;
@@ -34,6 +34,7 @@
                 content:"\f104";
                 font-family: $icon-font-family;
                 font-size: 20px;
+                color: $primary;
             }
         }
         .swiper-button-next{
@@ -41,6 +42,7 @@
                 content:"\f105";
                 font-family: $icon-font-family;
                 font-size: 20px;
+                color: $primary;
             }
         }
     }

@@ -9,14 +9,11 @@
     transition-property: top ,width,left;
     
    
-    &.l-dropdown__opened{
-        #l-header__bg::before{
-            box-shadow: none !important;
-        }
-    }
+    
 	&.headroom--not-top{
 		#l-header__bg::before{
             opacity: 1;
+            box-shadow: 0 0 3px rgba(0,0,0,.1);
             transform: translateY(0);
            
         }

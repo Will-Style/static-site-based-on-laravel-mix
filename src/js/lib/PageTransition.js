@@ -1,4 +1,5 @@
 
+
 import anime from 'animejs';
 
 export default class{
@@ -37,6 +38,9 @@ export default class{
                 duration : 300,
                 delay: function(el,i){
                     return i * 30;
+                },
+                begin:() =>{
+                    this.logoAnimation_elm.style.opacity = 1
                 },
                 complete: () =>{
                     if(self.logoAnimation_elm){

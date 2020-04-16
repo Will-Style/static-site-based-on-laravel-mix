@@ -4,19 +4,20 @@
         color: #fff;
         @media(max-width: 991px){
             display: none;
+            speak:none;
         }
     }
 	.l-footer__nav{
 		margin: 0;
 		padding: 0;
-		li{
+        list-style: none;
+		.l-footer__nav--item{
             line-height: 130%;
-			list-style: none;
 			color: #FFF;
             margin-bottom:1rem ;
 			
                 
-			a{
+			.l-footer__nav--link{
                 
                 font-size: .95rem;
                 @include easeOutQuart(200ms);
@@ -25,9 +26,7 @@
                     color: #eee;
 					text-decoration: none;
                 }
-                small{
-                    display: block;
-                }
+                
                 &[target]{
                     &:after{
                         content:"\f14c";
@@ -36,17 +35,19 @@
                         margin-left: 10px;
                     }
                 }
-			}
-			ul{
+            }
+            
+			.l-footer__nav--child{
 				padding: 0;
                 margin: 0;
+                list-style: none;
                 padding-top: 1rem;
                 margin-bottom: 20px;
-				li{
+				.l-footer__nav--item{
                     position: relative;
                     margin-bottom:10px;
                     padding-left: 20px;
-                    a{
+                    .l-footer__nav--link{
                         font-size: 0.95rem;
                         font-weight: normal;
                         color: #a6adb6;
@@ -79,15 +80,15 @@
     }
     .l-footer__sns{
 
-        ul{
+        .l-footer__sns--nav{
             list-style:none;
             padding: 0;
             margin: 0;
             display: flex;
             justify-content: center;
-            li{
+            .l-footer__sns--item{
                 padding: 0 7px;
-                a{
+                .l-footer__sns--link{
                     color: $default;
                     font-size: 1.2rem;
                     line-height: 120%;

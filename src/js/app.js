@@ -1,12 +1,19 @@
 'use strict'
 
-import "@babel/polyfill"
-
+import '@babel/polyfill'
 
 import lazysizes from "lazysizes"
 import unveil from "lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js"
 
-import barba from '@barba/core'
+if ('NodeList' in window && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+      for (var i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  }
+require('intersection-observer');
 
 import ReplaceHead from "./lib/ReplaceHead"
 import GA from "./lib/GA"
@@ -15,7 +22,7 @@ import ViewportUnitsBuggyfill from "./lib/ViewportUnitsBuggyfill"
 import IeFix from "./lib/IeFix"
 import Svg from "./lib/Svg"
 import Resources from "./lib/Resources"
-import Share from "./lib/Share"
+// import Share from "./lib/Share"
 import Drawer from "./lib/Drawer"
 // import Form from "./lib/Form"
 import Lightbox from "./lib/Lightbox"
@@ -32,7 +39,6 @@ import ObjectFitImages from "./lib/ObjectFitImages"
 import Accordion from "./lib/Accordion"
 import Barba from "./lib/Barba"
 import Luxy from "./lib/Luxy"
-import Sticky from "./lib/Sticky"
 
 // const enter
 

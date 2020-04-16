@@ -1,8 +1,8 @@
-.js-accordion__wrapper{
+.c-accordion__wrapper{
 
     border: 1px solid $gray-300;
     border-bottom:none;
-	.js-accordion__trigger{
+	.c-accordion__trigger{
         position: relative;
         -webkit-appearance: none;
         -ms-progress-appearance: none;
@@ -24,19 +24,19 @@
             outline: 0;
             z-index: 2;
 		}
-		&.js-accordion__active{
+		&.c-accordion__active{
             background-color: #F3f4f5;
 		}
 	}
 
-	.js-accordion__content{
+	.c-accordion__content{
 		overflow: hidden;
-		&.js-accordion__active{
-			.js-accordion__inner{
+		&.c-accordion__active{
+			.c-accordion__inner{
                 border-bottom: 1px solid $gray-300;
 			}
 		}
-		.js-accordion__inner{
+		.c-accordion__inner{
 			padding: 10px 20px;
 		}
 	}

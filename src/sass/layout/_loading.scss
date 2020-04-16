@@ -1,5 +1,4 @@
 #js-loading__mask{
-    
     .js-loading__first {
 
         position: fixed;
@@ -48,18 +47,17 @@
             position: fixed;
             left: 50%;
             top: 50%;
-            width: 130px;
-            height: 31px;
+            width: 135px;
+            height: 35px;
             z-index: 10003;
-            margin-top: calc(-31px / 2);
-            margin-left: calc(-130px / 2);
+            margin-top: calc(-35px / 2);
+            margin-left: calc(-135px / 2);
+            opacity: 0;
         }
         .paths{
             fill:none;
             stroke:#FFFFFF;
-            stroke-width:6;
-            stroke-linecap:square;
-            stroke-linejoin:bevel;
+            stroke-width:5;
             stroke-miterlimit:10;
         }
     }

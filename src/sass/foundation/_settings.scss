@@ -1,20 +1,14 @@
 // flexboxに対応するか
 $enable-flex : true;
-// 和文フォントを使うかどうか
-$use-web-font: false;
-// デフォルトで明朝フォントを使うかどうか
-$use-min-font: false;
 
 
-$container-max-widths: (
-  sm: 600px,
-  md: 800px,
-  lg: 1100px,
-  xl: 1340px
-);
+
+
 // グリッドのガター幅
 
-$grid-gutter-width: 40px;
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
 // フォントサイズベース
 $font-size-base: 1rem;
 $h1-font-size: 2rem;
@@ -40,7 +34,7 @@ $brand-facebook:#3b5998;
 $brand-google:#d34836;
 
 //パンくずの背景色
-$breadcrumb-bg:#fff;
+$breadcrumb-bg:transparent;
 
 $padding-base-vertical:12px;
 $padding-base-horizontal:20px;
@@ -64,21 +58,21 @@ $font-weight-normal:300;
 $font-weight-bold:500;
 
 
-$link-color:    #9293A2;
+$link-color: $primary;
 //　角丸
 $border-radius: 3px;
 
 // カード関連
 $card-border-color:#e8e8e8;
 
-$pagenavi-color: #91c5d3;
+$pagenavi-color: $primary;
 
-$en-font : 'Public Sans';
 // ベースフォント
-$base-font:$en-font,'Noto Sans JP',"ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",YuGothic,"メイリオ", Meiryo,sans-serif;
+$base-font:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 // 明朝フォント
 $min-font: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro","游明朝体",YuMincho, "Yu Mincho","ＭＳ Ｐ明朝", "MS PMincho", serif;
 
 
 $icon-font-family: "Font Awesome 5 Pro";
-$icon-font-family02: "Font Awesome 5 Brands";
+$icon-font-family-brands: "Font Awesome 5 Brands";
+$icon-font-family-duotone: "Font Awesome 5 Brands Duotone";

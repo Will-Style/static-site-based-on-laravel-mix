@@ -1,6 +1,7 @@
 
 
 import barba from '@barba/core'
+import barbaPrefetch from '@barba/prefetch';
 import Prevent from "./Prevent"
 import PageTransition from "./PageTransition"
 const pageTransition = new PageTransition
@@ -12,11 +13,24 @@ export default class{
         if(!process.env.MIX_DISP_LOADING && process.env.NODE_ENV == "development"){
             display_loading = false;
         }
+        barba.use(barbaPrefetch);
         barba.init({
             preventRunning: true,
             prevent: Prevent,
+            cacheIgnore: ['/contact/','/entry/'],
+            views: [
+                {
+                    // ?????????????views??????
+                    namespace: 'contact',
+                    beforeEnter(data) {
+                        pageTransition.mask.style.display = "none" 
+                    },
+                    beforeLeave(data) {
+                        pageTransition.mask.style.display = "block" 
+                    },
+                },
+            ],
             transitions: [{
-                // name: 'main-transition',
 
                 // apply only when leaving `[data-barba-namespace="home"]`
                 // from: 'home',
@@ -36,7 +50,6 @@ export default class{
                 // do leave and enter concurrently
                 sync: true,
                 
-                // available hooksâ€¦
                 async beforeOnce(data) {
                     if(display_loading){
                         await pageTransition.beforeOnce(data)       

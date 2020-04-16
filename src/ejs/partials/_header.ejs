@@ -7,16 +7,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <meta name="description" content="<%- page.description %>">
     <!-- OGP -->
-	<meta property="og:title" content="<%- page.title %>" />
-	<meta property="og:type" content="<%- page.type %>" />
-	<meta property="og:url" content="<%- page.url %>" />
-	<meta property="og:image" content="<%- page.ogp %>" />
-	<meta property="og:site_name" content="<%- page.site_name %>" />
-	<meta property="og:description" content="<%- page.description %>" />
+	<meta property="og:title" content="<%- page.og_title %>" />
+	<meta property="og:type" content="<%- page.og_type %>" />
+	<meta property="og:url" content="<%- page.og_url %>" />
+	<meta property="og:image" content="<%- page.og_image %>" />
+	<meta property="og:site_name" content="<%- page.og_site_name %>" />
+	<meta property="og:description" content="<%- page.og_description %>" />
 	<meta property="og:locale" content="ja_JP" />
 	<meta name="twitter:card" content="summary_large_image">
 	<!-- / OGP -->
-	<meta name="description" content="<%- page.description %>" />
 
 	<meta name="robots" content="index,follow">
 	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
@@ -35,8 +34,6 @@
         <link rel="stylesheet" href="<%- path %>dist/css/noscript.css">
     </noscript>
 
-    <script rel="dns-prefetch" src="<%- path %>dist/js/bundle.js" id="bundle" charset="utf-8" defer></script>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%- page.tracking_id %>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -50,7 +47,7 @@
 
 <body data-barba="wrapper">
 
-    <div id="page" data-barba="container">
+    <div id="page" data-barba="container" <% if(page.namespace!="") { %>data-barba-namespace="<%- page.namespace; %>"<% } %>>
         <%- include('_drawer'); %>
         <a class="sr-only sr-only-focusable" href="#content">本文までスキップする</a>
         <header id="l-header" data-header>
@@ -87,7 +84,7 @@
                                 <li class="l-gnav__item"><a href="<%- path %>company/" class="l-gnav__link"><span>Nav03</span></a></li>
                                 <li class="l-gnav__item"><a href="" class="l-gnav__link"><span>Nav04</span></a></li>
                                 <li class="l-gnav__item"><a href="" class="l-gnav__link"><span>Nav05</span></a></li>
-                                <li class="l-gnav__item"><a href="" class="l-gnav__link"><span>Nav06</span></a></li>
+                                <li class="l-gnav__item"><a href="/contact/" class="l-gnav__link"><span>Nav06</span></a></li>
                                 <li class="l-gnav__item">
                                     <a href="" class="l-dropdown__trigger l-gnav__link" role="button" id="l-dropdown__trigger-2" data-toggle="l-dropdown-2" aria-haspopup="true" aria-expanded="false"><span>Nav07</span></a>
                                     <div id="l-dropdown-2" class="l-dropdown" aria-labelledby="l-dropdown__trigger-2">

@@ -11,6 +11,7 @@ require('laravel-mix-ejs')
 const webpackPlugins = [];
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
+
 const srcRelativePath =
   (process.env.MIX_SRC_RELATIVE_PATH || 'src')
     .replace(/\/$/, '')
@@ -23,17 +24,29 @@ const basePath =
 
 fs.removeSync(distRelativePath)
 
+mix.extend('swiper', webpackConfig => {
+    const { rules } = webpackConfig.module;
+
+    rules.filter(rule => rule.exclude && rule.exclude.toString() === "/(node_modules|bower_components)/")
+    .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
+});
+
 mix
 // js settings
 .setPublicPath(distRelativePath)
-.polyfill()
+.polyfill({
+    enabled: true,
+    useBuiltIns: "usage",
+    targets: {"firefox": "50", "ie": 11}
+})
 .js(
     `${srcRelativePath}/js/app.js`,
     `${distRelativePath}/js/bundle.js`
 )
-.autoload({
-    "vue": ['Vue', 'window.Vue']
-})
+.swiper()
+// .autoload({
+//     "vue": ['Vue', 'window.Vue']
+// })
 .eslint()
 // browserSync settings
 .browserSync({
@@ -44,7 +57,7 @@ mix
     proxy: false,
     server: './',
     files: [
-        `${distRelativePath}/**/*`,
+        `${srcRelativePath}/**/*`,
         `./**/*.html`
     ],
     https:
@@ -123,6 +136,7 @@ mix.webpackConfig({
       ]
     }
 })
+
 
 // sass settings
 glob.sync(`${srcRelativePath}/sass/*.scss`).map(function (file) {

@@ -1,7 +1,7 @@
 iframe{
 	max-width: 100%;
 }
-.iframe-content {
+.u-iframe-content {
     position: relative;
     width: 100%;
     padding: 60% 0 0 0;
@@ -9,7 +9,7 @@ iframe{
     	padding-top: 50%;
     }
 }
-.iframe-content iframe ,.iframe-content >div{
+.u-iframe-content iframe ,.u-iframe-content >div{
     position: absolute;
     top: 0;
     left: 0;
@@ -19,9 +19,3 @@ iframe{
 	img { max-width: none; }
 }
 
-.map--canvas{
-    position: relative;
-    padding-top: 66.7%;
-    width: 100%;
-    overflow: hidden;
-}

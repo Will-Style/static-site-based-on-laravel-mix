@@ -85,7 +85,7 @@ export default class{
         this.body.classList.remove(this.opening_class);
         this.body.classList.add(this.closing_class);
         setTimeout(() =>{
-            this.drawer.scrollTo(0,0)
+            this.drawer.scrollTop =  0;
             this.body.classList.remove(this.closing_class);
             this.body.classList.remove(this.opened_class);
             this.body.classList.remove(this.opening_class);

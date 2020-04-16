@@ -7,7 +7,7 @@ export default class{
         this.tab_wrapper = '.js-tab__wrapper'
         this.tab_item = '.js-tab__item'
         this.tab_pane = '.js-tab__pane'
-        this.active_class = 'js-tab__active'
+        this.active_class = 'c-tab__active'
         barba.hooks.afterOnce((data) => {
             this.init()
         })

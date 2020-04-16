@@ -1,6 +1,6 @@
 
 import barba from '@barba/core';
-import Swiper from "swiper";
+import Swiper from 'swiper';
 
 export default class{
 
@@ -19,7 +19,7 @@ export default class{
     }
     
     heroSlider(){
-        new Swiper ('#hero--slider', {
+        new Swiper ('#hero--slider',{
             loop: true,
             effect :'fade',
             speed:3000,
@@ -33,14 +33,14 @@ export default class{
     
     blogSlider(){
         // const blog_thumbnails = document.querySelectorAll('.blog-slider-thumbnails a');
-        const blogSlider = new Swiper('.blog-slider', {
+        const blogSlider = new Swiper('.js-blog__slider', {
             
             navigation:  {
-                nextEl: '.blog-slider .swiper-button-next',
-                prevEl: '.blog-slider .swiper-button-prev',
+                nextEl: '.js-blog__slider .swiper-button-next',
+                prevEl: '.js-blog__slider .swiper-button-prev',
             },
             pagination: {
-                el: '.blog-slider .swiper-pagination',
+                el: '.js-blog__slider .swiper-pagination',
                 type: 'fraction',
                 renderFraction: function (currentClass, totalClass) {
                     return '<span class="' + currentClass + '"></span>' + ' / ' + '<span class="' + totalClass  + '"></span>';

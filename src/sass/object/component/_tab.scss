@@ -1,9 +1,9 @@
-.js-tab__wrapper{
-	.js-tab__nav{
+.c-tab__wrapper{
+	.c-tab__nav{
         display: flex;
         margin-bottom: 20px;
         border-bottom: 1px solid $gray-400;
-		.js-tab__item{
+		.c-tab__item{
             position: relative;
             -webkit-appearance: none;
             -ms-progress-appearance: none;
@@ -23,7 +23,7 @@
                 outline: 0;
                 z-index: 2;
             }
-            &.js-tab__active{
+            &.c-tab__active{
                 background-color: #F3f4f5;
             }
             &:last-child{
@@ -31,9 +31,9 @@
             }
         }
 	}
-	.js-tab__pane{
+	.c-tab__pane{
 		display: none;
-		&.js-tab__active{
+		&.c-tab__active{
 			display: block;
         }
         &:focus{
