@@ -12,17 +12,19 @@ const webpackPlugins = [];
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 
-const srcRelativePath =
-  (process.env.MIX_SRC_RELATIVE_PATH || 'src')
-    .replace(/\/$/, '')
-const distRelativePath =
-  (process.env.MIX_DIST_RELATIVE_PATH || 'dist')
-    .replace(/\/$/, '')
 const basePath =
-  (process.env.MIX_BASE_PATH || '')
+    (process.env.MIX_BASE_PATH || '')
     .replace(/\/$/, '')
 
-fs.removeSync(distRelativePath)
+const srcPath =
+    (process.env.MIX_SRC_PATH || 'src/assets')
+    .replace(/\/$/, '')
+
+const distPath =
+    (process.env.MIX_DIST_PATH || 'dist/assets' )
+    .replace(/\/$/, '')
+
+fs.removeSync(process.env.MIX_BASE_PATH)
 
 mix.extend('swiper', webpackConfig => {
     const { rules } = webpackConfig.module;
@@ -31,17 +33,18 @@ mix.extend('swiper', webpackConfig => {
     .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
 });
 
+mix.setPublicPath(process.env.MIX_BASE_PATH);
 mix
 // js settings
-.setPublicPath(distRelativePath)
+.setPublicPath(distPath)
 .polyfill({
     enabled: true,
     useBuiltIns: "usage",
     targets: {"firefox": "50", "ie": 11}
 })
 .js(
-    `${srcRelativePath}/js/app.js`,
-    `${distRelativePath}/js/bundle.js`
+    `${srcPath}/js/app.js`,
+    `${distPath}/js/bundle.js`
 )
 .swiper()
 // .autoload({
@@ -50,15 +53,14 @@ mix
 .eslint()
 // browserSync settings
 .browserSync({
-    open: "external",
-    reloadOnRestart: true,
+    open:  "local",
     host: process.env.MIX_BROWSER_SYNC_HOST || 'localhost',
     port: process.env.MIX_BROWSER_SYNC_PORT || 3000,
     proxy: false,
-    server: './',
+    server: process.env.MIX_BASE_PATH,
     files: [
-        `${srcRelativePath}/**/*`,
-        `./**/*.html`
+        `${distPath}/**/*.(js|css)`,
+        `${srcPath}/**/*.(ejs)`
     ],
     https:
     process.env.MIX_BROWSER_SYNC_HTTPS_CERT &&
@@ -73,8 +75,8 @@ mix
 
 // ejs settings
 .ejs(
-    `${srcRelativePath}/ejs`,
-    `./`,
+    `${srcPath}/ejs`,
+    process.env.MIX_BASE_PATH,
     {
     mix: (filePath = '') =>
         process.env.NODE_ENV === 'production'
@@ -82,23 +84,23 @@ mix
         : basePath + filePath
     },
     {
-    base: `${srcRelativePath}/ejs`,
-    root: `${srcRelativePath}/ejs`,
-    partials: `${srcRelativePath}/ejs/partials`
+    base: `${srcPath}/ejs`,
+    root: `${srcPath}/ejs`,
+    partials: `${srcPath}/ejs/partials`
     }
 )
 
 // copies resources
 .copyWatched(
-    `${srcRelativePath}/fonts`,
-    `${distRelativePath}/fonts`,
-    { base: `${srcRelativePath}/fonts` }
+    `${srcPath}/fonts`,
+    `${distPath}/fonts`,
+    { base: `${srcPath}/fonts` }
 )
 // copies resources
 .copyWatched(
-    `${srcRelativePath}/ico`,
-    `${distRelativePath}/ico`,
-    { base: `${srcRelativePath}/ico` }
+    `${srcPath}/ico`,
+    `${distPath}/ico`,
+    { base: `${srcPath}/ico` }
 )
 
 
@@ -139,9 +141,9 @@ mix.webpackConfig({
 
 
 // sass settings
-glob.sync(`${srcRelativePath}/sass/*.scss`).map(function (file) {
-    mix.sass(file, `${distRelativePath}/css/`)
-    .stylelint({ context: srcRelativePath })
+glob.sync(`${srcPath}/sass/*.scss`).map(function (file) {
+    mix.sass(file, `${distPath}/css/`)
+    .stylelint({ context: srcPath })
     .options({ processCssUrls: false })
 })
 // image minsettings
@@ -149,23 +151,23 @@ if (process.env.NODE_ENV === 'production') {
     mix
     .imagemin(
         [ 'img/**/*' ],
-        { context: srcRelativePath },
+        { context: srcPath },
         {
-        test: filePath => !!multimatch(filePath, [ 'img/**/*' ]).length,
-        pngquant: { strip: true, quality: 65-80}, // 0 ~ 100
-        gifsicle: { optimizationLevel: 1 }, // 1 ~ 3
-        plugins: [ require('imagemin-mozjpeg')({ quality: 80 }) ] // 0 ~ 100
+            test: filePath => !!multimatch(filePath, [ 'img/**/*' ]).length,
+            pngquant: { strip: true, quality: 65-80}, // 0 ~ 100
+            gifsicle: { optimizationLevel: 1 }, // 1 ~ 3
+            plugins: [ require('imagemin-mozjpeg')({ quality: 80 }) ] // 0 ~ 100
         }
     )
     .then(() => {
-        fs.removeSync(`${distRelativePath}/mix-manifest.json`)
+        fs.removeSync(`${distPath}/mix-manifest.json`)
     })
 }else {
     mix
     .copyWatched(
-        `${srcRelativePath}/img`,
-        `${distRelativePath}/img`,
-        { base: `${srcRelativePath}/img` }
+        `${srcPath}/img`,
+        `${distPath}/img`,
+        { base: `${srcPath}/img` }
     )
 }
 
