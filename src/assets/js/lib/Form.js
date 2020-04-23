@@ -1,93 +1,107 @@
 
-import Barba from "barba.js";
+import barba from '@barba/core';
 
-module.exports = class{
+export default class{
 
 	constructor(){
-		var ajaxZipUrl = "https://ajaxzip3.github.io/ajaxzip3.js";
-		var body = document.getElementsByTagName("body").item(0);
-		
-		var script;
+        this.ajaxZipUrl = "https://ajaxzip3.github.io/ajaxzip3.js";
+        
+        barba.hooks.once((data) => {
+            this.agree()
+            this.fileInput()
+        })
+        barba.hooks.afterOnce((data) => {
+            this.appendApi();
+            this.zip()
+        })
 
-		var isClick = false;
+        barba.hooks.enter((data) => {
+            this.agree()
+            this.fileInput()
+        })
+        barba.hooks.after((data) => {
+            this.zip()
+        });
+    }
+    
+    agree(){
 
-		function agree(){
+        const formEl = document.querySelector('[data-form]');
+        let agree 
+        let submit
+        
+        if(formEl){
+            agree = formEl.querySelector("[data-agree]");
+            submit = formEl.querySelector("input[type='submit']");
+            
+            if(agree && submit){
+                this.agreeCheck(agree,submit)
+                agree.addEventListener('click',() => {
+                    this.agreeCheck(agree,submit)
+                })
+            }
+        }
+        
+    }
 
-			var inputForms = document.getElementsByClassName('mw_wp_form_input');
-			var postNumber = document.getElementById("post-number");
-			var Agree = document.getElementById("agree");
+    agreeCheck (agree,submit){
+        if(agree.checked){
+            submit.removeAttribute( 'disabled' ,'');
+        }else{
+            submit.setAttribute("disabled","disabled")
+        }
+    }
 
-			if(inputForms){
-				var agreeCheck = document.getElementById('agree-check');
-			}
-			if(agreeCheck){
-				if(inputForms.length > 0){
-					var submit = inputForms[0].querySelectorAll( "input[type='submit']" )[0];
-					if(agreeCheck.checked){
-						submit.removeAttribute( 'disabled' ,'');
-					}else{
-						submit.setAttribute("disabled","disabled")
-					}
-				}
-			}
-			if(postNumber){
-				postNumber.addEventListener('blur',function(){
-					AjaxZip3.zip2addr(this,'','住所','住所');
-				})
-			}
-			if(Agree){
-				Agree.addEventListener("click",function(){
-					if(!isClick){
-						isClick = true;
-						setTimeout(function(){
-							agree();
-							isClick = false;
-						},500)
-					}
-				});
-			}
-		}
+    zip (){
+        const postCodeLabel = document.querySelector("[data-zip]");
+        if(postCodeLabel){
+            const postCode = document.querySelector('#' + postCodeLabel.getAttribute('data-zip'));
+            const name = postCodeLabel.getAttribute('data-address');
+            postCode.addEventListener('keyup',() => {
+                AjaxZip3.zip2addr(postCode,'',name,name);
+            })
+            postCode.addEventListener('blur',() => {
+                AjaxZip3.zip2addr(postCode,'',name,name);
+            })
+        }
+    }
 
-		var AppendApi = function(){
-			script = document.createElement('script');
-			script.setAttribute("type","text/javascript"); 
-			script.setAttribute("src", ajaxZipUrl); 
-			body.appendChild(script);
-		}
-		AppendApi();
+    fileInput (){
+        const files = document.querySelectorAll("[data-file-input]");
 
-		function inputFile(){
-			var fileFields = document.querySelectorAll('.input-group-file');
-			
-			var onClickEvent = function(el){
-				var input = el.querySelectorAll('input[type="file"]');
-				el.addEventListener('click',function(){
-					selectFile(input[0])
-				})
-			}
-			function getFileName(value) {
-				var regex = /\\|\\/;
-				var array = value.split(regex);
-				return array[array.length - 1];	
-			}
-			var selectFile = function(el){
-				el.click();
-				el.addEventListener('change',function(){
-					var text = el.parentNode.querySelectorAll('input[type="text"]');
-					text[0].value = getFileName(this.value);
-				})
-			}
 
-			if(fileFields.length > 0){
-				for(var i = 0; i < fileFields.length; i++){
-					onClickEvent(fileFields[i])
-				}
-			}
+        const fileSelected = (file) => {
+            const value = getFileName(file.value);
+            if(value!=""){
+                file.nextElementSibling.innerText = value;
+            }else{
+                file.nextElementSibling.innerText = file.getAttribute('data-default-value');
+            }
+        }
+        const getFileName = (value) => {
+			var regex = /\\|\\/;
+			var array = value.split(regex);
+			return array[array.length - 1];	
+        }
+        
+        
+        if(files.length > 0){
+            files.forEach((file) =>{
+                file.setAttribute('data-default-value',file.nextElementSibling.innerText);
+                file.addEventListener('change',() => {
+                    fileSelected(file)
+                })
+            })
+        }
+    }
 
-		}
+    
 
-		Barba.Dispatcher.on('newPageReady', agree);
-		Barba.Dispatcher.on('newPageReady', inputFile);
-	}
+	appendApi (){
+        const script = document.createElement('script');
+        script.setAttribute("src", this.ajaxZipUrl ); 
+        document.body.appendChild(script);
+    }
+    
 
-};
+}

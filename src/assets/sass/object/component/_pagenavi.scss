@@ -1,12 +1,8 @@
-$pagenavi_borders : false;
 .single-pagenavi{
 	margin-bottom: 30px;
 	display: flex;
 	width: 100%;
-	@if $pagenavi_borders{
-		border: 1px solid $gray-400;
-		border-left: none;
-	}
+
 	text-align: center;
 	overflow: hidden;
 	@media(max-width: 767px){
@@ -21,9 +17,7 @@ $pagenavi_borders : false;
 		text-decoration: none;
 		color: #111;
 		position: relative;
-		@if $pagenavi_borders{
-			border-left: 1px solid $gray-400;
-		}
+		
 		@media(max-width: 767px){
 			width: 100%;
 			max-width: 100%;
@@ -74,9 +68,7 @@ $pagenavi_borders : false;
 			}
 			@media(max-width: 767px){
 				padding: 10px 30px;
-				@if $pagenavi_borders{
-					border-bottom: 1px solid $gray-400;
-				}
+				
 			}
 		}
 	}
@@ -95,7 +87,7 @@ $pagenavi_borders : false;
 		margin-right: 5px;
 		line-height: 28px;
 		background: #fff;
-		color:darken($pagenavi-color,20%);
+		color:darken($primary,20%);
         border-radius: 2px;
         font-size: 0.9rem;
 		border: 1px solid #eee;
@@ -106,14 +98,14 @@ $pagenavi_borders : false;
 		}
 	}
 	a:hover{
-		background: $pagenavi-color;
+		background: $primary;
 		color:#fff;
-		border-color: $pagenavi-color;
+		border-color: $primary;
 	}
 	span{
-		background: $pagenavi-color;
+		background: $primary;
 		color: #fff;
-		border-color: $pagenavi-color;
+		border-color: $primary;
 		&.extend{
 			background: none;
 			color:$gray-400;

@@ -7,25 +7,25 @@ export default class{
 	constructor(){
 
         barba.hooks.beforeOnce((data) => {
-            this.share()
+            this.window()
         })
         barba.hooks.beforeEnter((data) => {
-            this.share()
+            this.window()
         });
     }
     
-    share(){
-        this.shareTws = document.querySelectorAll('[data-share-tw]');
-        this.shareFbs = document.querySelectorAll('[data-share-fb]');
+    window(){
+        this.windowOpens = document.querySelectorAll('[data-window-open]');
+        this.windowCloses = document.querySelectorAll('[data-window-close]');
 
-        if(this.shareTws.length > 0){
-            this.shareTws.forEach((tw) => {
-                this.open(tw, "TWwindow",650,300);
+        if(this.windowOpens.length > 0){
+            this.windowOpens.forEach((wo) => {
+                this.open(wo, "ExWindow",650,800);
             })
         }
-        if(this.shareFbs.length > 0){
-            this.shareFbs.forEach((fb) => {
-                this.open(fb, "FBwindow",650,450);
+        if(this.windowCloses.length > 0){
+            this.windowCloses.forEach((wc) => {
+                this.close(wc);
             })
         }
     }
@@ -40,8 +40,14 @@ export default class{
             el.addEventListener('click',(e) => {
                 e.preventDefault();
                 window.open(el.href, _name,'width='+_width+', height='+_height+',left='+x+', top='+y+', menubar=no, toolbar=no, scrollbars=yes'); return false;
-            },true);
+            },false);
         }
+    }
+    close (el){
+        el.addEventListener('click',(e) => {
+            console.log(el)
+            window.open('about:blank','_self').close()
+        },false);
     }
 
 }

@@ -6,15 +6,14 @@
 	@include easeOutExpo(1000ms);
 	will-change: auto;
 	
-	-webkit-transition-property:opacity,transform;
-	   -moz-transition-property:opacity,transform;
-	    -ms-transition-property:opacity,transform;
-	     -o-transition-property:opacity,transform;
-	        transition-property:opacity,transform;
+	-webkit-transition-property:opacity;
+	   -moz-transition-property:opacity;
+	    -ms-transition-property:opacity;
+	     -o-transition-property:opacity;
+	        transition-property:opacity;
 	
 	&.visible{
 		opacity: 1;
-		@include transform(translateY(0px));
 	}
 }
 .js-scroll-to-top{
@@ -137,21 +136,3 @@
         transform: scale(1);
 	}
 }
-
-.js-scroll-blur{
-    opacity: 0;
-   // filter: blur(10px);
-	@include easeOutQuart(1000ms);
-	will-change: opacity,filter;
-	-webkit-transition-property:opacity,filter;
-	   -moz-transition-property:opacity,filter;
-	    -ms-transition-property:opacity,filter;
-	     -o-transition-property:opacity,filter;
-	        transition-property:opacity,filter;
-	
-	&.visible{
-		opacity: 1;
-        // filter: blur(0px);
-	}
-}
-

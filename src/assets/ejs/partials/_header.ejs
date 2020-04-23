@@ -49,8 +49,9 @@
 <body data-barba="wrapper">
 
     <div id="page" data-barba="container" <% if(page.namespace!="") { %>data-barba-namespace="<%- page.namespace; %>"<% } %>>
-        <%- include('_drawer'); %>
+        <% if(page.header) { %><%- include('_drawer'); %><% } %>
         <a class="sr-only sr-only-focusable" href="#content">本文までスキップする</a>
+        <% if(page.header) { %>
         <header id="l-header" data-header role="banner">
             <div id="l-header__bg">
                 <div class="l-header__wrapper">
@@ -117,5 +118,6 @@
                 </div>
             </div>
         </header><!-- #header -->
+        <% } %>
         <div id="luxy">
             <main id="content">

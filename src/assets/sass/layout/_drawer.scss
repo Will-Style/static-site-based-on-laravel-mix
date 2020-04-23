@@ -44,7 +44,7 @@
         height: 1.6px;
         margin-top: -0.8px;
         margin-left: -11px;
-        background:$default;
+        background:$gray-900;
         will-change: auto;
         border-radius: 1px;
         @include easeInOutExpo(400ms);
@@ -56,7 +56,7 @@
             top: 0;
             width: 22px;
             height: 1.6px;
-            background:$default;
+            background:$gray-900;
             transform: translateY(-7px);
             border-radius: 1px;
             @include easeInOutExpo(400ms);
@@ -69,7 +69,7 @@
             top: 0;
             width: 22px;
             height: 1.6px;
-            background:$default;
+            background:$gray-900;
             transform: translateY(7px);
             border-radius: 1px;
             @include easeInOutExpo(400ms);
@@ -107,7 +107,7 @@
         @media(max-width: 575px){
             padding: 60px 0 30px;
         }
-		background-color:rgba($default,.9);
+		background-color:rgba($gray-900,.9);
 		.l-drawer__wrapper{
 			position: relative;
 			z-index: 2;

@@ -1,6 +1,6 @@
 #l-footer{
     .l-footer__bg{
-        background-color: $default;
+        background-color: $gray-900;
         color: #fff;
         @media(max-width: 991px){
             display: none;
@@ -90,7 +90,7 @@
             .l-footer__sns--item{
                 padding: 0 7px;
                 .l-footer__sns--link{
-                    color: $default;
+                    color: $gray-900;
                     font-size: 1.2rem;
                     line-height: 120%;
                     @media(max-width: 1199px){

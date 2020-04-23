@@ -23,7 +23,7 @@
             .l-gnav__link{
                 display: block;
                 padding: 1.2rem 1.4rem;
-                color: $default;
+                color: $gray-900;
                 white-space: nowrap;
                 @include easeOutQuart(400ms);
                 transition-property: color;

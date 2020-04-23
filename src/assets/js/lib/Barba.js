@@ -20,12 +20,12 @@ export default class{
             cacheIgnore: ['/contact/','/entry/'],
             views: [
                 {
-                    namespace: 'contact',
+                    namespace: 'exclude-loading',
                     beforeEnter(data) {
-                        pageTransition.mask.style.display = "none" 
+                        pageTransition.mask.style.visibility = 'hidden' 
                     },
                     beforeLeave(data) {
-                        pageTransition.mask.style.display = "block" 
+                        pageTransition.mask.style.visibility = 'visible'
                     },
                 },
             ],

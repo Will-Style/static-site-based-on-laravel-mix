@@ -9,6 +9,19 @@ $grid-columns: 12;
 $grid-gutter-width: 40px;
 
 
+// 見出し関係
+$h1-font-size:1.8rem;
+$h2-font-size:1.5rem;
+$h3-font-size:1.3rem;
+$h4-font-size:1.2rem;
+$h5-font-size:1.1rem;
+$h6-font-size:1rem;
+
+$headings-margin-bottom:1rem;
+$headings-font-weight:600;
+
+
+// 各種設定
 $enable-caret:                                true;
 $enable-rounded:                              true;
 $enable-shadows:                              false;
@@ -24,19 +37,28 @@ $enable-validation-icons:                     true;
 $enable-deprecation-messages:                 true;
 
 // ブランドカラー
-$default:#1f2425;
-$dark:#05173f;
-$primary:#345bcc;
-$success:#22BC66;
-$secondary:#91c5d3;
-$info:#91c5d3;
-$warning:#FFD54F;
-$danger:#ec4c4c;
-$gray: #9a9d9f;
+
+
+$white:    #fff ;
+$gray-100: #f8f9fa ;
+$gray-200: #e9ecef ;
+$gray-300: #dee2e6 ;
+$gray-400: #ced4da ;
+$gray-500: #adb5bd ;
+$gray-600: #6c757d ;
+$gray-700: #495057 ;
+$gray-800: #343a40 ;
+$gray-900: #212529 ;
+
+
+
+
+$component-active-color: #fff;
+// チェックボックスやラジオボタンの色
+$component-active-bg: #3e82ff;
 
 $brand-twitter:#1da1f3;
 $brand-facebook:#3b5998;
-$brand-google:#d34836;
 
 //パンくずの背景色
 $breadcrumb-bg:transparent;
@@ -45,7 +67,7 @@ $padding-base-vertical:12px;
 $padding-base-horizontal:20px;
 
 //　テーブル関連
-$table-cell-padding : 20px 30px;
+$table-cell-padding : .8rem 1.5rem;
 $table-border-color : #e8e8e8;
 
 // ボタン関連
@@ -56,21 +78,17 @@ $btn-padding-x:1.5rem ;
 $input-btn-padding-y: .5rem;
 $input-btn-padding-x: .8rem;
 $input-border-color:#ddd;
-$input-border-focus: lighten($info,20%);
 
 $font-weight-light:300;
 $font-weight-normal:300;
 $font-weight-bold:500;
 
 
-$link-color: $primary;
 //　角丸
 $border-radius: 3px;
 
 // カード関連
 $card-border-color:#e8e8e8;
-
-$pagenavi-color: $primary;
 
 // ベースフォント
 $base-font:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
