@@ -10,30 +10,60 @@ require('laravel-mix-imagemin')
 require('laravel-mix-ejs')
 const webpackPlugins = [];
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const basePath =
     (process.env.MIX_BASE_PATH || '')
     .replace(/\/$/, '')
 
 const srcPath =
-    (process.env.MIX_SRC_PATH || 'src/assets')
+    (process.env.MIX_SRC_PATH || 'src')
     .replace(/\/$/, '')
 
 const distPath =
-    (process.env.MIX_DIST_PATH || 'dist/assets' )
+    (process.env.MIX_DIST_PATH || 'dist' )
     .replace(/\/$/, '')
 
-fs.removeSync(process.env.MIX_BASE_PATH)
+fs.removeSync(distPath)
 
 mix.extend('swiper', webpackConfig => {
     const { rules } = webpackConfig.module;
-
+   
     rules.filter(rule => rule.exclude && rule.exclude.toString() === "/(node_modules|bower_components)/")
     .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
 });
 
-mix.setPublicPath(process.env.MIX_BASE_PATH);
+mix.extend('resolve_sass', webpackConfig => {
+    
+    const { rules } = webpackConfig.module;
+    
+    rules
+    .filter(rule => rule.test.toString().match(/\.scss$/))
+    .forEach(rule => {
+        const sassIndex = rule.use.findIndex(use => {
+            return use.loader === "sass-loader"
+        })
+        rule.use.splice(
+            (sassIndex - 1),0,
+            {
+                loader: 'resolve-url-loader',
+                options: {
+                    sourceMap: true,
+                    engine: 'rework'
+                }
+            }
+        ) 
+        rule.use.push(
+            {
+                loader: 'import-glob-loader'
+            }
+        ) 
+    });
+})
+
+
+mix.resolve_sass();
+
 mix
 // js settings
 .setPublicPath(distPath)
@@ -57,7 +87,7 @@ mix
     host: process.env.MIX_BROWSER_SYNC_HOST || 'localhost',
     port: process.env.MIX_BROWSER_SYNC_PORT || 3000,
     proxy: false,
-    server: process.env.MIX_BASE_PATH,
+    server: basePath,
     files: [
         `${distPath}/**/*.(js|css)`,
         `${srcPath}/**/*.(ejs)`
@@ -76,7 +106,7 @@ mix
 // ejs settings
 .ejs(
     `${srcPath}/ejs`,
-    process.env.MIX_BASE_PATH,
+    basePath,
     {
     mix: (filePath = '') =>
         process.env.NODE_ENV === 'production'
@@ -104,6 +134,8 @@ mix
 )
 
 
+
+
 if (process.env.NODE_ENV === 'production') {
     webpackPlugins.push(
         new OptimizeCSSAssetsPlugin({
@@ -127,16 +159,10 @@ if (process.env.NODE_ENV === 'production') {
         })
     )
 }
+
 mix.webpackConfig({
     plugins: webpackPlugins,
-    module: {
-      rules: [
-        { // Allow .scss files imported glob
-          test: /\.scss/,
-          loader: 'import-glob-loader'
-        },
-      ]
-    }
+   
 })
 
 

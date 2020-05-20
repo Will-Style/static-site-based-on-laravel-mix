@@ -5,8 +5,8 @@ $enable-flex : true;
 
 // グリッドのガター幅
 
-$grid-columns: 12;
-$grid-gutter-width: 40px;
+// $grid-columns: 12;
+// $grid-gutter-width: 30px;
 
 
 // 見出し関係
@@ -50,8 +50,51 @@ $gray-700: #495057 ;
 $gray-800: #343a40 ;
 $gray-900: #212529 ;
 
+$base-color:#333;
 
+// $primary:;
+// $secondary:;
+// $success:;
+// $info:;
+// $warning:;
+// $danger:;
+// $light:;
+// $dark:;
 
+$spacer: 5px;
+$_spacers: (
+    0: 0,
+    5: 5px,
+    10: 10px,
+    15: 15px,
+    20: 20px,
+    25: 25px,
+    30: 30px,
+    35: 35px,
+    40: 40px,
+    45: 45px,
+    50: 50px,
+    55: 55px,
+    60: 60px,
+    65: 65px,
+    70: 70px,
+    75: 75px,
+    80: 80px,
+    85: 85px,
+    90: 90px,
+    95: 95px,
+    100: 100px,
+    // 105: 105px,
+    // 110: 110px,
+    // 115: 115px,
+    // 120: 120px,
+    // 125: 125px,
+    // 130: 130px,
+    // 135: 135px,
+    // 140: 140px,
+    // 145: 145px,
+    // 150: 150px,
+) ;
 
 $component-active-color: #fff;
 // チェックボックスやラジオボタンの色
@@ -85,7 +128,7 @@ $font-weight-bold:500;
 
 
 //　角丸
-$border-radius: 3px;
+// $border-radius: 3px;
 
 // カード関連
 $card-border-color:#e8e8e8;

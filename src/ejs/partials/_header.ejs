@@ -20,19 +20,20 @@
 	<meta name="robots" content="index,follow">
 	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
 	<meta name="format-detection" content="telephone=no">
-    <link rel="apple-touch-icon" sizes="180x180" href="<%- path %>assets/ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<%- path %>assets/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%- path %>assets/ico/favicon-16x16.png">
-    <link rel="manifest" href="<%- path %>assets/ico/site.webmanifest">
-    <link rel="mask-icon" href="<%- path %>assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%- path %>dist/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%- path %>dist/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%- path %>dist/ico/favicon-16x16.png">
+    <link rel="manifest" href="<%- path %>dist/ico/site.webmanifest">
+    <link rel="mask-icon" href="<%- path %>dist/ico/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
-    <link rel="shortcut icon" href="<%- path %>assets/ico/favicon.ico">
-    <link rel="stylesheet" href="<%- path %>assets/css/styles.css">
+    <link rel="shortcut icon" href="<%- path %>dist/ico/favicon.ico">
+    <link rel="stylesheet" href="<%- path %>dist/css/styles.css">
     <noscript>
-        <link rel="stylesheet" href="<%- path %>assets/css/icons.css">
-        <link rel="stylesheet" href="<%- path %>assets/css/noscript.css">
+        <link rel="stylesheet" href="<%- path %>dist/css/icons.css">
+        <link rel="stylesheet" href="<%- path %>dist/css/noscript.css">
     </noscript>
+    <script src="<%- path %>dist/js/bundle.js?20200416" id="bundle" async></script>
     <% if(page.tracking_id!="") { %>
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%- page.tracking_id %>"></script>
     <script>
@@ -57,7 +58,6 @@
                 <div class="l-header__wrapper">
                     <h1 id="l-header__logo">
                         <a href="<%- path %>" class="l-header__logo--link">
-                            <img src="<%- path %>assets/img/header/logo.svg" alt="サイト名" class="l-header__logo--img">
                         </a>
                     </h1>
                     <div id="l-gnav">

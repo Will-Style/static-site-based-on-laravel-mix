@@ -1,6 +1,7 @@
 
 body{
-	font-family: $base-font;
+    font-family: $base-font;
+    color: $base-color;
 	word-wrap:break-word;
 	font-synthesis: none;
     -moz-font-feature-settings: 'kern';
@@ -26,10 +27,7 @@ body{
     width: 100%;
 }
 img {
-	line-height: 1;
-	font-size: 0;
-	vertical-align: top;
-	height: auto !important;
+	height: auto ;
 	max-width: 100%; 
 }
 img[src$=".svg"] {

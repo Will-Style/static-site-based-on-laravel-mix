@@ -10,7 +10,7 @@ export default class{
         // ※ Google Web Fontはcss内に追記
         // 読み込みたいCSSファイルやJSを配列で指定
         this.Resources = {
-            "css": ["assets/css/icons.css"], // 
+            "css": ["dist/css/icons.css"], // 
             "js" : []
         }
         

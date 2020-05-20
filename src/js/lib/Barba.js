@@ -10,7 +10,7 @@ export default class{
 	
 	constructor(){
         let display_loading = true;
-        if(!process.env.MIX_DISP_LOADING && process.env.NODE_ENV == "development"){
+        if(process.env.MIX_DISP_LOADING == "false" && process.env.NODE_ENV == "development"){
             display_loading = false;
         }
         barba.use(barbaPrefetch);
@@ -20,9 +20,10 @@ export default class{
             cacheIgnore: ['/contact/','/entry/'],
             views: [
                 {
-                    namespace: 'exclude-loading',
+                    namespace: 'not-loading',
                     beforeEnter(data) {
                         pageTransition.mask.style.visibility = 'hidden' 
+                        display_loading = false;
                     },
                     beforeLeave(data) {
                         pageTransition.mask.style.visibility = 'visible'

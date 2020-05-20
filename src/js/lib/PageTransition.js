@@ -14,7 +14,7 @@ export default class{
         this.logoAnimation = '#logo-animation .paths'
         this.logoAnimation_elm = document.querySelector('#logo-animation')
 
-        if(!process.env.MIX_DISP_LOADING && process.env.NODE_ENV == "development"){
+        if(process.env.MIX_DISP_LOADING == "false" && process.env.NODE_ENV == "development"){
             this.mask.style.display = "none" 
         }
     }

@@ -1,26 +1,183 @@
-<% var path = './'; %>
-<% var page = {
-    title : "TOP PAGE",
-    description : "TOP PAGE DESCRIPTION",
-    og_title: "TOP PAGE",
-    og_type: "",
-    og_url: "",
-    og_image: "",
-    og_site_name: "",
-    tracking_id : "",
-    header : true,
-    footer : true,
-    namespace: "home"
-}; %>
-<%- include(path + 'partials/_header', { path : path, page : page }); %>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TOP PAGE</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="description" content="TOP PAGE DESCRIPTION">
+    <!-- OGP -->
+	<meta property="og:title" content="TOP PAGE" />
+	<meta property="og:type" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:locale" content="ja_JP" />
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- / OGP -->
+
+	<meta name="robots" content="index,follow">
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+	<meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="./dist/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
+    <link rel="manifest" href="./dist/ico/site.webmanifest">
+    <link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="./dist/ico/favicon.ico">
+    <link rel="stylesheet" href="./dist/css/styles.css">
+    <noscript>
+        <link rel="stylesheet" href="./dist/css/icons.css">
+        <link rel="stylesheet" href="./dist/css/noscript.css">
+    </noscript>
+    <script src="./dist/js/bundle.js?20200416" id="bundle" async></script>
+    
+</head>
+
+<body data-barba="wrapper">
+
+    <div id="page" data-barba="container" data-barba-namespace="home">
+        
+<button id="js-hamburger" class="l-hamburger" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only sr-only-focusable">メニューを開閉する</span>
+    <span class="js-hamburger__bar l-hamburger__bar" aria-hidden="true"></span>
+</button>
+<nav id="js-drawer" class="l-drawer" aria-labelledby="js-hamburger">
+    <div class="container">
+        
+        <div class="l-drawer__wrapper">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="l-drawer__nav">
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav01</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav02</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav03</span></a>
+                            <ul class="l-drawer__nav--child">
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav03-01</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav03-02</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav03-04</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav03-05</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="l-drawer__nav">
+                        <li class="l-drawer__nav--item"><a href="/#sec01" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav04</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav06</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav07</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav08</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="l-drawer__nav">
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav09</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav10</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav11</a>
+                            <ul class="l-drawer__nav--child">
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav11-01</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav11-02</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav11-04</span></a></li>
+                                <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav11-05</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="l-drawer__nav">
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav12</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav13</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav14</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="" class="l-drawer__nav--link"><span class="l-drawer__nav--str">Nav15</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+        <a class="sr-only sr-only-focusable" href="#content">本文までスキップする</a>
+        
+        <header id="l-header" data-header role="banner">
+            <div id="l-header__bg">
+                <div class="l-header__wrapper">
+                    <h1 id="l-header__logo">
+                        <a href="./" class="l-header__logo--link">
+                        </a>
+                    </h1>
+                    <div id="l-gnav">
+                        <nav>
+                            <ul class="l-gnav__nav">
+                                <li class="l-gnav__item"><a href="./#sec01" class="l-gnav__link"><span>Nav01</span></a></li>
+                                <li class="l-gnav__item">
+                                    <a href="" class="l-dropdown__trigger l-gnav__link" role="button" id="l-dropdown__trigger-1" data-toggle="l-dropdown-1" aria-haspopup="true" aria-expanded="false"><span>Nav02</span></a>
+                                    <div id="l-dropdown-1" class="l-dropdown" aria-labelledby="l-dropdown__trigger-1">
+                                        <div class="l-dropdown__wrapper">
+                                            <ul class="l-dropdown__nav">
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav01</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav02</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav03</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav04</a></li>
+                                            </ul>
+                                            <ul class="l-dropdown__nav">
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav01</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav02</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav03</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav04</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="l-gnav__item"><a href="./company/" class="l-gnav__link"><span>Nav03</span></a></li>
+                                <li class="l-gnav__item"><a href="" class="l-gnav__link"><span>Nav04</span></a></li>
+                                <li class="l-gnav__item"><a href="" class="l-gnav__link"><span>Nav05</span></a></li>
+                                <li class="l-gnav__item"><a href="/contact/" class="l-gnav__link"><span>Nav06</span></a></li>
+                                <li class="l-gnav__item">
+                                    <a href="" class="l-dropdown__trigger l-gnav__link" role="button" id="l-dropdown__trigger-2" data-toggle="l-dropdown-2" aria-haspopup="true" aria-expanded="false"><span>Nav07</span></a>
+                                    <div id="l-dropdown-2" class="l-dropdown" aria-labelledby="l-dropdown__trigger-2">
+                                        <div class="l-dropdown__wrapper">
+                                            <ul class="l-dropdown__nav">
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav01</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav02</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav03</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav04</a></li>
+                                            </ul>
+                                            <ul class="l-dropdown__nav">
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav01</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav02</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav03</a></li>
+                                                <li class="l-dropdown__item"><a href="#" class="l-dropdown__link">DDnav04</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="l-header__sns">
+                        <ul class="l-header__sns--wrapper">
+                            <li class="l-header__sns--item"><a href="" class="l-header__sns--link"><span class="sr-only sr-only-focusable">Facebook</span><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                            <li class="l-header__sns--item"><a href="" class="l-header__sns--link"><span class="sr-only sr-only-focusable">Instagram</span><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header><!-- #header -->
+        
+        <div id="luxy">
+            <main id="content">
             <div id="p-index">
                 <div id="hero--wrapper">
                     <div id="hero--image">
                         <div id="hero--slider" data-trigger>
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide lazyload" data-bg="<%- path %>/assets/img/dummy.jpg"></div>
-                                <div class="swiper-slide lazyload" data-bg="<%- path %>/assets/img/dummy.jpg"></div>
-                                <div class="swiper-slide lazyload" data-bg="<%- path %>/assets/img/dummy.jpg"></div>
+                                <div class="swiper-slide lazyload" data-bg="../dist/img/dummy.jpg"></div>
+                                <div class="swiper-slide lazyload" data-bg="../dist/img/dummy.jpg"></div>
+                                <div class="swiper-slide lazyload" data-bg="../dist/img/dummy.jpg"></div>
                             </div>
                         </div>
                         <div id="hero--catch">
@@ -39,13 +196,13 @@
                                     <div class="mb-3">
                                         <p class="js-scroll-fade" data-trigger>複素数体であれば、任意のCM-タイプの A は、実際、数体である定義体（英語版）(field of definition)を持っている。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosati involution）をもつ環として既に分類されていて、CM-タイプのアーベル多様体の分類を導き出す。楕円曲線と同じような方法でCM-タイプの多様体を構成するには、Cd の中の格子 Λ から始め、アーベル多様体のリーマンの関係式（英語版）(Riemann relations)を考えに入れる必要がある。 CM-タイプ(CM-type)は、単位元での A の正則接空間上にある EndQ(A) の（最大）可換部分環 L の作用を記述したものである。単純な種類のスペクトル理論が適応され、L が固有ベクトルの基底を通して作用することを示すことができる。言い換えると、L は A の正則ベクトル場の上の対角行列を通した作用を持っている。L 自体がある複数の体の積というよりも数体であるという単純な場合には、CM-タイプは L の複素埋め込み（英語版）(complex embedding)のリストである。複素共役をなすペアとして、2d 個の複素埋め込みがあり、CM-タイプは各々のペアのから一つを選択する。そのようなCM-タイプの全てが実現されることが知られている。</p>
                                     </div>
-                                    <img src="<%- path %>/assets/img/dummy.jpg" alt="">
+                                    <img src="../dist/img/dummy.jpg" alt="">
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="mb-3">
                                         <p class="js-scroll-fade" data-trigger>複素数体であれば、任意のCM-タイプの A は、実際、数体である定義体（英語版）(field of definition)を持っている。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosati involution）をもつ環として既に分類されていて、CM-タイプのアーベル多様体の分類を導き出す。楕円曲線と同じような方法でCM-タイプの多様体を構成するには、Cd の中の格子 Λ から始め、アーベル多様体のリーマンの関係式（英語版）(Riemann relations)を考えに入れる必要がある。 CM-タイプ(CM-type)は、単位元での A の正則接空間上にある EndQ(A) の（最大）可換部分環 L の作用を記述したものである。単純な種類のスペクトル理論が適応され、L が固有ベクトルの基底を通して作用することを示すことができる。言い換えると、L は A の正則ベクトル場の上の対角行列を通した作用を持っている。L 自体がある複数の体の積というよりも数体であるという単純な場合には、CM-タイプは L の複素埋め込み（英語版）(complex embedding)のリストである。複素共役をなすペアとして、2d 個の複素埋め込みがあり、CM-タイプは各々のペアのから一つを選択する。そのようなCM-タイプの全てが実現されることが知られている。</p>
                                     </div>
-                                    <img src="<%- path %>/assets/img/dummy.jpg" alt="">
+                                    <img src="../dist/img/dummy.jpg" alt="">
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="mb-3">
@@ -67,7 +224,7 @@
                         <div class="row mb-5">
                             <div class="col-lg-4">
                                 <div class="mb-3 js-scroll-to-top" data-trigger>
-                                    <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img data-src="<%- path %>/assets/img/dummy.jpg" alt="" class="lazyload" data-trigger></a>
+                                    <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img data-src="../dist/img/dummy.jpg" alt="" class="lazyload" data-trigger></a>
                                 </div>
                                 <p class="js-scroll-to-top" data-trigger>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta at praesentium, quod alias dolore aut libero possimus expedita totam fugiat pariatur dolor iure assumenda nisi, mollitia ullam eum ratione quaerat id, omnis voluptates illo natus! Voluptatem, ullam aperiam neque maxime eius nam dolorem reiciendis veritatis, eum, architecto, temporibus magni. Cumque assumenda, neque repellat consequatur, hic ullam eligendi, quas sunt aut voluptatum esse modi officiis maiores magnam. Doloribus sed unde odit, debitis soluta necessitatibus optio nesciunt obcaecati in alias voluptatibus pariatur tempore esse provident, nostrum nam animi perferendis dolore, quam hic rerum. Harum, et! Eveniet minus incidunt consequatur quasi, omnis ad.</p>
                                 
@@ -75,14 +232,14 @@
                             <div class="col-lg-4">
                                 <div class="mb20">
                                     <div class="mb-3 js-scroll-to-top" data-trigger>
-                                        <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img data-src="<%- path %>/assets/img/dummy.jpg" alt="" class="lazyload"></a>
+                                        <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img data-src="../dist/img/dummy.jpg" alt="" class="lazyload"></a>
                                     </div>
                                 </div>
                                 <p class="js-scroll-to-top" data-trigger>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, recusandae labore. Facere praesentium hic nihil aperiam inventore maiores doloremque quo. Expedita culpa iusto in quisquam corporis aspernatur nemo, cupiditate sapiente maiores vitae soluta veritatis magni ea pariatur, a perspiciatis excepturi praesentium! Assumenda ipsa facere distinctio cumque doloribus, repellendus quod asperiores maiores optio iste, praesentium, sit magni libero vel sequi recusandae accusamus in sapiente vero quisquam. Illum voluptate, vel molestiae molestias voluptatum alias temporibus, neque optio debitis quas natus sapiente sunt!</p>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-3 js-scroll-to-top" data-trigger>
-                                    <a data-fslightbox="gallery" href="<%- path %>/assets/img/main/assets/img03.jpg"><img data-src="<%- path %>/assets/img/main/assets/img03.jpg" alt="" class="lazyload" ></a>
+                                    <a data-fslightbox="gallery" href="../dist/img/main/assets/img03.jpg"><img data-src="../dist/img/main/assets/img03.jpg" alt="" class="lazyload" ></a>
                                 </div>
                                 <p class="js-scroll-to-top" data-trigger>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, recusandae labore. Facere praesentium hic nihil aperiam inventore maiores doloremque quo. Expedita culpa iusto in quisquam corporis aspernatur nemo, cupiditate sapiente maiores vitae soluta veritatis magni ea pariatur, a perspiciatis excepturi praesentium! Assumenda ipsa facere distinctio cumque doloribus, repellendus quod asperiores maiores optio iste, praesentium, sit magni libero vel sequi recusandae accusamus in sapiente vero quisquam. Illum voluptate, vel molestiae molestias voluptatum alias temporibus, neque optio debitis quas natus sapiente sunt!</p>
                             </div>
@@ -94,13 +251,13 @@
                                     <div class="c-blog__slider js-blog__slider swiper-container">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt="" ></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt="" ></a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt=""></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt=""></a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt=""></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="c-blog__slider__pagination">
@@ -118,13 +275,13 @@
                                     <div class="c-blog__slider js-blog__slider swiper-container">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt="" ></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt="" ></a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt=""></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt=""></a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a data-fslightbox="gallery" href="<%- path %>/assets/img/dummy.jpg"><img src="<%- path %>/assets/img/dummy.jpg" alt=""></a>
+                                                <a data-fslightbox="gallery" href="../dist/img/dummy.jpg"><img src="../dist/img/dummy.jpg" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="c-blog__slider__pagination">
@@ -240,4 +397,102 @@
                     </div>
                 </div>
             </div><!-- / #p-index -->
-<%- include(path + 'partials/_footer', { path : path, page : page }); %>
+                </main>
+
+                
+                <footer id="l-footer">
+                    <div class="l-footer__bg py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <ul class="l-footer__nav">
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav01</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav02</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav03</span></a>
+                                            <ul class="l-footer__nav--child">
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav03-01</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav03-02</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav03-04</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav03-05</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                    <ul class="l-footer__nav">
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav04</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav06</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav07</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav08</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                    <ul class="l-footer__nav">
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav09</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav10</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav11</span></a>
+                                            <ul class="l-footer__nav--child">
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav11-01</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav11-02</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav11-04</a></li>
+                                                <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link">Nav11-05</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                    <ul class="l-footer__nav">
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav12</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav13</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav14</span></a></li>
+                                        <li class="l-footer__nav--item"><a href="" class="l-footer__nav--link"><span>Nav15</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="l-footer__bottom">
+                        <div class="container">
+                            <div class="l-footer__sns">
+                                <ul class="l-footer__sns--nav">
+                                    <li class="l-footer__sns--item"><a href="" class="l-footer__sns--link"><span class="sr-only sr-only-focusable">Facebook</span><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                                    <li class="l-footer__sns--item"><a href="" class="l-footer__sns--link"><span class="sr-only sr-only-focusable">Instagram</span><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <p id="l-copyright"><small lang="en">&copy; Example. All Rights Reserved.</small></p>
+                        </div>
+                    </div>
+                </footer>
+                
+            </div>
+        
+    </div>
+    <div id="js-loading__mask" aria-hidden="true">
+    <div class="js-loading__first"></div>
+    <div class="js-loading__second"></div>
+    <div id="js-loading__animation">
+        <svg version="1.1" id="logo-animation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 135 35" style="enable-background:new 0 0 135 35;" xml:space="preserve">
+            <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/header/logo.svg" width="100%" height="100%" mask="url(#clipmask)"></image>
+            <mask id="clipmask">
+                <polyline class="paths" points="3.2,8.2 8.5,25.5 13.4,9.7 18.3,24.9 23.8,7.8 "/>
+                <polyline class="paths" points="33.7,5.1 31.5,3.1 30.2,4.5 31.7,5.8 33,4.4 "/>
+                <line class="paths" x1="31.7" y1="9.4" x2="31.7" y2="25.1"/>
+                <line class="paths" x1="41" y1="2.1" x2="41" y2="25.8"/>
+                <line class="paths" x1="50.5" y1="2.1" x2="50.5" y2="25.8"/>
+                <path class="paths" d="M69.8,14c0-0.1-0.2-2.5-1.3-3.7s-4.9-1.4-6.5,0c-1.6,1.4-1.5,2.5-0.3,4.1s7.2,2.3,7.6,3.3s1.1,2.6,0.5,3.5 c-0.6,0.9-2.5,2.2-3.9,1.8c-1.4-0.4-3.5-0.4-4.1-1.3c-0.6-1-1.4-3.4-1.4-3.4"/>
+                <line class="paths" x1="78.6" y1="2.1" x2="78.6" y2="25.4"/>
+                <polyline class="paths" points="72.9,10.2 85.4,10.2 90.9,22.5 "/>
+                <line class="paths" x1="97.6" y1="6.6" x2="86.3" y2="33.4"/>
+                <line class="paths" x1="103.8" y1="1.4" x2="103.8" y2="25.8"/>
+                <path class="paths" d="M113.4,16.2h10.2c0,0,0-3.1-1.9-4.8c-2.8-2.6-3.1-2.4-5.5-1.9c-2.4,0.4-4.9,2-5,4.6s-1.2,4.3,1.4,6.7 s2.6,2.2,5.7,2.1c3.1-0.1,5.5-2.8,5.5-2.8"/>
+                <polyline class="paths" points="133,24.1 130.7,22.1 129.5,23.5 131,24.8 132.3,23.4 "/>
+            </mask>
+        </svg>
+    </div>
+</div>
+
+
+</body>
+
+</html>

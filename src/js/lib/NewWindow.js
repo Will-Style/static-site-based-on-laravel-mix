@@ -45,7 +45,6 @@ export default class{
     }
     close (el){
         el.addEventListener('click',(e) => {
-            console.log(el)
             window.open('about:blank','_self').close()
         },false);
     }
