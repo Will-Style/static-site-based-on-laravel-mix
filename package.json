@@ -65,7 +65,7 @@
     "@barba/prefetch": "^2.1.10",
     "@terwanerik/scrolltrigger": "^1.0.4",
     "animejs": "^3.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "config": "^3.3.1",
     "core-js": "^2.6.11",
