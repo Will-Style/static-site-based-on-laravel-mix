@@ -1,3 +1,459 @@
-// #p-index{
-    
-// }
+#p-index{
+    #p-index__pickup{
+        .p-index__pickup--wrapper{
+            padding:20px 0 60px;
+            @media (max-width:991px){
+                padding-bottom: 40px;
+            }
+        }
+        .p-index__pickup--title{
+            font-size: 200px;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            left: -20px;
+            white-space: nowrap;
+            margin-bottom: -70px;
+            z-index: 3;
+            pointer-events: none;
+            @media (max-width:991px){
+                font-size: 180px;
+            }
+            @media (max-width:767px){
+                font-size: 150px;
+            }
+            @media (max-width:575px){
+                font-size: 26vw;
+                left: -10px;
+                margin-bottom: -50px;
+            }
+            @media (max-width:375px){
+                margin-bottom: -30px;
+            }
+        }
+        .p-index__pickup--slider{
+            max-width: 1140px;
+            margin: 0 auto;
+            overflow: visible;
+            padding: 0 20px;
+            @media (max-width:991px){
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+        .swiper-slide{
+
+            width: 500px;
+            @media (max-width:1199px){
+                width: 400px;
+            }
+            @media (max-width:991px){
+                width: 350px;
+            }
+            @media (max-width:575px){
+                width: 300px;
+            }
+            @media (max-width:374px){
+                width: 280px;
+            }
+        }
+        .p-index__pickup--card{
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+           
+            z-index: 1;
+            @media (max-width:1199px){
+                height: 400px;
+            }
+            @media (max-width:991px){
+                height: 350px;
+            }
+            @media (max-width:575px){
+                height: 300px;
+            }
+            @media (max-width:374px){
+                height: 280px;
+            }
+            .p-index__pickup--card-link{
+                display: block;
+                color: #fff;
+                &:hover,&:focus,&:active{
+                    text-decoration: none;
+                    .p-index__pickup--card-img{
+                        transform: scale(1.04);
+                    }
+                }
+            }
+            .p-index__pickup--card-img{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                z-index: 1;
+                @include easeInOutExpo(400ms);
+                &::before{
+                    content:"";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,.25);
+                }
+            }
+            .p-index__pickup--card-content{
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                z-index: 2;
+                padding: 20px;
+                .p-index__pickup--card-title{
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    margin-bottom: 5px;
+                    font-size: .9rem;
+                    @media (max-width:767px) {
+                        font-size: 0.8rem;
+                    }
+                }
+                .p-index__pickup--card-detail{
+                    .p-index__pickup--card-time{
+                        font-size: 0.8rem;
+                        margin-right: 10px;
+
+                        @media (max-width:767px) {
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .p-index__pickup--card-cat{
+                        font-size: 0.8rem;
+
+                        @media (max-width:767px) {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+    .p-index__column--wrapper{
+        padding: 30px 0;
+        @media (max-width:991px){
+            padding:  0;
+        }
+    }
+    #p-index__event{
+
+        position: relative;
+        z-index: 2;
+        .p-index__event--wrapper{
+            padding:60px 0;
+            @media (max-width:991px){
+                padding: 40px 0;
+            }
+            .p-index__event--heading{
+                margin-bottom: 30px;
+            }
+        }
+
+        .c-event__slider--wrapper{
+            position: relative;
+            .c-event__slider--images{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 60%;
+                height: 100%;
+                z-index: 1;
+                overflow: hidden;
+                @media(max-width:991px){
+                    position: relative;
+                    width: 100%;
+                    height: 400px;
+                    margin-bottom: -60px;
+                }
+                    
+                @media (max-width:767px) {
+                    height: 350px;
+                }    
+                @media (max-width:575px) {
+                    height: 300px;
+                }
+                .swiper-slide{
+                    border-radius: 15px;
+                    overflow: hidden;
+                    z-index: 1;
+                   
+                    background-color: #ddd;
+                    display: block;
+                    &::before{
+                        content:"";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-image: inherit;
+                        @include easeInOutExpo(400ms);
+                    }
+                    &:hover,&:focus,&:active{
+        
+                        &::before{
+                            transform: scale(1.04);
+                        }
+                    }
+                }
+            }
+            .c-event__card--wrapper{
+                position: relative;
+                z-index: 2;
+                margin: 60px 0;
+                @media(max-width:991px){
+                    margin: 0;
+                }
+            }
+            .swiper--nav{
+                position: absolute;
+                right: 0;
+                width: 100px;
+                bottom: 10px;
+                text-align: center;
+                font-size: 11px;
+                color: $gray;
+                letter-spacing: 2px;
+                pointer-events: none;
+            }
+            .swiper-button-prev{
+                left: auto;
+                right: 65px;
+                top: auto;
+                bottom: 0px;
+                &::after{
+                    content:"\f060";
+                    font-size: 12px;
+                    color: $gray;
+                }
+            }
+            .swiper-button-next{
+                top: auto;
+                bottom: 0px;
+                &::after{
+                    content:"\f061";
+                    font-size: 12px;
+                    color: $gray;
+                }
+            }
+        }
+        .p-index__event{
+            
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            background-color: #fff;
+            border-radius: 15px;
+            min-height: 350px;
+            
+            @media (max-width:991px) {
+                min-height: auto;
+            }
+
+            
+            .p-index__event--cat{
+                font-size: 0.8rem;
+                @media (max-width:767px) {
+                    font-size: 0.7rem;
+                }
+                color:$gray;
+                &:hover,&:focus,&:active{
+                    text-decoration: none;
+                }
+            }
+            
+            .p-index__event--content{
+                order: 2;
+                max-width: 100%;
+                padding: 60px 40px;
+                @media (max-width:991px) {
+                    padding: 40px 20px;
+                }
+                @media (max-width:767px) {
+                    padding: 30px 20px;
+                }
+                .p-index__event--title{
+                    width: 100%;
+                    margin-bottom: 20px;
+                    font-size: 1.2rem;
+                    line-height: 160%;
+                    @media (max-width:767px) {
+                        font-size: 1.1rem;
+                    }
+                    a{
+                        color: $base-color;
+
+                        &:hover,&:focus,&:active{
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .p-index__event--detail{
+                    .p-index__event--comment{
+                        font-size: 0.8rem;
+                        line-height: 160%;
+                    }
+                    .c-event__card--time{
+                        font-size: 0.8rem;
+                        margin-right: 10px;
+
+                        @media (max-width:767px) {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #p-index__works{
+        .p-index__works--wrapper{
+            background-color: $base-color;
+            color: #fff;
+            @media(max-width: 991px){
+                padding: 30px 0 0;
+            }
+            .p-index__works--heading{
+                flex-direction: row-reverse;
+                .p-index__works--title{
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                    top: -30px;
+                    right: -20px;
+                    margin-bottom: -100px;
+                    position: relative;
+                    .c-section__title-en{
+                        font-size: 200px;
+                    }
+
+                    .c-section__title-ja{
+                        @media(max-width: 991px){
+                            font-size: 0.9rem;
+                            display: block;
+                            width: 720px;
+                            max-width: 100%;
+                            margin: 0 auto;
+                            padding: 0 20px;
+                        }
+                       
+                        @media (max-width: 767px){
+                            width:  540px;
+                            max-width: 100%;
+                            margin: 0 auto;
+                        }
+                        @media (max-width: 575px){
+                            width: 100%;
+                            margin: 0 auto;
+                        }
+                    }
+                    @media(max-width: 1199px){
+                        margin-bottom: -80px;
+                        .c-section__title-en{
+                            font-size: 150px;
+                        }
+                    }
+                    @media(max-width: 991px){
+                        top: 0;
+                        right: 0;
+                        margin-bottom: -20px;
+                        justify-content: flex-start;
+                        .c-section__title-en{
+                            font-size: 120px;
+                            position: absolute;
+                            right: -20px;
+                            top: -40px;
+                            writing-mode: vertical-lr;
+                            -webkit-writing-mode: vertical-lr;
+                            -ms-writing-mode: vertical-lr;
+                            color: #111;
+                        }
+                    }
+                }
+            }
+            .c-section__heading--button{
+                position: relative;
+                top: -50px;
+                @media(max-width: 1199px){
+                    top: -40px;
+                }
+                @media(max-width: 991px){
+                    text-align: right;
+                    top: 0px;
+                    margin-bottom: 20px;
+                }
+            }
+            .c-blog__card{
+               
+                .c-blog__card--content{
+                    .c-blog__card--title{
+                        
+                        a{
+                            color: #fff;
+                        }
+                    }
+                    .c-blog__card--detail{
+                        
+                        .c-blog__card--cat{
+                           
+                            color: #fff;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #p-index__information{
+        position: relative;
+        z-index: 2;
+
+        .p-index__information--wrapper{
+            background-color: #fff;
+            padding:80px 0;
+            @media (max-width:991px){
+                padding:  40px 0;
+            }
+            @media (max-width:575px){
+                padding:  30px 15px;
+            }
+            .p-index__information--heading{
+                @media (max-width:991px){
+                    margin-bottom: 30px;
+                }
+                .c-section__title-en{
+                    font-size: 1.6rem;
+                    @media(max-width: 767px){
+                        font-size: 1.1rem;
+                    }
+                }
+                @media(min-width: 992px){
+                    flex-direction: column;
+                    .c-section__heading--button{
+                        padding-top: 20px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

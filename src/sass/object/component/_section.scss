@@ -1,0 +1,42 @@
+.c-section__heading{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .c-section__heading--button{
+        flex: 0 0 180px;
+        max-width: 180px;
+        text-align: right;
+        @media (max-width:575px){
+            flex: 0 0 120px;
+            max-width: 120px;
+        }
+    }
+}
+.c-section__title{
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction:column-reverse;
+    margin-bottom: 0;
+
+    .c-section__title-en{
+        font-size: 2.2rem;
+        line-height: 100%;
+        text-transform: uppercase;
+        font-weight: 900;
+        @media (max-width:767px){
+            font-size: 1.8rem;
+        }
+
+        @media (max-width:575px){
+            font-size: 1.5rem;
+        }
+    }
+    .c-section__title-ja{
+        line-height: 120%;
+        font-size: .9rem;
+
+        @media (max-width:575px){
+            font-size: .7rem;
+        }
+    }
+}

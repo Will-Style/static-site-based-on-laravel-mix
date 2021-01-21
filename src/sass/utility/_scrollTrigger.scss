@@ -3,17 +3,19 @@
 }
 .js-scroll-fade{
 	opacity: 0;
-	@include easeOutExpo(1000ms);
+	@include easeOutQuart(1000ms);
 	will-change: auto;
+    transform:translateX(2%) scale(1.01);
 	
-	-webkit-transition-property:opacity;
-	   -moz-transition-property:opacity;
-	    -ms-transition-property:opacity;
-	     -o-transition-property:opacity;
-	        transition-property:opacity;
+	-webkit-transition-property:opacity,transform;
+	   -moz-transition-property:opacity,transform;
+	    -ms-transition-property:opacity,transform;
+	     -o-transition-property:opacity,transform;
+	        transition-property:opacity,transform;
 	
 	&.visible{
 		opacity: 1;
+        transform:translateX(0) scale(1);
 	}
 }
 .js-scroll-to-top{
@@ -135,4 +137,12 @@
 		opacity: 1;
         transform: scale(1);
 	}
+}
+
+[data-trigger="translateY"]{
+   overflow: hidden;
+   display: flex;
+   .str__animation{
+        opacity: 0;
+   }
 }

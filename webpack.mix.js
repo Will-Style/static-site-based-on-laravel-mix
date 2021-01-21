@@ -30,7 +30,7 @@ mix.extend('swiper', webpackConfig => {
     const { rules } = webpackConfig.module;
    
     rules.filter(rule => rule.exclude && rule.exclude.toString() === "/(node_modules|bower_components)/")
-    .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
+    .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper|sticky-sidebar)\/).*/);
 });
 
 mix.extend('resolve_sass', webpackConfig => {

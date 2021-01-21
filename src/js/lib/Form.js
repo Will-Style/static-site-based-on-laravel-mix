@@ -216,10 +216,11 @@ export default class{
 
         const fileSelected = (label,file) => {
             const value = getFileName(file.value);
+            
             if(value!=""){
                 label.innerText = value;
             }else{
-                label.innerText = file.getAttribute(this.form_class + ' data-default-value');
+                label.innerText = file.getAttribute('data-default-value');
             }
         }
         const getFileName = (value) => {

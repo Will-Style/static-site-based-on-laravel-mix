@@ -11,8 +11,9 @@ export default class{
         this.mask = document.querySelector('#js-loading__mask')
         this.first = "#js-loading__mask .js-loading__first"
         this.second = "#js-loading__mask .js-loading__second"
-        this.logoAnimation = '#logo-animation .paths'
         this.logoAnimation_elm = document.querySelector('#logo-animation')
+
+        this.mask.style.display = "block"
 
         if(process.env.MIX_DISP_LOADING == "false" && process.env.NODE_ENV == "development"){
             this.mask.style.display = "none" 
@@ -24,32 +25,28 @@ export default class{
      */
     beforeOnce(data){
         const self = this;
-
         return new Promise(resolve => {
 
-            let timeline = anime.timeline({
-                direction:'alternate'
-            });
+            let timeline = anime.timeline();
+            anime({
+                targets:"#logo-lightning",
+                rotateY:[0,"3600deg"],
+                duration:4000,
+                easing: 'easeInQuart',
+            })
             timeline
             .add({
-                targets: self.logoAnimation,
-                strokeDashoffset: [anime.setDashoffset, 0],
-                easing: 'easeInOutSine',
-                duration : 300,
-                delay: function(el,i){
-                    return i * 30;
-                },
-                begin:() =>{
-                    this.logoAnimation_elm.style.opacity = 1
-                },
+                targets: '#logo-animation',
+                opacity:[0,1],
+                translateY: ["30%", 0],
+                easing: 'easeOutExpo',
+                duration : 1000,
                 complete: () =>{
-                    if(self.logoAnimation_elm){
-                        self.logoAnimation_elm.style.display = "none"
-                    }
+                    
                     resolve();
                 }
             // 初期読み込み時の待ち時間
-            },400)
+            },600)
         })
     }
     /**
@@ -72,19 +69,28 @@ export default class{
             timelime
             .add({
                 targets: this.first ,
-                translateX : [0,"-100%"],
+                translateY : [0,"-120%"],
                 easing: 'easeOutCubic',
                 duration : 600
             },200)
             .add({
                 targets: this.second,
-                translateX : [0,"-100%"],
+                translateY : [0,"-120%"],
                 easing: 'easeInCubic',
                 duration : 600,
-                complete : () => {
+            },'-=400')
+            .add({
+                targets: this.logoAnimation_elm,
+                translateY: [ 0 ,"-200%"],
+                opacity: [1,0],
+                easing: 'easeInExpo',
+                duration : 1000,
+                complete: () =>{
+                    this.mask.style.display = "none"
                     resolve();
                 }
-            },'-=400')
+            // 初期読み込み時の待ち時間
+            },1000)
         });
     }
     /**
@@ -103,6 +109,7 @@ export default class{
     leave(data){
 
         return new Promise(resolve => {
+            this.mask.style.display = "block"
             
             data.next.container.style.opacity = 0;
             const timelime = anime.timeline()
@@ -110,7 +117,7 @@ export default class{
             
             .add({
                 targets: this.first,
-                translateX : ["100%",0],
+                translateY : ["100%",0],
                 easing: 'easeInCubic',
                 duration : 500,
                 complete : () => {
@@ -167,24 +174,28 @@ export default class{
             const timelime = anime.timeline()
             timelime
             .add({
-                targets: this.first,
-                translateX : [0,"-100%"],
+                targets: this.first ,
+                translateY : [0,"-120%"],
                 easing: 'easeOutCubic',
                 duration : 600,
                 begin: () => {
                     this.initialScroll ()
                     data.next.container.style.opacity = 1;
                 }
-            })
+            },200)
             .add({
                 targets: this.second,
-                translateX : [0,"-100%"],
+                translateY : [0,"-120%"],
                 easing: 'easeInCubic',
                 duration : 600,
                 complete : () => {
+
+                    this.mask.style.display = "none"
                     resolve();
                 }
-            }, '-=400')
+            },'-=400')
+
+            
         });
     }
     initialScroll (){

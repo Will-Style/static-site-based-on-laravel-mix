@@ -57,13 +57,21 @@ export default class{
             if(contents){
                 if(!contents.classList.contains(this.active_class)){
                     this.close(i);
-                    e.target.classList.add(this.active_class);
+                    e.currentTarget.classList.add(this.active_class);
                     this.animation(contents,'open');
                 }else{
                     this.close(i);
                 }
+                const sidebar = document.querySelector("#l-side")
+                if(sidebar){
+                    if(window.Sidebar){
+                        setTimeout(() => {
+                            window.Sidebar.updateSticky()
+                        }, 300);
+                    }
+                }
             }
-        })
+        },false)
     }
     close (i){
         const accordion = this.accordions[i]

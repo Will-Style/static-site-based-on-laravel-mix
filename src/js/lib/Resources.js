@@ -10,7 +10,7 @@ export default class{
         // ※ Google Web Fontはcss内に追記
         // 読み込みたいCSSファイルやJSを配列で指定
         this.Resources = {
-            "css": ["dist/css/icons.css"], // 
+            "css": ["dist/css/icons.css","https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"], // 
             "js" : []
         }
         

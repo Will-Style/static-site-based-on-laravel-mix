@@ -1,0 +1,102 @@
+.js-mouse-stalker{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    cursor: none;
+    pointer-events: none;
+    z-index: 10002;
+    opacity: 0;
+    // @include easeOutExpo(600ms);
+    mix-blend-mode:hard-light;
+    @media (max-width:991px){
+         display: none;
+    }
+    .js-mouse-stalker__cursor,.js-mouse-stalker__follower{
+
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0; 
+        cursor: none;
+        pointer-events: none;
+    }
+    .js-mouse-stalker__cursor{
+        width: 60px;
+        height: 60px;
+        left: -26px;
+        top: -26px;
+        background-color: #F7FFBC;
+        opacity: .1;
+        z-index:2;
+        filter: blur(5px);
+        @include easeOutCubic(300ms);
+    }
+    .js-mouse-stalker__follower{	
+        width: 60px;
+        height: 60px;
+        left: -26px;
+        top: -26px;
+        background-color: #F7FFBC;
+        opacity: 0.2;
+        z-index:1;
+        filter: blur(10px);
+        @include easeOutExpo(800ms);
+
+        
+    }
+
+    &.is-hover{
+        .js-mouse-stalker__cursor{
+            width: 100px;
+            height: 100px;
+            left: -46px;
+            top: -46px; 
+            background-color: #F7FFBC;
+            opacity: .3;
+        }
+        .js-mouse-stalker__follower{
+            width: 100px;
+            height: 100px;
+            left: -46px;
+            top: -46px;
+            z-index: 3;
+            opacity: 0.6;
+            background-color: transparent;
+            filter: blur(0);
+            
+        }
+    }
+    &.is-drag{
+        .js-mouse-stalker__cursor{
+            width: 120px;
+            height: 120px;
+            left: -56px;
+            top: -56px; 
+            background-color: #F7FFBC;
+            opacity: .6;
+        }
+        .js-mouse-stalker__follower{
+            width: 100px;
+            height: 100px;
+            left: -46px;
+            top: -46px;
+            z-index: 3;
+            background-color: transparent;
+            filter: blur(0);
+            &::before{
+                content:"Drag";
+                text-transform: uppercase;
+                color: #000;
+                position: absolute;
+                text-align: center;
+                left: 0;
+                width: 100%;
+                top: 50%;
+                margin-top: -10px;
+                font-size: 1.2rem;
+                font-weight: 900;
+            }
+        }
+    }
+}

@@ -4,43 +4,35 @@
 	width: 100%;
 	left: 0;
 	top: 0;
-	z-index: 1000;
-    @include easeOutExpo(1000ms);
-    transition-property: top ,width,left;
-    
+    z-index: 1000;
+    isolation: auto;
+    mix-blend-mode: exclusion;
    
-    
-	&.headroom--not-top{
-		#l-header__bg::before{
-            opacity: 1;
-            box-shadow: 0 0 3px rgba(0,0,0,.1);
-            transform: translateY(0);
-           
-        }
-        
+   
+    @media (max-width:991px) {
+        mix-blend-mode: normal;
     }
+	// &.headroom--not-top{
+	// 	#l-header__bg::before{
+    //         opacity: 1;
+    //         box-shadow: 0 0 3px rgba(0,0,0,.1);
+    //         transform: translateY(0);
+           
+    //     }
+        
+    // }
    
 	#l-header__bg{
-		&:before{
-			content:"";
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-            background-color:#fff;
-            @include easeOutExpo(1000ms);
-		}
-		
-        z-index: 2;
-		-webkit-flex-wrap: wrap;
-		    -ms-flex-wrap: wrap;
-		        flex-wrap: wrap;
-       
+        @media (max-width:991px) {
+            background-color: #fff;
+        }
 		>.l-header__wrapper{
 			position: relative;
             z-index: 3;
             display: flex;
+            -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
             align-items: center;
             @media(max-width:991px){
                 height: 60px;
@@ -52,7 +44,7 @@
 	}
 	#l-header__logo{
         text-align: center;
-        padding: 0 0 0 25px;
+        padding: 15px 0 15px 25px;
         margin: 0;
         font-size: 1rem;
         line-height: 100%;
@@ -61,57 +53,39 @@
 		    -ms-flex:0 0 140px;
                 flex:0 0 140px;
 		@media(max-width: 991px){
-            padding: 0 10px;
+            padding: 3px 10px 0;
 			max-width: 100%;
 			-webkit-flex:0 0 100%;
 			    -ms-flex:0 0 100%;
 			        flex:0 0 100%;
 		}
 	    .l-header__logo--link{
-	    	
+            display: block;
+            @media all and (-ms-high-contrast: none) {
+                background-image: url("/dist/img/header/logo.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
 	    	.l-header__logo--img{
-                width: 120px;
+                width: 105px;
+	    		@media all and (-ms-high-contrast: none) {
+                    opacity: 0;
+                }
 	    		
-	    		@media(max-width: 1280px){
+                @media(max-width: 991px){
 	    			width:90px;
                 }
-                @media(max-width: 991px){
-	    			width:100px;
-                }
                 @media(max-width: 767px){
-	    			width:80px
+	    			width:75px
+                }
+                .logo-mix-blend{
+                   isolation: isolate;
+                   mix-blend-mode: normal;
                 }
 	    	}
 
 	    }
     }
-    .l-header__sns{
-        padding-right: 20px;
-       
-        .l-header__sns--wrapper{
-            list-style:none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            .l-header__sns--item{
-                padding: 0 7px;
-                .l-header__sns--link{
-                    color: $gray-900;
-                    font-size: 1.3rem;
-                    line-height: 120%;
-                   
-                    &:hover,&:active,&:focus{
-                        text-decoration: none;
-                        color: $gray-900;
-                    }
-                }
-            }
-        }
-
-        @media(max-width: 991px){
-            display: none;
-            speak:none;
-        }
-    }
+    
     
 }

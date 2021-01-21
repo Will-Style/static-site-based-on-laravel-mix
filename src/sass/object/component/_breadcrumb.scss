@@ -1,9 +1,9 @@
-#breadcrumb{
-    font-size: 12px;
+.c-breadcrumb{
     padding-top: 20px;
     padding-bottom: 20px;
-    letter-spacing: 1px;
     .breadcrumb{
-         background: transparent;
+        font-size: 11px;
+        background: transparent;
+        padding: 0;
     }
 }

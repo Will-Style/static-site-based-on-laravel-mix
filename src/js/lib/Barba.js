@@ -27,6 +27,7 @@ export default class{
                     },
                     beforeLeave(data) {
                         pageTransition.mask.style.visibility = 'visible'
+                        display_loading = true;
                     },
                 },
             ],

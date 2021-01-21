@@ -1,0 +1,6 @@
+AuthUserFile /var/www/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Enter password"
+AuthType Basic
+order deny,allow
+require valid-user

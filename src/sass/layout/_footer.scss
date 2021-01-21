@@ -1,11 +1,29 @@
 #l-footer{
     .l-footer__bg{
-        background-color: $gray-900;
+        padding: 80px 0;
+        background-color: $base-color;
         color: #fff;
+        
         @media(max-width: 991px){
-            display: none;
-            speak:none;
+            padding: 40px 20px;
         }
+    }
+    #l-footer__logo{
+        
+       
+        img{
+            width: 100px;
+            @media(max-width: 991px){
+                width: 80px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .l-footer__top{
+        // @media(max-width: 991px){
+        //     display: none;
+        //     speak:none;
+        // }
     }
 	.l-footer__nav{
 		margin: 0;
@@ -16,10 +34,13 @@
 			color: #FFF;
             margin-bottom:1rem ;
 			
-                
+            @media(max-width: 991px){
+                margin-bottom: 10px;
+            }
 			.l-footer__nav--link{
                 
-                font-size: .95rem;
+                font-size: .85rem;
+                font-weight: 500;
                 @include easeOutQuart(200ms);
                 color: #FFF;
                 &:hover,&:focus,&:active{
@@ -38,67 +59,38 @@
                 }
             }
             
-			.l-footer__nav--child{
-				padding: 0;
-                margin: 0;
-                list-style: none;
-                padding-top: 1rem;
-                margin-bottom: 20px;
-				.l-footer__nav--item{
-                    position: relative;
-                    margin-bottom:10px;
-                    padding-left: 20px;
-                    .l-footer__nav--link{
-                        font-size: 0.95rem;
-                        font-weight: normal;
-                        color: #a6adb6;
-                        &::before{
-                            content:"";
-                            width: .5rem;
-                            height: 1px;
-                            background-color: #999;
-                            position: absolute;
-                            left: 0;
-                            top: 1rem;
-                            margin-top: -0.3rem;
-                        }
-                        
-                        &:hover,&:focus,&:active{
-                            color: #eee;
-                            text-decoration: none;
-                        }
-                    }
-					
-				}
-			}
+			
         }
-		@media(max-width: 991px){
-			display: none; 
-		}
+		
 	}
 	.l-footer__bottom{
-        padding: 40px 0;
+        padding: 80px 0 0;
+        @media(max-width: 991px){
+            padding-top: 60px;
+        }
     }
-    .l-footer__sns{
+    .l-footer__sub{
 
-        .l-footer__sns--nav{
+        .l-footer__subnav{
             list-style:none;
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
-            .l-footer__sns--item{
-                padding: 0 7px;
-                .l-footer__sns--link{
-                    color: $gray-900;
-                    font-size: 1.2rem;
+            margin-left: -10px;
+            margin-right: -10px;
+            @media (max-width:991px) {
+                justify-content: center;
+                margin: 0;
+            }
+            .l-footer__subnav--item{
+                padding: 0 10px;
+                .l-footer__subnav--link{
+                    color: #fff;
+                    font-size: .75rem;
                     line-height: 120%;
-                    @media(max-width: 1199px){
-                       font-size: 1rem;
-                    }
+                    
                     &:hover,&:active,&:focus{
                         text-decoration: none;
-                        color: $primary;
                     }
                 }
             }
@@ -106,13 +98,17 @@
 
     }
 	#l-copyright{
+        text-align: right;
         margin: 0;
 		font-size:.7rem;
         line-height: 20px;
-        text-align: center;
         letter-spacing: 1px;
         padding-top: 10px;
         padding-bottom: constant(safe-area-inset-bottom);
         padding-bottom: env(safe-area-inset-bottom);
+
+        @media(max-width: 991px){
+            text-align: center;
+        }
     }
 }

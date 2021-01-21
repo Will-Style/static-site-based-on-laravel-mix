@@ -50,10 +50,11 @@ $gray-700: #495057 ;
 $gray-800: #343a40 ;
 $gray-900: #212529 ;
 
-$base-color:#333;
+$gray:#8C96A9;
+$base-color:#241E1C;
 
 // $primary:;
-// $secondary:;
+$secondary:#C9F43B;
 // $success:;
 // $info:;
 // $warning:;
@@ -128,13 +129,13 @@ $font-weight-bold:500;
 
 
 //　角丸
-// $border-radius: 3px;
+$border-radius: 10px;
 
 // カード関連
 $card-border-color:#e8e8e8;
 
 // ベースフォント
-$base-font:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+$base-font:'Inter','Noto Sans JP', "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 // 明朝フォント
 $min-font: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro","游明朝体",YuMincho, "Yu Mincho","ＭＳ Ｐ明朝", "MS PMincho", serif;
 
