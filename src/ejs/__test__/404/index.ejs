@@ -1,0 +1,55 @@
+<% var path = '../../'; %>
+<% var page = {
+    title : "404",
+    description : "404 description",
+    og_title: "404",
+    og_type: "",
+    og_url: "",
+    og_image: "",
+    og_site_name: "",
+    tracking_id : "",
+    header : true,
+    footer : true,
+    namespace: "page-404"
+}; %>
+<%- include(path + 'partials/_header', { path : path, page : page }); %>
+            <div id="p-404">
+                <div class="c-lower__heading">
+                    <h1 class="c-lower__title">404 Not found</h1>
+                </div>
+                <div class="c-lower__contents-inner c-column-archive">
+                    <div class="container">
+                        
+                        <div class="pb30 text-center">
+							<h3 class="title-404 mb20">
+								<span>Whoops!</span>お探しのページが見つかりませんでした。
+                            </h3>
+                            <div class="content-404">
+                                <p>
+                                    申し訳ありません。<br>
+                                    お探しのページは見つかりませんでした。<br>
+                                    URLを確認しもう一度探してみてください。
+                                </p>
+                            </div>
+						</div>
+						<div class="text-center">
+							<a href="/" class="btn btn-primary btn-width-240">
+								<span>トップページへ戻る</span>
+							</a>
+						</div>
+                    </div>
+                </div>
+            
+            </div><!-- / #p-404 -->
+
+            <div class="container">
+                <div class="js-scroll-fade" data-trigger>
+                    <div class="c-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../">トップページ</a></li>
+                            <li class="breadcrumb-item">404</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+<%- include(path + 'partials/_footer', { path : path, page : page }); %>
