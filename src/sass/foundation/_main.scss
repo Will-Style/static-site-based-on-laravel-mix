@@ -27,13 +27,6 @@ body{
     background-color: #fff;
     width: 100%;
 
-    padding-top: 80px;
-    @media(max-width:991px){
-        padding-top: 60px;
-    }
-    @media(max-width:767px){
-        padding-top: 50px;
-    }
 }
 img {
 	height: auto ;

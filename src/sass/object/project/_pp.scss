@@ -1,0 +1,23 @@
+#p-pp{
+    padding: 60px 0;
+    .c-lower__heading{
+        .c-lower__title{
+            line-height: 99%;
+        }
+    }
+   
+    .p-pp__title{
+        border-bottom: 1px solid $base-color;
+        padding-bottom: 15px;
+        font-size: 1rem;
+    }
+    .p-pp__content{
+        margin-bottom: 40px;
+        font-size: 0.8rem;
+    }
+    .p-pp__table{
+        td,th{
+            padding: 5px 10px;
+        }
+    }
+}

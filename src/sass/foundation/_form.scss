@@ -5,6 +5,9 @@
     font-size: 14px;
     margin-bottom: 3px;
 }
+.form-control{
+    font-size: 16px;
+}
 .form-control::placeholder {
     font-size: 14px;
 }
@@ -26,7 +29,7 @@
     .mwform-checkbox-field-text{
         @extend .custom-control-label;
         &::before,&::after{
-            top: 0.05rem;
+            top:0.18rem;
         }
     }
 }
@@ -40,7 +43,7 @@
     .mwform-radio-field-text{
         @extend .custom-control-label;
         &::before,&::after{
-            top: 0.05rem;
+            top:0.18rem;
         }
     }
 }

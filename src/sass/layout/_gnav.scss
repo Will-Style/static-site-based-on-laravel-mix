@@ -10,21 +10,17 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        padding-right: 100px;
         display: flex;
         -webkit-justify-content: flex-end;
                 justify-content: flex-end;
-                
-        @media(max-width: 991px){
-            padding-right: 0px;
-        }
+          
         
         .l-gnav__item{
             .l-gnav__link{
                 display: block;
                 padding: 0 30px;
-                color: #fff;
-                font-weight: 900;
+                color: $base-color;
+                font-weight: bold;
                 white-space: nowrap;
                 @include easeOutQuart(400ms);
                 transition-property: color;

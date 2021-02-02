@@ -1,51 +1,4 @@
-// .btn.btn-share-tw{
-//     width: 35px;
-//     height: 35px;
-// 	background: #fff;
-// 	color: $gray-400;
-//     border: 1px solid $gray-400;
-//     font-size: 16px;
-//     padding: 0;
-//     line-height: 33px;
-// 	-webkit-border-radius: 30px;
-// 	        border-radius: 30px;
-// 	margin-right: 5px;
-// 	@include easeOutQuart(400ms);
-// 	&:hover,&:active,&:focus{
-//         border: 1px solid $brand-twitter;
-//         background-color: $brand-twitter;;
-// 	    color:#fff !important;
-// 	}
-// 	&:before{
-// 		font-family:$icon-font-family02;
-// 		content:$icon-twitter;
-// 	}
-// }
-// .btn.btn-share-fb{
-// 	width: 35px;
-//     height: 35px;
-//     font-size: 16px;
-//     padding: 0;
-//     line-height: 33px;
-// 	background: #fff;
-// 	color: $gray-400;
-//     border: 1px solid $gray-400;
-// 	-webkit-border-radius: 30px;
-// 	        border-radius: 30px;
-// 	@include easeOutQuart(400ms);
-// 	&:hover,&:active,&:focus{
-//         border: 1px solid $brand-facebook;
-//         background-color: $brand-facebook;;
-// 	    color:#fff !important;
-// 	}
-// 	&:before{
-// 		font-family:$icon-font-family02;
-// 		content:$icon-facebook;
-// 	}
-// }
 
-
-// }
 .c-blog__single{
     .c-blog__single--wrapper{
         max-width: 700px;
@@ -61,7 +14,6 @@
     }
     .c-blog__single--eye-catch{
         img{
-            border-radius: 15px;
             width: 100%;
         }
     }
@@ -319,6 +271,22 @@
                     line-height: 45px;
                     margin-left: 3px;
                     margin-right: 3px;
+                    &[data-share-tw]{
+                        background-color: $brand-twitter;
+                        border-color: $brand-twitter;
+                        &:hover,&:focus,&:active{
+                            background-color: #fff;
+                            color: $brand-twitter;
+                        }
+                    }
+                    &[data-share-fb]{
+                        background-color: $brand-facebook;
+                        border-color: $brand-facebook;
+                        &:hover,&:focus,&:active{
+                            background-color: #fff;
+                            color: $brand-facebook;
+                        }
+                    }
                     &::before{
                         border-radius: 100%;
                     }

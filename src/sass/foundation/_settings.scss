@@ -53,8 +53,8 @@ $gray-900: #212529 ;
 $gray:#8C96A9;
 $base-color:#241E1C;
 
-// $primary:;
-$secondary:#C9F43B;
+$primary:#3e82ff;
+// $secondary:;
 // $success:;
 // $info:;
 // $warning:;
@@ -97,12 +97,17 @@ $_spacers: (
     // 150: 150px,
 ) ;
 
-$component-active-color: #fff;
+$header-height:80px;
+$header-height-md:60px;
+$header-height-sm:55px;
+
+$component-active-color: rgb(17, 15, 15);
+
 // チェックボックスやラジオボタンの色
-$component-active-bg: #3e82ff;
+$component-active-bg: $primary;
 
 $brand-twitter:#1da1f3;
-$brand-facebook:#3b5998;
+$brand-facebook:#4267B2;
 
 //パンくずの背景色
 $breadcrumb-bg:transparent;
@@ -129,13 +134,15 @@ $font-weight-bold:500;
 
 
 //　角丸
-$border-radius: 10px;
+$border-radius: 4px;
+$input-border-radius: 4px ;
+$custom-select-border-radius: 4px;
 
 // カード関連
 $card-border-color:#e8e8e8;
 
 // ベースフォント
-$base-font:'Inter','Noto Sans JP', "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+$base-font:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 // 明朝フォント
 $min-font: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro","游明朝体",YuMincho, "Yu Mincho","ＭＳ Ｐ明朝", "MS PMincho", serif;
 

@@ -4,24 +4,19 @@
     <span class="js-hamburger__bar l-hamburger__bar" aria-hidden="true"></span>
 </button>
 <nav id="js-drawer" class="l-drawer" aria-labelledby="js-hamburger">
-    <div class="l-drawer__wrapper">
-        <div class="row no-gutters">
-            <div class="col-md-6">
-                <div class="l-drawer__nav-wrapper">
+    <div class="container">
+        
+        <div class="l-drawer__wrapper">
+            <div class="row">
+                <div class="col-sm-6">
                     <ul class="l-drawer__nav">
-                        <li class="l-drawer__nav--item">
-                            <a href="/" class="l-drawer__nav--link">
-                                <span class="l-drawer__nav--str">
-                                    <span class="l-drawer__nav--en">Home</span>
-                                    <span class="l-drawer__nav--ja">トップページ</span>
-                                </span>
-                            </a>
-                        </li>
+                        <li class="l-drawer__nav--item"><a href="<%- path %>/" class="l-drawer__nav--link"><span class="l-drawer__nav--str">トップページ</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="<%- path %>information/" class="l-drawer__nav--link"><span class="l-drawer__nav--str">お知らせ</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="<%- path %>blog/" class="l-drawer__nav--link"><span class="l-drawer__nav--str">ブログ</span></a></li>
+                        <li class="l-drawer__nav--item"><a href="<%- path %>contact/" class="l-drawer__nav--link"><span class="l-drawer__nav--str">お問い合わせ</span></a></li>
                     </ul>
-
                 </div>
             </div>
-            
         </div>
     </div>
 </nav>

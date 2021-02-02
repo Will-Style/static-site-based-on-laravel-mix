@@ -28,7 +28,7 @@ import Datepicker from "./lib/Datepicker"
 import Drawer from "./lib/Drawer"
 import Form from "./lib/Form"
 import Lightbox from "./lib/Lightbox"
-// import Headroom from "./lib/Headroom"
+import Headroom from "./lib/Headroom"
 import ScrollTrigger from "./lib/ScrollTrigger"
 import SmoothScroll from "./lib/SmoothScroll"
 import Slider from "./lib/Slider"
@@ -67,7 +67,7 @@ const eventHandler = () => {
     new Accordion
     new Tab
     new ScrollTrigger
-    // new Headroom
+    new Headroom
     new SmoothScroll
     new Barba
     new Intro

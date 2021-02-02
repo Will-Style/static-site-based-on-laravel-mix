@@ -1,46 +1,74 @@
-<% var path = '../../'; %>
-<% var page = {
-    title : "Privacy policy page",
-    description : "Privacy policy page description",
-    og_title: "Privacy policy page",
-    og_type: "",
-    og_url: "",
-    og_image: "",
-    og_site_name: "",
-    tracking_id : "",
-    header : false,
-    footer : false,
-    namespace: "no-loading" 
-}; %>
-<% 
-    var company_name = 'ウィルスタイル株式会社';
-    var company_address = '〒650-0024 兵庫県神戸市中央区海岸通 5 商船三井ビルディング 4F';
-    var company_tel = '078-977-8760';
-    var oneself = '当社'; 
-%>
-<%- include(path + 'partials/_header', { path : path, page : page }); %>
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Privacy policy page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="description" content="Privacy policy page description">
+    <!-- OGP -->
+	<meta property="og:title" content="Privacy policy page" />
+	<meta property="og:type" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:locale" content="ja_JP" />
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- / OGP -->
+
+	<meta name="robots" content="index,follow">
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+	<meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../dist/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../dist/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../dist/ico/favicon-16x16.png">
+    <link rel="manifest" href="../../dist/ico/site.webmanifest">
+    <link rel="mask-icon" href="../../dist/ico/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="../../dist/ico/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/styles.css">
+    <noscript>
+        <link rel="stylesheet" href="../../dist/css/icons.css">
+        <link rel="stylesheet" href="../../dist/css/noscript.css">
+    </noscript>
+    <script src="../../dist/js/bundle.js?20200416" id="bundle" async></script>
+    
+</head>
+
+<body data-barba="wrapper">
+
+    <div id="page" data-barba="container" data-barba-namespace="not-loading">
+        
+        <a class="sr-only sr-only-focusable" href="#content">本文までスキップする</a>
+        
+        <main id="content">
             <div id="p-pp">
-                <div class="py-5 px-2">
+                <div class="py-60 px-5">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
-                                <h1 class="p-pp__heading">プライバシーポリシー</h1>
-                                <div class="mb-5">
-                                    <h3 class="p-pp__title mb-0">はじめに</h3>
+                                <h1 class="p-pp__heading text-center">プライバシーポリシー</h1>
+                                <div class="mb-30">
+                                    <h3 class="p-pp__title">はじめに</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- company_name %>（以下、「<%- oneself %>」）は、各種サービスのご提供にあたり、お客様の個人情報をお預かりしております。<br />
-                                            <%- oneself %>は個人情報を保護し、お客様に更なる信頼性と安心感をご提供できるように努めて参ります。<br />
-                                            <%- oneself %>は、個人情報に関する法令を遵守し、個人情報の適切な取り扱いを実現致します。
+                                            ウィルスタイル株式会社（以下、「当社」）は、各種サービスのご提供にあたり、お客様の個人情報をお預かりしております。<br />
+                                            当社は個人情報を保護し、お客様に更なる信頼性と安心感をご提供できるように努めて参ります。<br />
+                                            当社は、個人情報に関する法令を遵守し、個人情報の適切な取り扱いを実現致します。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の取得について</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、偽りその他不正の手段によらず適正に個人情報を取得致します。なお、次のような場合に必要な範囲で個人情報を収集する場合があります。<br />
+                                            当社は、偽りその他不正の手段によらず適正に個人情報を取得致します。なお、次のような場合に必要な範囲で個人情報を収集する場合があります。<br />
                                         </p>
                                         <ol class="mb-3 ml65">
                                             <li>ご相談・お問い合わせ</li>
@@ -49,12 +77,12 @@
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の利用について</h3>
 
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、個人情報を以下の利用目的の達成に必要な範囲内で、利用致します。<br />
+                                            当社は、個人情報を以下の利用目的の達成に必要な範囲内で、利用致します。<br />
                                             以下に定めのない目的で個人情報を利用する場合、あらかじめご本人の同意を得た上で行ないます。
                                         </p>
                                         <ol class="mb-3 ml65">
@@ -65,91 +93,91 @@
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の安全管理について</h3>
 
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、取り扱う個人情報の漏洩、滅失またはき損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。
+                                            当社は、取り扱う個人情報の漏洩、滅失またはき損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の委託について</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、個人情報の取り扱いの全部または一部を第三者に委託する場合は、当該第三者について厳正な調査を行い、取り扱いを委託された個人情報の安全管理が図られるよう当該第三者に対する必要かつ適切な監督を行います。
+                                            当社は、個人情報の取り扱いの全部または一部を第三者に委託する場合は、当該第三者について厳正な調査を行い、取り扱いを委託された個人情報の安全管理が図られるよう当該第三者に対する必要かつ適切な監督を行います。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の第三者提供について</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、個人情報保護法等の法令に定めのある場合を除き、個人情報をあらかじめご本人の同意を得ることなく、第三者に提供致しません。
+                                            当社は、個人情報保護法等の法令に定めのある場合を除き、個人情報をあらかじめご本人の同意を得ることなく、第三者に提供致しません。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の開示・訂正等について</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、ご本人から自己の個人情報についての開示の請求がある場合、速やかに開示を致します。<br />
+                                            当社は、ご本人から自己の個人情報についての開示の請求がある場合、速やかに開示を致します。<br />
                                             その際、ご本人であることが確認できない場合には、開示に応じません。<br />
                                             個人情報の内容に誤りがあり、ご本人から訂正・追加・削除の請求がある場合、調査の上、速やかにこれらの請求に対応致します。<br />
                                             その際、ご本人であることが確認できない場合には、これらの請求に応じません。<br />
-                                            <%- oneself %>の個人情報の取り扱いにつきまして、上記の請求・お問い合わせ等ございましたら、下記までご連絡くださいますようお願い申し上げます。
+                                            当社の個人情報の取り扱いにつきまして、上記の請求・お問い合わせ等ございましたら、下記までご連絡くださいますようお願い申し上げます。
                                         </p>
                                         <h4 class="p-pp__title">連絡先</h4>
                                         <table class="table table-bordered p-pp__table">
                                             <tbody>
                                                 <tr>
                                                     <th>名称</th>
-                                                    <td><%- company_name %></td>
+                                                    <td>ウィルスタイル株式会社</td>
                                                 </tr>
                                                 <tr>
                                                     <th>
                                                         住所
                                                     </th>
-                                                    <td><%- company_address %></td>
+                                                    <td>〒650-0024 兵庫県神戸市中央区海岸通 5 商船三井ビルディング 4F</td>
                                                 </tr>
                                                 <tr>
                                                     <th>TEL</th>
-                                                    <td><%- company_tel %></td>
+                                                    <td>078-977-8760</td>
                                                 </tr>
                                             </tbody>	
                                         </table>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">その他の注意事項</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>が運営するコンテンツや掲載広告などからリンクされている第三者のサイト及びサービスは、<%- oneself %>とは独立した個人情報の保護に関する規定やデータ収集の規約を定めています。<br />
+                                            当社が運営するコンテンツや掲載広告などからリンクされている第三者のサイト及びサービスは、当社とは独立した個人情報の保護に関する規定やデータ収集の規約を定めています。<br />
                                             当サイトはこれらの規約や活動に対していかなる義務や責任も負いません。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">個人情報の管理方法の継続的改善について</h3>
                                     <div class="p-pp__content">
                                         <p>
-                                            <%- oneself %>は、個人情報の管理方法を見直し、継続的に改善を実施します。
+                                            当社は、個人情報の管理方法を見直し、継続的に改善を実施します。
                                         </p>
                                     </div>
                                 </div>
                             
-                                <div class="mb-5">
+                                <div class="mb-30">
                                     <h3 class="p-pp__title">本方針の変更</h3>
                                     <div class="p-pp__content">
                                         <p>
                                             本方針の内容は変更されることがあります。<br />
-                                            変更後の本方針については、<%- oneself %>が別途定める場合を除いて、当サイトに掲載した時から効力を生じるものとします。
+                                            変更後の本方針については、当社が別途定める場合を除いて、当サイトに掲載した時から効力を生じるものとします。
                                         </p>
                                     </div>
                                 </div>
@@ -162,4 +190,22 @@
                     </div>
                 </div>
             </div><!-- / #p-pp -->
-<%- include(path + 'partials/_footer', { path : path, page : page }); %>
+                </main>
+
+                
+            </div>
+    <div id="js-loading__mask" aria-hidden="true">
+    <div class="js-loading__first"></div>
+    <div class="js-loading__second"></div>
+    <div id="js-loading__animation">
+        <div id="logo-animation">
+                  
+        </div> 
+    </div>
+</div>
+
+    
+
+</body>
+
+</html>

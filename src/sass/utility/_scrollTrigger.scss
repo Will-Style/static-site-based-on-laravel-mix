@@ -5,17 +5,15 @@
 	opacity: 0;
 	@include easeOutQuart(1000ms);
 	will-change: auto;
-    transform:translateX(2%) scale(1.01);
 	
-	-webkit-transition-property:opacity,transform;
-	   -moz-transition-property:opacity,transform;
-	    -ms-transition-property:opacity,transform;
-	     -o-transition-property:opacity,transform;
-	        transition-property:opacity,transform;
+	-webkit-transition-property:opacity;
+	   -moz-transition-property:opacity;
+	    -ms-transition-property:opacity;
+	     -o-transition-property:opacity;
+	        transition-property:opacity;
 	
 	&.visible{
 		opacity: 1;
-        transform:translateX(0) scale(1);
 	}
 }
 .js-scroll-to-top{

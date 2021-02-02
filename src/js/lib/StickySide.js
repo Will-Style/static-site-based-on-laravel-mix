@@ -21,7 +21,7 @@ export default class{
             window.Sidebar = new StickySidebar('#l-side', {
                 containerSelector: '.js-sticky__wrapper',
                 innerWrapperSelector: '.js-sticky__side',
-                topSpacing: 80,
+                topSpacing: 100,
             })
             
             this.is_tablet()

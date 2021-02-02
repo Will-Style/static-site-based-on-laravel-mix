@@ -1,4 +1,4 @@
-<% var path = '../'; %>
+<% var path = '../../'; %>
 <% var page = {
     title : "TOP PAGE",
     description : "TOP PAGE DESCRIPTION",
@@ -13,14 +13,17 @@
     namespace: "home"
 }; %>
 <%- include(path + 'partials/_header', { path : path, page : page }); %>
-            <div id="p-information" class="c-blog__single">
+            <div id="p-blog" class="c-blog__single">
                 
                 <div class="c-lower__contents-inner">
                     <div class="container">
-                        <div class="row justify-content-center">
+                        <div class="row js-sticky__wrapper">
                             <div class="col-lg-8">
-                                <div class="c-blog__single--wrapper">
+                                <div class="c-blog__single--wrapper py-40">
 
+                                    <div class="c-blog__single--eye-catch">
+                                        <img src="/dist/img/dummy.jpg" alt="">
+                                    </div>
                                     <div class="c-blog__single---heading">
                                         <div class="c-blog__single--time">
                                             <time aria-label="投稿日:">2018-10-16</time>
@@ -85,7 +88,8 @@
                                         <h6>見出し6</h6>
                                         <blockquote>
                                             <h3>aaaaa</h3>
-                                            <a href="">aaa</a>
+                                            <p><a href="">aaa</a></p>
+                                            <p>aaaa</p>
                                         </blockquote>
                                         <p>
                                             テキストテキストテキストテキストテキスト
@@ -95,6 +99,9 @@
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <%- include(path + 'partials/_side'); %>
                             </div>
                         </div>
                         <div class="js-scroll-fade" data-trigger>
@@ -123,124 +130,19 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="js-scroll-fade" data-trigger>
-                        <div class="c-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="../../">トップページ</a></li>
-                                <li class="breadcrumb-item"><a href="../">コラム</a></li>
-                                <li class="breadcrumb-item">タイトルが入ります。タイトルが入ります。タイトルが入ります。</li>
-                            </ol>
-                        </div>
+            </div><!-- / #p-blog -->
+
+            <div class="container">
+                <div class="js-scroll-fade" data-trigger>
+                    <div class="c-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../">トップページ</a></li>
+                            <li class="breadcrumb-item"><a href="../">コラム</a></li>
+                            <li class="breadcrumb-item">タイトルが入ります。タイトルが入ります。タイトルが入ります。</li>
+                        </ol>
                     </div>
                 </div>
-                <section id="l-aside__column">
-                    <div class="l-aside__column--wrapper">
-
-                        <div class="container">
-                            <div class="c-section__heading">
-                                <h3 class="l-aside__pickup--title c-section__title">
-                                    <span class="c-section__title-ja js-scroll-fade" data-trigger>コラム</span>
-                                    <span class="c-section__title-en" data-trigger="translateY">Column</span>
-                                </h3>
-
-                                <div class="c-section__heading--button js-scroll-fade" data-trigger>
-                                    <a href="column/" class="btn btn-primary btn-arrow btn-width-150"><span>すべて表示</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="l-aside__column--slider swiper-container c-blog__slider js-blog__slider js-scroll-fade" data-trigger>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <article class="c-blog__card">
-                                        <div class="c-blog__card--link">
-                                            <div class="c-blog__card--content">
-                                                <h3 class="c-blog__card--title"><a href="">タイトルがはいります。タイトルがはいります。タイトルがはいります。</a></h3>
-                                                <div class="c-blog__card--detail">
-                                                    <time class="c-blog__card--time">2021.01.06</time>
-                                                    <a href="" class="c-blog__card--cat">カテゴリー1</a>
-                                                </div>
-                                            </div>
-                                            
-                                            <a href="" class="c-blog__card--img-wrap">
-                                                <div class="c-blog__card--img lazyload" data-bg="/dist/img/index/blog01.jpg"></div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="c-blog__card">
-                                        <div class="c-blog__card--link">
-                                            <div class="c-blog__card--content">
-                                                <h3 class="c-blog__card--title"><a href="">タイトルがはいります。タイトルがはいります。タイトルがはいります。</a></h3>
-                                                <div class="c-blog__card--detail">
-                                                    <time class="c-blog__card--time">2021.01.06</time>
-                                                    <a href="" class="c-blog__card--cat">カテゴリー1</a>
-                                                </div>
-                                            </div>
-                                            
-                                            <a href="" class="c-blog__card--img-wrap">
-                                                <div class="c-blog__card--img lazyload" data-bg="/dist/img/index/blog02.jpg"></div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="c-blog__card">
-                                        <div class="c-blog__card--link">
-                                            <div class="c-blog__card--content">
-                                                <h3 class="c-blog__card--title"><a href="">タイトルがはいります。タイトルがはいります。タイトルがはいります。</a></h3>
-                                                <div class="c-blog__card--detail">
-                                                    <time class="c-blog__card--time">2021.01.06</time>
-                                                    <a href="" class="c-blog__card--cat">カテゴリー1</a>
-                                                </div>
-                                            </div>
-                                            
-                                            <a href="" class="c-blog__card--img-wrap">
-                                                <div class="c-blog__card--img lazyload" data-bg="/dist/img/index/blog03.jpg"></div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="c-blog__card">
-                                        <div class="c-blog__card--link">
-                                            <div class="c-blog__card--content">
-                                                <h3 class="c-blog__card--title"><a href="">タイトルがはいります。タイトルがはいります。タイトルがはいります。</a></h3>
-                                                <div class="c-blog__card--detail">
-                                                    <time class="c-blog__card--time">2021.01.06</time>
-                                                    <a href="" class="c-blog__card--cat">カテゴリー1</a>
-                                                </div>
-                                            </div>
-                                            
-                                            <a href="" class="c-blog__card--img-wrap">
-                                                <div class="c-blog__card--img lazyload" data-bg="/dist/img/index/blog04.jpg"></div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="c-blog__card">
-                                        <div class="c-blog__card--link">
-                                            <div class="c-blog__card--content">
-                                                <h3 class="c-blog__card--title"><a href="">タイトルがはいります。タイトルがはいります。タイトルがはいります。</a></h3>
-                                                <div class="c-blog__card--detail">
-                                                    <time class="c-blog__card--time">2021.01.06</time>
-                                                    <a href="" class="c-blog__card--cat">カテゴリー1</a>
-                                                </div>
-                                            </div>
-                                            
-                                            <a href="" class="c-blog__card--img-wrap">
-                                                <div class="c-blog__card--img lazyload" data-bg="/dist/img/index/blog05.jpg"></div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                
-            </div><!-- / #p-information -->
+            </div>
+            
+            
 <%- include(path + 'partials/_footer', { path : path, page : page }); %>

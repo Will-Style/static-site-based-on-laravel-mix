@@ -12,11 +12,14 @@ export default class{
         this.first = "#js-loading__mask .js-loading__first"
         this.second = "#js-loading__mask .js-loading__second"
         this.logoAnimation_elm = document.querySelector('#logo-animation')
-
-        this.mask.style.display = "block"
+        if(this.mask){
+            this.mask.style.display = "block"
+        }
 
         if(process.env.MIX_DISP_LOADING == "false" && process.env.NODE_ENV == "development"){
-            this.mask.style.display = "none" 
+            if(this.mask){
+                this.mask.style.display = "none" 
+            }
         }
     }
     /**
