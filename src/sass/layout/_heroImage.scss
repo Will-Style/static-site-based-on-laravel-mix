@@ -32,9 +32,8 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            background-image: url("../../img/index/mv.jpg");
+            background-image: url("../../img/dummy.jpg");
             border-radius: 30px 0 0 30px;
-            opacity: 0;
             &::before{
                 @media(max-width:991px){
                     content:"";

@@ -30,7 +30,7 @@ mix.extend('swiper', webpackConfig => {
     const { rules } = webpackConfig.module;
    
     rules.filter(rule => rule.exclude && rule.exclude.toString() === "/(node_modules|bower_components)/")
-    .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper|sticky-sidebar)\/).*/);
+    .forEach(rule => rule.exclude = /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
 });
 
 mix.extend('resolve_sass', webpackConfig => {
@@ -44,7 +44,7 @@ mix.extend('resolve_sass', webpackConfig => {
             return use.loader === "sass-loader"
         })
         rule.use.splice(
-            (sassIndex - 1),0,
+            (sassIndex),0,
             {
                 loader: 'resolve-url-loader',
                 options: {
@@ -61,8 +61,6 @@ mix.extend('resolve_sass', webpackConfig => {
     });
 })
 
-
-mix.resolve_sass();
 
 mix
 // js settings
@@ -166,12 +164,9 @@ mix.webpackConfig({
 })
 
 
-// sass settings
-glob.sync(`${srcPath}/sass/*.scss`).map(function (file) {
-    mix.sass(file, `${distPath}/css/`)
-    .stylelint({ context: srcPath })
-    .options({ processCssUrls: false })
-})
+mix.resolve_sass();
+
+
 // image minsettings
 if (process.env.NODE_ENV === 'production') {
     mix
@@ -197,3 +192,12 @@ if (process.env.NODE_ENV === 'production') {
     )
 }
 
+
+
+// sass settings
+glob.sync(`${srcPath}/sass/*.scss`).map(function (file) {
+    mix.sass(file, `${distPath}/css/`)
+    .stylelint({ context: srcPath })
+    .sourceMaps(true) 
+    .options({ processCssUrls: false })
+})

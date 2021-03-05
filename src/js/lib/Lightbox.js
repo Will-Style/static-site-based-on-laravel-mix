@@ -15,10 +15,10 @@ export default class{
         require('fslightbox');
         if(typeof refreshFsLightbox === "function"){
 
-            const blogBodyImage = document.querySelectorAll(".c-blog__single--body a > img") 
+            const blogBodyImage = document.querySelectorAll('.c-blog__single--body a[href$=".jpg"],.c-blog__single--body a[href$=".jpeg"],.c-blog__single--body a[href$=".gif"],.c-blog__single--body a[href$=".png"]') 
             if(blogBodyImage.length > 0){
                 blogBodyImage.forEach( (img) => {
-                    img.parentElement.setAttribute('data-fslightbox', 'gallery')
+                    img.setAttribute('data-fslightbox', 'gallery')
                 })
             }
         
