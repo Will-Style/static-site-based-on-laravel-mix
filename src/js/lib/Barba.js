@@ -17,6 +17,7 @@ export default class{
         barba.init({
             preventRunning: true,
             prevent: Prevent,
+            timeout: 10000,
             cacheIgnore: ['/contact/','/entry/'],
             views: [
                 {
