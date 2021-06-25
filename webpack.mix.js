@@ -177,6 +177,7 @@ if (process.env.NODE_ENV === 'production') {
             test: filePath => !!multimatch(filePath, [ 'img/**/*' ]).length,
             pngquant: { strip: true, quality: 65-80}, // 0 ~ 100
             gifsicle: { optimizationLevel: 1 }, // 1 ~ 3
+            svgo: {plugins: [{removeViewBox: false}]},
             plugins: [ require('imagemin-mozjpeg')({ quality: 80 }) ] // 0 ~ 100
         }
     )
