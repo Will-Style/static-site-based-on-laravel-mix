@@ -160,6 +160,9 @@ if (process.env.NODE_ENV === 'production') {
 
 mix.webpackConfig({
     plugins: webpackPlugins,
+    watchOptions: {
+        ignored: /node_modules/
+    }
    
 })
 

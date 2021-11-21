@@ -1,1 +1,24 @@
-#page{visibility:visible!important}#loading{display:none;z-index:0}.lazyload{opacity:1}.lazy-inline{display:none!important}.plx-elem{-webkit-filter:blur(0)!important;transform:translateY(0)!important;filter:blur(0)!important;opacity:1!important}
+#page {
+  visibility: visible !important;
+}
+
+#loading {
+  display: none;
+  z-index: 0;
+}
+
+.lazyload {
+  opacity: 1;
+}
+
+.lazy-inline {
+  display: none !important;
+}
+
+.plx-elem {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  -webkit-filter: blur(0px) !important;
+          filter: blur(0px) !important;
+}
+

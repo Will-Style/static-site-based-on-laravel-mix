@@ -32,6 +32,7 @@ export default ({el ,event ,href}) => {
     let ignoreClasses = ['ab-item'];
     ignoreClasses.forEach((cls) => {
         if (el.classList.contains(cls)) {
+            el.setAttribute('target','_blank')
             return true;
         }
     })
