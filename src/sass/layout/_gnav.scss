@@ -25,9 +25,7 @@
                 @include easeOutQuart(400ms);
                 transition-property: color;
                 letter-spacing: 1px;
-                @media all and (-ms-high-contrast: none) {
-                    color: $base-color;
-                }
+                
                   
                 span{
                     position: relative;
@@ -43,10 +41,7 @@
                         @include easeInOutExpo(250ms);
                         transform: scaleX(0);
                         z-index: 1;
-                        @media all and (-ms-high-contrast: none) {
-                            background-color: $base-color;
-                        }
-                          
+                       
                     }
                 }
                 &:hover,&:active,&:focus{

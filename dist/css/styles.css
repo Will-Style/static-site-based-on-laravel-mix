@@ -27,7 +27,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -41,7 +41,7 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 article,
@@ -59,7 +59,7 @@ section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
@@ -129,7 +129,7 @@ dt {
 }
 
 dd {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   margin-left: 0;
 }
 
@@ -155,11 +155,11 @@ sup {
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 a {
@@ -173,12 +173,12 @@ a:hover {
   text-decoration: underline;
 }
 
-a:not([href]) {
+a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
 }
 
-a:not([href]):hover {
+a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
@@ -195,6 +195,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
+  -ms-overflow-style: scrollbar;
 }
 
 figure {
@@ -225,6 +226,7 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: -webkit-match-parent;
 }
 
 label {
@@ -236,9 +238,8 @@ button {
   border-radius: 0;
 }
 
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 input,
@@ -262,43 +263,40 @@ select {
   text-transform: none;
 }
 
+[role=button] {
+  cursor: pointer;
+}
+
 select {
   word-wrap: normal;
 }
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
 button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
   cursor: pointer;
 }
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   padding: 0;
   border-style: none;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type=radio],
+input[type=checkbox] {
   box-sizing: border-box;
   padding: 0;
-}
-
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
-  -webkit-appearance: listbox;
 }
 
 textarea {
@@ -318,7 +316,7 @@ legend {
   width: 100%;
   max-width: 100%;
   padding: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   line-height: inherit;
   color: inherit;
@@ -329,17 +327,17 @@ progress {
   vertical-align: baseline;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type="search"] {
+[type=search] {
   outline-offset: -2px;
   -webkit-appearance: none;
 }
 
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -498,43 +496,12 @@ mark,
   content: "\2014\A0";
 }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
+.container,
 .container-fluid,
-.container-sm,
-.container-md,
+.container-xl,
 .container-lg,
-.container-xl {
+.container-md,
+.container-sm {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -543,35 +510,35 @@ mark,
 }
 
 @media (min-width: 576px) {
-  .container,
-  .container-sm {
+  .container-sm,
+  .container {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .container,
+  .container-md,
   .container-sm,
-  .container-md {
+  .container {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
-  .container,
-  .container-sm,
+  .container-lg,
   .container-md,
-  .container-lg {
+  .container-sm,
+  .container {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container,
-  .container-sm,
-  .container-md,
+  .container-xl,
   .container-lg,
-  .container-xl {
+  .container-md,
+  .container-sm,
+  .container {
     max-width: 1140px;
   }
 }
@@ -589,81 +556,81 @@ mark,
 }
 
 .no-gutters > .col,
-.no-gutters > [class*="col-"] {
+.no-gutters > [class*=col-] {
   padding-right: 0;
   padding-left: 0;
 }
 
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12,
-.col,
-.col-auto,
-.col-sm-1,
-.col-sm-2,
-.col-sm-3,
-.col-sm-4,
-.col-sm-5,
-.col-sm-6,
-.col-sm-7,
-.col-sm-8,
-.col-sm-9,
-.col-sm-10,
-.col-sm-11,
-.col-sm-12,
-.col-sm,
-.col-sm-auto,
-.col-md-1,
-.col-md-2,
-.col-md-3,
-.col-md-4,
-.col-md-5,
-.col-md-6,
-.col-md-7,
-.col-md-8,
-.col-md-9,
-.col-md-10,
-.col-md-11,
-.col-md-12,
-.col-md,
-.col-md-auto,
-.col-lg-1,
-.col-lg-2,
-.col-lg-3,
-.col-lg-4,
-.col-lg-5,
-.col-lg-6,
-.col-lg-7,
-.col-lg-8,
-.col-lg-9,
-.col-lg-10,
-.col-lg-11,
-.col-lg-12,
+.col-xl,
+.col-xl-auto,
+.col-xl-12,
+.col-xl-11,
+.col-xl-10,
+.col-xl-9,
+.col-xl-8,
+.col-xl-7,
+.col-xl-6,
+.col-xl-5,
+.col-xl-4,
+.col-xl-3,
+.col-xl-2,
+.col-xl-1,
 .col-lg,
 .col-lg-auto,
-.col-xl-1,
-.col-xl-2,
-.col-xl-3,
-.col-xl-4,
-.col-xl-5,
-.col-xl-6,
-.col-xl-7,
-.col-xl-8,
-.col-xl-9,
-.col-xl-10,
-.col-xl-11,
-.col-xl-12,
-.col-xl,
-.col-xl-auto {
+.col-lg-12,
+.col-lg-11,
+.col-lg-10,
+.col-lg-9,
+.col-lg-8,
+.col-lg-7,
+.col-lg-6,
+.col-lg-5,
+.col-lg-4,
+.col-lg-3,
+.col-lg-2,
+.col-lg-1,
+.col-md,
+.col-md-auto,
+.col-md-12,
+.col-md-11,
+.col-md-10,
+.col-md-9,
+.col-md-8,
+.col-md-7,
+.col-md-6,
+.col-md-5,
+.col-md-4,
+.col-md-3,
+.col-md-2,
+.col-md-1,
+.col-sm,
+.col-sm-auto,
+.col-sm-12,
+.col-sm-11,
+.col-sm-10,
+.col-sm-9,
+.col-sm-8,
+.col-sm-7,
+.col-sm-6,
+.col-sm-5,
+.col-sm-4,
+.col-sm-3,
+.col-sm-2,
+.col-sm-1,
+.col,
+.col-auto,
+.col-12,
+.col-11,
+.col-10,
+.col-9,
+.col-8,
+.col-7,
+.col-6,
+.col-5,
+.col-4,
+.col-3,
+.col-2,
+.col-1 {
   position: relative;
   width: 100%;
   padding-right: 15px;
@@ -687,8 +654,8 @@ mark,
 }
 
 .row-cols-3 > * {
-  flex: 0 0 33.33333333%;
-  max-width: 33.33333333%;
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
 }
 
 .row-cols-4 > * {
@@ -702,8 +669,8 @@ mark,
 }
 
 .row-cols-6 > * {
-  flex: 0 0 16.66666667%;
-  max-width: 16.66666667%;
+  flex: 0 0 16.6666666667%;
+  max-width: 16.6666666667%;
 }
 
 .col-auto {
@@ -894,8 +861,8 @@ mark,
   }
 
   .row-cols-sm-3 > * {
-    flex: 0 0 33.33333333%;
-    max-width: 33.33333333%;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 
   .row-cols-sm-4 > * {
@@ -909,8 +876,8 @@ mark,
   }
 
   .row-cols-sm-6 > * {
-    flex: 0 0 16.66666667%;
-    max-width: 16.66666667%;
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 
   .col-sm-auto {
@@ -1106,8 +1073,8 @@ mark,
   }
 
   .row-cols-md-3 > * {
-    flex: 0 0 33.33333333%;
-    max-width: 33.33333333%;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 
   .row-cols-md-4 > * {
@@ -1121,8 +1088,8 @@ mark,
   }
 
   .row-cols-md-6 > * {
-    flex: 0 0 16.66666667%;
-    max-width: 16.66666667%;
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 
   .col-md-auto {
@@ -1318,8 +1285,8 @@ mark,
   }
 
   .row-cols-lg-3 > * {
-    flex: 0 0 33.33333333%;
-    max-width: 33.33333333%;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 
   .row-cols-lg-4 > * {
@@ -1333,8 +1300,8 @@ mark,
   }
 
   .row-cols-lg-6 > * {
-    flex: 0 0 16.66666667%;
-    max-width: 16.66666667%;
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 
   .col-lg-auto {
@@ -1530,8 +1497,8 @@ mark,
   }
 
   .row-cols-xl-3 > * {
-    flex: 0 0 33.33333333%;
-    max-width: 33.33333333%;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 
   .row-cols-xl-4 > * {
@@ -1545,8 +1512,8 @@ mark,
   }
 
   .row-cols-xl-6 > * {
-    flex: 0 0 16.66666667%;
-    max-width: 16.66666667%;
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 
   .col-xl-auto {
@@ -2134,11 +2101,6 @@ mark,
   border: 0;
 }
 
-.form-control:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #495057;
-}
-
 .form-control:focus {
   color: #495057;
   background-color: #fff;
@@ -2147,22 +2109,12 @@ mark,
   box-shadow: 0 0 0 0.2rem rgba(62, 130, 255, 0.25);
 }
 
-.form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -2176,6 +2128,20 @@ mark,
 .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
+}
+
+input[type=date].form-control,
+input[type=time].form-control,
+input[type=datetime-local].form-control,
+input[type=month].form-control {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+select.form-control:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #495057;
 }
 
 select.form-control:focus::-ms-value {
@@ -2272,7 +2238,7 @@ textarea.form-control {
 }
 
 .form-row > .col,
-.form-row > [class*="col-"] {
+.form-row > [class*=col-] {
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -2323,16 +2289,22 @@ textarea.form-control {
 .valid-tooltip {
   position: absolute;
   top: 100%;
+  left: 0;
   z-index: 5;
   display: none;
   max-width: 100%;
   padding: 0.25rem 0.5rem;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(40, 167, 69, 0.9);
   border-radius: 4px;
+}
+
+.form-row > .col > .valid-tooltip,
+.form-row > [class*=col-] > .valid-tooltip {
+  left: 5px;
 }
 
 .was-validated :valid ~ .valid-feedback,
@@ -2345,7 +2317,7 @@ textarea.form-control {
 .was-validated .form-control:valid,
 .form-control.is-valid {
   border-color: #28a745;
-  padding-right: calc(1.5em + 1rem);
+  padding-right: calc(1.5em + 1rem) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.375em + 0.25rem) center;
@@ -2358,6 +2330,12 @@ textarea.form-control {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
+.was-validated select.form-control:valid,
+select.form-control.is-valid {
+  padding-right: 3.2rem !important;
+  background-position: right 1.6rem center;
+}
+
 .was-validated textarea.form-control:valid,
 textarea.form-control.is-valid {
   padding-right: calc(1.5em + 1rem);
@@ -2367,8 +2345,8 @@ textarea.form-control.is-valid {
 .was-validated .custom-select:valid,
 .custom-select.is-valid {
   border-color: #28a745;
-  padding-right: calc(0.75em + 2.55rem);
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.8rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.8rem/calc(0.75em + 0.5rem) calc(0.75em + 0.5rem);
+  padding-right: calc(0.75em + 2.55rem) !important;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.8rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") center right 1.8rem/calc(0.75em + 0.5rem) calc(0.75em + 0.5rem) no-repeat;
 }
 
 .was-validated .custom-select:valid:focus,
@@ -2390,178 +2368,178 @@ textarea.form-control.is-valid {
 }
 
 .was-validated .custom-control-input:valid ~ .custom-control-label,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .custom-control-label,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .custom-control-label,
-.was-validated .mwform-radio-field input[type="radio"]:valid ~ .custom-control-label,
-.mwform-radio-field .was-validated input[type="radio"]:valid ~ .custom-control-label,
-.was-validated .mwform-checkbox-field .custom-control-input:valid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated .custom-control-input:valid ~ .mwform-checkbox-field-text,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .mwform-checkbox-field-text,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:valid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:valid ~ .mwform-checkbox-field-text,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:valid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:valid ~ .mwform-checkbox-field-text,
 .was-validated .mwform-radio-field .custom-control-input:valid ~ .mwform-radio-field-text,
 .mwform-radio-field .was-validated .custom-control-input:valid ~ .mwform-radio-field-text,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:valid ~ .mwform-radio-field-text,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .mwform-radio-field-text,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:valid ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .mwform-radio-field-text,
-.was-validated .mwform-radio-field input[type="radio"]:valid ~ .mwform-radio-field-text,
-.mwform-radio-field .was-validated input[type="radio"]:valid ~ .mwform-radio-field-text,
+.was-validated .mwform-radio-field input[type=radio]:valid ~ .custom-control-label,
+.was-validated .mwform-radio-field input[type=radio]:valid ~ .mwform-radio-field-text,
+.mwform-radio-field .was-validated input[type=radio]:valid ~ .custom-control-label,
+.mwform-radio-field .was-validated input[type=radio]:valid ~ .mwform-radio-field-text,
+.was-validated .mwform-checkbox-field .custom-control-input:valid ~ .mwform-checkbox-field-text,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:valid ~ .mwform-checkbox-field-text,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:valid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated .custom-control-input:valid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:valid ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:valid ~ .mwform-checkbox-field-text,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .custom-control-label,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:valid ~ .mwform-radio-field-text,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .mwform-radio-field-text,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .custom-control-label,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:valid ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .mwform-radio-field-text,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .mwform-checkbox-field-text,
 .custom-control-input.is-valid ~ .custom-control-label,
-.mwform-checkbox-field input.is-valid[type="checkbox"] ~ .custom-control-label,
-.mwform-radio-field input.is-valid[type="radio"] ~ .custom-control-label,
-.mwform-checkbox-field .custom-control-input.is-valid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field input.is-valid[type="checkbox"] ~ .mwform-checkbox-field-text,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="radio"] ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="radio"] ~ .mwform-checkbox-field-text,
 .mwform-radio-field .custom-control-input.is-valid ~ .mwform-radio-field-text,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field input.is-valid[type="radio"] ~ .mwform-radio-field-text {
+.mwform-radio-field input.is-valid[type=radio] ~ .custom-control-label,
+.mwform-radio-field input.is-valid[type=radio] ~ .mwform-radio-field-text,
+.mwform-checkbox-field .custom-control-input.is-valid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=radio] ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=radio] ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field input.is-valid[type=checkbox] ~ .custom-control-label,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=checkbox] ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=checkbox] ~ .mwform-radio-field-text,
+.mwform-checkbox-field input.is-valid[type=checkbox] ~ .mwform-checkbox-field-text {
   color: #28a745;
 }
 
 .was-validated .custom-control-input:valid ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:valid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:valid ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:valid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:valid ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:valid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:valid ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:valid ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:valid ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:valid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:valid ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:valid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:valid ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:valid ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:valid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:valid ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:valid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:valid ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:valid ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:valid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:valid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:valid ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:valid ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:valid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:valid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-valid ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"] ~ .custom-control-label::before,
-.mwform-radio-field input.is-valid[type="radio"] ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-valid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"] ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="radio"] ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="radio"] ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-valid ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-valid[type="radio"] ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-valid[type=radio] ~ .custom-control-label::before,
+.mwform-radio-field input.is-valid[type=radio] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-valid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox] ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox] ~ .mwform-checkbox-field-text::before {
   border-color: #28a745;
 }
 
 .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:checked ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:checked ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:checked ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:valid:checked ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:checked ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:valid:checked ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:valid:checked ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:valid:checked ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:valid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:valid:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:valid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:valid:checked ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:checked ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:checked ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:valid:checked ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:valid:checked ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:checked ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:valid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:valid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:valid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:valid:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:checked ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-valid:checked ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:checked ~ .custom-control-label::before,
-.mwform-radio-field input.is-valid[type="radio"]:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-valid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-valid:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-valid[type="radio"]:checked ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-valid[type=radio]:checked ~ .custom-control-label::before,
+.mwform-radio-field input.is-valid[type=radio]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-valid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:checked ~ .mwform-checkbox-field-text::before {
   border-color: #34ce57;
   background-color: #34ce57;
 }
 
 .was-validated .custom-control-input:valid:focus ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:focus ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:focus ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:valid:focus ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:valid:focus ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:valid:focus ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:valid:focus ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:valid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:valid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:focus ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:focus ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:valid:focus ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:valid:focus ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:valid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:valid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-valid:focus ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:focus ~ .custom-control-label::before,
-.mwform-radio-field input.is-valid[type="radio"]:focus ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-valid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-valid:focus ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-valid[type="radio"]:focus ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-valid[type=radio]:focus ~ .custom-control-label::before,
+.mwform-radio-field input.is-valid[type=radio]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-valid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:focus ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:focus ~ .mwform-checkbox-field-text::before {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
 .was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:focus:not(:checked) ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus:not(:checked) ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-radio-field input.is-valid[type="radio"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-valid[type="checkbox"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-valid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-valid[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-valid[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-valid[type="radio"]:focus:not(:checked) ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-valid[type=radio]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-radio-field input.is-valid[type=radio]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-valid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-valid[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-valid[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-valid[type=checkbox]:focus:not(:checked) ~ .mwform-checkbox-field-text::before {
   border-color: #28a745;
 }
 
@@ -2587,16 +2565,22 @@ textarea.form-control.is-valid {
 .invalid-tooltip {
   position: absolute;
   top: 100%;
+  left: 0;
   z-index: 5;
   display: none;
   max-width: 100%;
   padding: 0.25rem 0.5rem;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(220, 53, 69, 0.9);
   border-radius: 4px;
+}
+
+.form-row > .col > .invalid-tooltip,
+.form-row > [class*=col-] > .invalid-tooltip {
+  left: 5px;
 }
 
 .was-validated :invalid ~ .invalid-feedback,
@@ -2609,7 +2593,7 @@ textarea.form-control.is-valid {
 .was-validated .form-control:invalid,
 .form-control.is-invalid {
   border-color: #dc3545;
-  padding-right: calc(1.5em + 1rem);
+  padding-right: calc(1.5em + 1rem) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.375em + 0.25rem) center;
@@ -2622,6 +2606,12 @@ textarea.form-control.is-valid {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
+.was-validated select.form-control:invalid,
+select.form-control.is-invalid {
+  padding-right: 3.2rem !important;
+  background-position: right 1.6rem center;
+}
+
 .was-validated textarea.form-control:invalid,
 textarea.form-control.is-invalid {
   padding-right: calc(1.5em + 1rem);
@@ -2631,8 +2621,8 @@ textarea.form-control.is-invalid {
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
   border-color: #dc3545;
-  padding-right: calc(0.75em + 2.55rem);
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.8rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") #fff no-repeat center right 1.8rem/calc(0.75em + 0.5rem) calc(0.75em + 0.5rem);
+  padding-right: calc(0.75em + 2.55rem) !important;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.8rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") center right 1.8rem/calc(0.75em + 0.5rem) calc(0.75em + 0.5rem) no-repeat;
 }
 
 .was-validated .custom-select:invalid:focus,
@@ -2654,178 +2644,178 @@ textarea.form-control.is-invalid {
 }
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .custom-control-label,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .custom-control-label,
-.was-validated .mwform-radio-field input[type="radio"]:invalid ~ .custom-control-label,
-.mwform-radio-field .was-validated input[type="radio"]:invalid ~ .custom-control-label,
-.was-validated .mwform-checkbox-field .custom-control-input:invalid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated .custom-control-input:invalid ~ .mwform-checkbox-field-text,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .mwform-checkbox-field-text,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:invalid ~ .mwform-checkbox-field-text,
 .was-validated .mwform-radio-field .custom-control-input:invalid ~ .mwform-radio-field-text,
 .mwform-radio-field .was-validated .custom-control-input:invalid ~ .mwform-radio-field-text,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .mwform-radio-field-text,
-.was-validated .mwform-radio-field input[type="radio"]:invalid ~ .mwform-radio-field-text,
-.mwform-radio-field .was-validated input[type="radio"]:invalid ~ .mwform-radio-field-text,
+.was-validated .mwform-radio-field input[type=radio]:invalid ~ .custom-control-label,
+.was-validated .mwform-radio-field input[type=radio]:invalid ~ .mwform-radio-field-text,
+.mwform-radio-field .was-validated input[type=radio]:invalid ~ .custom-control-label,
+.mwform-radio-field .was-validated input[type=radio]:invalid ~ .mwform-radio-field-text,
+.was-validated .mwform-checkbox-field .custom-control-input:invalid ~ .mwform-checkbox-field-text,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:invalid ~ .mwform-checkbox-field-text,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:invalid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated .custom-control-input:invalid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:invalid ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:invalid ~ .mwform-checkbox-field-text,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .custom-control-label,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:invalid ~ .mwform-radio-field-text,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .mwform-radio-field-text,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .custom-control-label,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:invalid ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .mwform-radio-field-text,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .mwform-checkbox-field-text,
 .custom-control-input.is-invalid ~ .custom-control-label,
-.mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .custom-control-label,
-.mwform-radio-field input.is-invalid[type="radio"] ~ .custom-control-label,
-.mwform-checkbox-field .custom-control-input.is-invalid ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .mwform-checkbox-field-text,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="radio"] ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="radio"] ~ .mwform-checkbox-field-text,
 .mwform-radio-field .custom-control-input.is-invalid ~ .mwform-radio-field-text,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field input.is-invalid[type="radio"] ~ .mwform-radio-field-text {
+.mwform-radio-field input.is-invalid[type=radio] ~ .custom-control-label,
+.mwform-radio-field input.is-invalid[type=radio] ~ .mwform-radio-field-text,
+.mwform-checkbox-field .custom-control-input.is-invalid ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=radio] ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=radio] ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field input.is-invalid[type=checkbox] ~ .custom-control-label,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=checkbox] ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=checkbox] ~ .mwform-radio-field-text,
+.mwform-checkbox-field input.is-invalid[type=checkbox] ~ .mwform-checkbox-field-text {
   color: #dc3545;
 }
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:invalid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:invalid ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:invalid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:invalid ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:invalid ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:invalid ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:invalid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:invalid ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:invalid ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:invalid ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:invalid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:invalid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:invalid ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:invalid ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:invalid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:invalid ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-invalid ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .custom-control-label::before,
-.mwform-radio-field input.is-invalid[type="radio"] ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-invalid ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="radio"] ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="radio"] ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-invalid ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-invalid[type="radio"] ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-invalid[type=radio] ~ .custom-control-label::before,
+.mwform-radio-field input.is-invalid[type=radio] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-invalid ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox] ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox] ~ .mwform-checkbox-field-text::before {
   border-color: #dc3545;
 }
 
 .was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:checked ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:checked ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:checked ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:invalid:checked ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:checked ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:invalid:checked ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:invalid:checked ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:invalid:checked ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:invalid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:invalid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:checked ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:checked ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:checked ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:invalid:checked ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:invalid:checked ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:checked ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:invalid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:invalid:checked ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:invalid:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:invalid:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:checked ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-invalid:checked ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:checked ~ .custom-control-label::before,
-.mwform-radio-field input.is-invalid[type="radio"]:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-invalid:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-invalid:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-invalid[type="radio"]:checked ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-invalid[type=radio]:checked ~ .custom-control-label::before,
+.mwform-radio-field input.is-invalid[type=radio]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-invalid:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:checked ~ .mwform-checkbox-field-text::before {
   border-color: #e4606d;
   background-color: #e4606d;
 }
 
 .was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:focus ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:focus ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:invalid:focus ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:invalid:focus ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:invalid:focus ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:invalid:focus ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:invalid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:invalid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:focus ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:focus ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:invalid:focus ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:invalid:focus ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:invalid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:invalid:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-invalid:focus ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:focus ~ .custom-control-label::before,
-.mwform-radio-field input.is-invalid[type="radio"]:focus ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-invalid:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-invalid:focus ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-invalid[type="radio"]:focus ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-invalid[type=radio]:focus ~ .custom-control-label::before,
+.mwform-radio-field input.is-invalid[type=radio]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-invalid:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:focus ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:focus ~ .mwform-checkbox-field-text::before {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
 .was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:focus:not(:checked) ~ .custom-control-label::before,
-.was-validated .mwform-checkbox-field .custom-control-input:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .custom-control-input:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.was-validated .mwform-radio-field .mwform-checkbox-field input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .was-validated input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .was-validated .mwform-radio-field .custom-control-input:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
 .mwform-radio-field .was-validated .custom-control-input:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.was-validated .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated .mwform-checkbox-field input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .was-validated .mwform-radio-field input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .was-validated input[type="checkbox"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.was-validated .mwform-radio-field input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .was-validated input[type="radio"]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:focus:not(:checked) ~ .custom-control-label::before,
+.was-validated .mwform-radio-field input[type=radio]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-radio-field .was-validated input[type=radio]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field .custom-control-input:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=radio]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=radio]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .custom-control-input:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=radio]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=radio]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus:not(:checked) ~ .custom-control-label::before,
+.was-validated .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.was-validated .mwform-checkbox-field input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-checkbox-field .was-validated .mwform-radio-field input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .was-validated input[type=checkbox]:invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-radio-field input.is-invalid[type="radio"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input.is-invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input.is-invalid[type="checkbox"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input.is-invalid:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input.is-invalid[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input.is-invalid[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field input.is-invalid[type="radio"]:focus:not(:checked) ~ .mwform-radio-field-text::before {
+.mwform-radio-field input.is-invalid[type=radio]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-radio-field input.is-invalid[type=radio]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input.is-invalid:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input.is-invalid[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input.is-invalid[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input.is-invalid[type=checkbox]:focus:not(:checked) ~ .mwform-checkbox-field-text::before {
   border-color: #dc3545;
 }
 
@@ -2898,17 +2888,17 @@ textarea.form-control.is-invalid {
   }
 
   .form-inline .custom-control,
-  .form-inline .mwform-checkbox-field,
-  .form-inline .mwform-radio-field {
+  .form-inline .mwform-radio-field,
+  .form-inline .mwform-checkbox-field {
     align-items: center;
     justify-content: center;
   }
 
   .form-inline .custom-control-label,
-  .form-inline .mwform-checkbox-field .mwform-checkbox-field-text,
-  .mwform-checkbox-field .form-inline .mwform-checkbox-field-text,
   .form-inline .mwform-radio-field .mwform-radio-field-text,
-  .mwform-radio-field .form-inline .mwform-radio-field-text {
+  .mwform-radio-field .form-inline .mwform-radio-field-text,
+  .form-inline .mwform-checkbox-field .mwform-checkbox-field-text,
+  .mwform-checkbox-field .form-inline .mwform-checkbox-field-text {
     margin-bottom: 0;
   }
 }
@@ -2919,7 +2909,6 @@ textarea.form-control.is-invalid {
   color: #212529;
   text-align: center;
   vertical-align: middle;
-  cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2953,6 +2942,10 @@ textarea.form-control.is-invalid {
 .btn.disabled,
 .btn:disabled {
   opacity: 0.65;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
 }
 
 a.btn.disabled,
@@ -3590,7 +3583,6 @@ fieldset:disabled a.btn {
 .btn-link:focus,
 .btn-link.focus {
   text-decoration: underline;
-  box-shadow: none;
 }
 
 .btn-link:disabled,
@@ -3624,9 +3616,9 @@ fieldset:disabled a.btn {
   margin-top: 0.5rem;
 }
 
-input[type="submit"].btn-block,
-input[type="reset"].btn-block,
-input[type="button"].btn-block {
+input[type=submit].btn-block,
+input[type=reset].btn-block,
+input[type=button].btn-block {
   width: 100%;
 }
 
@@ -3820,10 +3812,10 @@ input[type="button"].btn-block {
   vertical-align: 0;
 }
 
-.dropdown-menu[x-placement^="top"],
-.dropdown-menu[x-placement^="right"],
-.dropdown-menu[x-placement^="bottom"],
-.dropdown-menu[x-placement^="left"] {
+.dropdown-menu[x-placement^=top],
+.dropdown-menu[x-placement^=right],
+.dropdown-menu[x-placement^=bottom],
+.dropdown-menu[x-placement^=left] {
   right: auto;
   bottom: auto;
 }
@@ -3852,7 +3844,7 @@ input[type="button"].btn-block {
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #e9ecef;
 }
 
 .dropdown-item.active,
@@ -3864,7 +3856,7 @@ input[type="button"].btn-block {
 
 .dropdown-item.disabled,
 .dropdown-item:disabled {
-  color: #6c757d;
+  color: #adb5bd;
   pointer-events: none;
   background-color: transparent;
 }
@@ -4002,10 +3994,10 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
-.btn-group-toggle > .btn input[type="radio"],
-.btn-group-toggle > .btn input[type="checkbox"],
-.btn-group-toggle > .btn-group > .btn input[type="radio"],
-.btn-group-toggle > .btn-group > .btn input[type="checkbox"] {
+.btn-group-toggle > .btn input[type=radio],
+.btn-group-toggle > .btn input[type=checkbox],
+.btn-group-toggle > .btn-group > .btn input[type=radio],
+.btn-group-toggle > .btn-group > .btn input[type=checkbox] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
@@ -4024,7 +4016,8 @@ input[type="button"].btn-block {
 .input-group > .custom-select,
 .input-group > .custom-file {
   position: relative;
-  flex: 1 1 0%;
+  flex: 1 1 auto;
+  width: 1%;
   min-width: 0;
   margin-bottom: 0;
 }
@@ -4054,12 +4047,6 @@ input[type="button"].btn-block {
   z-index: 4;
 }
 
-.input-group > .form-control:not(:last-child),
-.input-group > .custom-select:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
 .input-group > .form-control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
@@ -4080,6 +4067,22 @@ input[type="button"].btn-block {
 .input-group > .custom-file:not(:first-child) .custom-file-label {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.input-group:not(.has-validation) > .form-control:not(:last-child),
+.input-group:not(.has-validation) > .custom-select:not(:last-child),
+.input-group:not(.has-validation) > .custom-file:not(:last-child) .custom-file-label,
+.input-group:not(.has-validation) > .custom-file:not(:last-child) .custom-file-label::after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group.has-validation > .form-control:nth-last-child(n+3),
+.input-group.has-validation > .custom-select:nth-last-child(n+3),
+.input-group.has-validation > .custom-file:nth-last-child(n+3) .custom-file-label,
+.input-group.has-validation > .custom-file:nth-last-child(n+3) .custom-file-label::after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .input-group-prepend,
@@ -4133,8 +4136,8 @@ input[type="button"].btn-block {
   border-radius: 4px;
 }
 
-.input-group-text input[type="radio"],
-.input-group-text input[type="checkbox"] {
+.input-group-text input[type=radio],
+.input-group-text input[type=checkbox] {
   margin-top: 0;
 }
 
@@ -4179,8 +4182,10 @@ input[type="button"].btn-block {
 
 .input-group > .input-group-prepend > .btn,
 .input-group > .input-group-prepend > .input-group-text,
-.input-group > .input-group-append:not(:last-child) > .btn,
-.input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group:not(.has-validation) > .input-group-append:not(:last-child) > .btn,
+.input-group:not(.has-validation) > .input-group-append:not(:last-child) > .input-group-text,
+.input-group.has-validation > .input-group-append:nth-last-child(n+3) > .btn,
+.input-group.has-validation > .input-group-append:nth-last-child(n+3) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
@@ -4198,12 +4203,15 @@ input[type="button"].btn-block {
 }
 
 .custom-control,
-.mwform-checkbox-field,
-.mwform-radio-field {
+.mwform-radio-field,
+.mwform-checkbox-field {
   position: relative;
+  z-index: 1;
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -4212,8 +4220,8 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input,
-.mwform-checkbox-field input[type="checkbox"],
-.mwform-radio-field input[type="radio"] {
+.mwform-radio-field input[type=radio],
+.mwform-checkbox-field input[type=checkbox] {
   position: absolute;
   left: 0;
   z-index: -1;
@@ -4223,126 +4231,126 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input:checked ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:checked ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:checked ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:checked ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::before {
   color: #fff;
   border-color: #3e82ff;
   background-color: #3e82ff;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:focus ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:focus ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:focus ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input:focus ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:focus ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:focus ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:focus ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:focus ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:focus ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:focus ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:focus ~ .mwform-checkbox-field-text::before {
   box-shadow: 0 0 0 0.2rem rgba(62, 130, 255, 0.25);
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:focus:not(:checked) ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:focus:not(:checked) ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:focus:not(:checked) ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:focus:not(:checked) ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:focus:not(:checked) ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:focus:not(:checked) ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:focus:not(:checked) ~ .mwform-checkbox-field-text::before {
   border-color: #bed5ff;
 }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:not(:disabled):active ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:not(:disabled):active ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:not(:disabled):active ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:not(:disabled):active ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:not(:disabled):active ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:not(:disabled):active ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input:not(:disabled):active ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:not(:disabled):active ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:not(:disabled):active ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:not(:disabled):active ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:not(:disabled):active ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:not(:disabled):active ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:not(:disabled):active ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:not(:disabled):active ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:not(:disabled):active ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:not(:disabled):active ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:not(:disabled):active ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:not(:disabled):active ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:not(:disabled):active ~ .mwform-checkbox-field-text::before {
   color: #fff;
   background-color: #f1f6ff;
   border-color: #f1f6ff;
 }
 
 .custom-control-input[disabled] ~ .custom-control-label,
-.mwform-checkbox-field input[disabled][type="checkbox"] ~ .custom-control-label,
-.mwform-radio-field input[disabled][type="radio"] ~ .custom-control-label,
-.mwform-checkbox-field .custom-control-input[disabled] ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field input[disabled][type="checkbox"] ~ .mwform-checkbox-field-text,
-.mwform-radio-field .mwform-checkbox-field input[disabled][type="radio"] ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field input[disabled][type="radio"] ~ .mwform-checkbox-field-text,
 .mwform-radio-field .custom-control-input[disabled] ~ .mwform-radio-field-text,
-.mwform-checkbox-field .mwform-radio-field input[disabled][type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field input[disabled][type="checkbox"] ~ .mwform-radio-field-text,
-.mwform-radio-field input[disabled][type="radio"] ~ .mwform-radio-field-text,
+.mwform-radio-field input[disabled][type=radio] ~ .custom-control-label,
+.mwform-radio-field input[disabled][type=radio] ~ .mwform-radio-field-text,
+.mwform-checkbox-field .custom-control-input[disabled] ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .mwform-radio-field input[disabled][type=radio] ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field input[disabled][type=radio] ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field input[disabled][type=checkbox] ~ .custom-control-label,
+.mwform-checkbox-field .mwform-radio-field input[disabled][type=checkbox] ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field input[disabled][type=checkbox] ~ .mwform-radio-field-text,
+.mwform-checkbox-field input[disabled][type=checkbox] ~ .mwform-checkbox-field-text,
 .custom-control-input:disabled ~ .custom-control-label,
-.mwform-checkbox-field input[type="checkbox"]:disabled ~ .custom-control-label,
-.mwform-radio-field input[type="radio"]:disabled ~ .custom-control-label,
-.mwform-checkbox-field .custom-control-input:disabled ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field input[type="checkbox"]:disabled ~ .mwform-checkbox-field-text,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled ~ .mwform-checkbox-field-text,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled ~ .mwform-checkbox-field-text,
 .mwform-radio-field .custom-control-input:disabled ~ .mwform-radio-field-text,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled ~ .mwform-radio-field-text,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled ~ .mwform-radio-field-text,
-.mwform-radio-field input[type="radio"]:disabled ~ .mwform-radio-field-text {
+.mwform-radio-field input[type=radio]:disabled ~ .custom-control-label,
+.mwform-radio-field input[type=radio]:disabled ~ .mwform-radio-field-text,
+.mwform-checkbox-field .custom-control-input:disabled ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled ~ .mwform-checkbox-field-text,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled ~ .mwform-checkbox-field-text,
+.mwform-checkbox-field input[type=checkbox]:disabled ~ .custom-control-label,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled ~ .mwform-radio-field-text,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled ~ .mwform-radio-field-text,
+.mwform-checkbox-field input[type=checkbox]:disabled ~ .mwform-checkbox-field-text {
   color: #6c757d;
 }
 
 .custom-control-input[disabled] ~ .custom-control-label::before,
-.mwform-checkbox-field input[disabled][type="checkbox"] ~ .custom-control-label::before,
-.mwform-radio-field input[disabled][type="radio"] ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input[disabled] ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[disabled][type="checkbox"] ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[disabled][type="radio"] ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[disabled][type="radio"] ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input[disabled] ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[disabled][type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[disabled][type="checkbox"] ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[disabled][type="radio"] ~ .mwform-radio-field-text::before,
+.mwform-radio-field input[disabled][type=radio] ~ .custom-control-label::before,
+.mwform-radio-field input[disabled][type=radio] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input[disabled] ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[disabled][type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[disabled][type=radio] ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[disabled][type=checkbox] ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[disabled][type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[disabled][type=checkbox] ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[disabled][type=checkbox] ~ .mwform-checkbox-field-text::before,
 .custom-control-input:disabled ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:disabled ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:disabled ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-control-input:disabled ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:disabled ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:disabled ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:disabled ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:disabled ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled ~ .mwform-checkbox-field-text::before {
   background-color: #e9ecef;
 }
 
 .custom-control-label,
-.mwform-checkbox-field .mwform-checkbox-field-text,
-.mwform-radio-field .mwform-radio-field-text {
+.mwform-radio-field .mwform-radio-field-text,
+.mwform-checkbox-field .mwform-checkbox-field-text {
   position: relative;
   margin-bottom: 0;
   vertical-align: top;
 }
 
 .custom-control-label::before,
-.mwform-checkbox-field .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-radio-field-text::before {
+.mwform-radio-field .mwform-radio-field-text::before,
+.mwform-checkbox-field .mwform-checkbox-field-text::before {
   position: absolute;
   top: 0.25rem;
   left: -1.5rem;
@@ -4356,8 +4364,8 @@ input[type="button"].btn-block {
 }
 
 .custom-control-label::after,
-.mwform-checkbox-field .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-radio-field-text::after {
+.mwform-radio-field .mwform-radio-field-text::after,
+.mwform-checkbox-field .mwform-checkbox-field-text::after {
   position: absolute;
   top: 0.25rem;
   left: -1.5rem;
@@ -4365,230 +4373,230 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   content: "";
-  background: no-repeat 50% / 50% 50%;
+  background: 50%/50% 50% no-repeat;
 }
 
 .custom-checkbox .custom-control-label::before,
-.mwform-checkbox-field .custom-control-label::before,
-.mwform-checkbox-field .mwform-checkbox-field-text::before,
 .custom-checkbox .mwform-radio-field .mwform-radio-field-text::before,
 .mwform-radio-field .custom-checkbox .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-label::before,
 .mwform-checkbox-field .mwform-radio-field .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .mwform-radio-field-text::before {
+.mwform-radio-field .mwform-checkbox-field .mwform-radio-field-text::before,
+.mwform-checkbox-field .mwform-checkbox-field-text::before {
   border-radius: 4px;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-control-input:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field input[type="checkbox"]:checked ~ .custom-control-label::after,
-.custom-checkbox .mwform-radio-field input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-radio-field .custom-checkbox input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-checkbox .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field .custom-checkbox input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
 .custom-checkbox .mwform-radio-field .custom-control-input:checked ~ .mwform-radio-field-text::after,
 .mwform-radio-field .custom-checkbox .custom-control-input:checked ~ .mwform-radio-field-text::after,
+.custom-checkbox .mwform-radio-field input[type=radio]:checked ~ .custom-control-label::after,
+.custom-checkbox .mwform-radio-field input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-checkbox input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-radio-field .custom-checkbox input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-checkbox .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-control-input:checked ~ .custom-control-label::after,
 .mwform-checkbox-field .mwform-radio-field .custom-control-input:checked ~ .mwform-radio-field-text::after,
 .mwform-radio-field .mwform-checkbox-field .custom-control-input:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.custom-checkbox .mwform-radio-field input[type="radio"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .custom-checkbox input[type="radio"]:checked ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-radio-field-text::after {
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .custom-control-label::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:indeterminate ~ .custom-control-label::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .custom-control-label::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::before,
 .custom-checkbox .mwform-radio-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::before,
 .mwform-radio-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-radio-field-text::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:indeterminate ~ .custom-control-label::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-control-input:indeterminate ~ .custom-control-label::before,
 .mwform-checkbox-field .mwform-radio-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::before,
 .mwform-radio-field .mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::before {
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:indeterminate ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:indeterminate ~ .mwform-checkbox-field-text::before {
   border-color: #3e82ff;
   background-color: #3e82ff;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-control-input:indeterminate ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .custom-control-label::after,
-.mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .custom-control-label::after,
-.custom-checkbox .mwform-radio-field input[type="radio"]:indeterminate ~ .custom-control-label::after,
-.mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .custom-control-label::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .custom-control-label::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .mwform-checkbox-field-text::after,
 .custom-checkbox .mwform-radio-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::after,
 .mwform-radio-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-radio-field-text::after,
+.custom-checkbox .mwform-radio-field input[type=radio]:indeterminate ~ .custom-control-label::after,
+.custom-checkbox .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-checkbox input[type=radio]:indeterminate ~ .custom-control-label::after,
+.mwform-radio-field .custom-checkbox input[type=radio]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-checkbox .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-control-input:indeterminate ~ .custom-control-label::after,
 .mwform-checkbox-field .mwform-radio-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::after,
 .mwform-radio-field .mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:indeterminate ~ .mwform-radio-field-text::after,
-.custom-checkbox .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-radio-field .custom-checkbox input[type="radio"]:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:indeterminate ~ .mwform-radio-field-text::after {
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .custom-control-label::after,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-control-input:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:indeterminate ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field input[type=checkbox]:indeterminate ~ .custom-control-label::after,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:indeterminate ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field input[type=checkbox]:indeterminate ~ .mwform-checkbox-field-text::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e");
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-checkbox input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
 .custom-checkbox .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
 .mwform-radio-field .custom-checkbox .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-control-input:disabled:checked ~ .custom-control-label::before,
 .mwform-checkbox-field .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
 .mwform-radio-field .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before {
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before {
   background-color: rgba(62, 130, 255, 0.5);
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-control-input:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled:indeterminate ~ .custom-control-label::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:indeterminate ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-checkbox .custom-control-input:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-control-input:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field input[type="checkbox"]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-checkbox input[type="radio"]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
 .custom-checkbox .mwform-radio-field .custom-control-input:disabled:indeterminate ~ .mwform-radio-field-text::before,
 .mwform-radio-field .custom-checkbox .custom-control-input:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:disabled:indeterminate ~ .custom-control-label::before,
+.custom-checkbox .mwform-radio-field input[type=radio]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:disabled:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .custom-checkbox input[type=radio]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox .custom-control-input:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=radio]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-checkbox input[type=checkbox]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-control-input:disabled:indeterminate ~ .custom-control-label::before,
 .mwform-checkbox-field .mwform-radio-field .custom-control-input:disabled:indeterminate ~ .mwform-radio-field-text::before,
 .mwform-radio-field .mwform-checkbox-field .custom-control-input:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-checkbox input[type="checkbox"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.custom-checkbox .mwform-radio-field input[type="radio"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-checkbox input[type="radio"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:indeterminate ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:indeterminate ~ .mwform-radio-field-text::before {
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:indeterminate ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:indeterminate ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-control-input:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:indeterminate ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled:indeterminate ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled:indeterminate ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field input[type=checkbox]:disabled:indeterminate ~ .mwform-checkbox-field-text::before {
   background-color: rgba(62, 130, 255, 0.5);
 }
 
 .custom-radio .custom-control-label::before,
 .mwform-radio-field .custom-control-label::before,
+.mwform-radio-field .mwform-radio-field-text::before,
 .custom-radio .mwform-checkbox-field .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-radio .mwform-checkbox-field-text::before,
 .mwform-radio-field .mwform-checkbox-field .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-radio-field-text::before {
+.mwform-checkbox-field .custom-radio .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field .mwform-checkbox-field-text::before {
   border-radius: 50%;
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after,
-.mwform-radio-field .custom-control-input:checked ~ .custom-control-label::after,
-.custom-radio .mwform-checkbox-field input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-radio input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-radio-field .custom-radio input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-radio-field input[type="radio"]:checked ~ .custom-control-label::after,
-.custom-radio .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-radio .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.custom-radio .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-radio input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field .custom-radio input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
 .mwform-radio-field .custom-radio .custom-control-input:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-radio input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-radio-field .custom-radio input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-control-input:checked ~ .custom-control-label::after,
 .mwform-radio-field .custom-control-input:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field .custom-radio input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .custom-radio input[type="radio"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field input[type="radio"]:checked ~ .mwform-radio-field-text::after {
+.mwform-radio-field input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-radio-field input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.custom-radio .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-radio .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-radio input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .mwform-radio-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.custom-radio .mwform-checkbox-field input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.custom-radio .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-radio input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-radio-field .mwform-checkbox-field .custom-radio input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-radio input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .custom-control-input:disabled:checked ~ .custom-control-label::before,
-.custom-radio .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-radio input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .custom-radio input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.custom-radio .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-radio .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.custom-radio .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-radio input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-radio input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
 .mwform-radio-field .custom-radio .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-radio input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .custom-radio input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-control-input:disabled:checked ~ .custom-control-label::before,
 .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-radio input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-radio input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before {
+.mwform-radio-field input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.custom-radio .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-radio .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-radio input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.custom-radio .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.custom-radio .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-radio input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .mwform-checkbox-field .custom-radio input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-radio input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before {
   background-color: rgba(62, 130, 255, 0.5);
 }
 
@@ -4597,10 +4605,10 @@ input[type="button"].btn-block {
 }
 
 .custom-switch .custom-control-label::before,
-.custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::before,
 .custom-switch .mwform-radio-field .mwform-radio-field-text::before,
-.mwform-radio-field .custom-switch .mwform-radio-field-text::before {
+.mwform-radio-field .custom-switch .mwform-radio-field-text::before,
+.custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::before {
   left: -2.25rem;
   width: 1.75rem;
   pointer-events: all;
@@ -4608,10 +4616,10 @@ input[type="button"].btn-block {
 }
 
 .custom-switch .custom-control-label::after,
-.custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::after,
 .custom-switch .mwform-radio-field .mwform-radio-field-text::after,
-.mwform-radio-field .custom-switch .mwform-radio-field-text::after {
+.mwform-radio-field .custom-switch .mwform-radio-field-text::after,
+.custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::after {
   top: calc(0.25rem + 2px);
   left: calc(-2.25rem + 2px);
   width: calc(1rem - 4px);
@@ -4623,60 +4631,60 @@ input[type="button"].btn-block {
 
 @media (prefers-reduced-motion: reduce) {
   .custom-switch .custom-control-label::after,
-  .custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::after,
-  .mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::after,
   .custom-switch .mwform-radio-field .mwform-radio-field-text::after,
-  .mwform-radio-field .custom-switch .mwform-radio-field-text::after {
+  .mwform-radio-field .custom-switch .mwform-radio-field-text::after,
+  .custom-switch .mwform-checkbox-field .mwform-checkbox-field-text::after,
+  .mwform-checkbox-field .custom-switch .mwform-checkbox-field-text::after {
     transition: none;
   }
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after,
-.custom-switch .mwform-checkbox-field input[type="checkbox"]:checked ~ .custom-control-label::after,
-.mwform-checkbox-field .custom-switch input[type="checkbox"]:checked ~ .custom-control-label::after,
-.custom-switch .mwform-radio-field input[type="radio"]:checked ~ .custom-control-label::after,
-.mwform-radio-field .custom-switch input[type="radio"]:checked ~ .custom-control-label::after,
-.custom-switch .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-switch .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
-.custom-switch .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-switch input[type="checkbox"]:checked ~ .mwform-checkbox-field-text::after,
-.custom-switch .mwform-radio-field .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .custom-switch .mwform-radio-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-radio-field .custom-switch .mwform-checkbox-field input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
-.mwform-checkbox-field .mwform-radio-field .custom-switch input[type="radio"]:checked ~ .mwform-checkbox-field-text::after,
 .custom-switch .mwform-radio-field .custom-control-input:checked ~ .mwform-radio-field-text::after,
 .mwform-radio-field .custom-switch .custom-control-input:checked ~ .mwform-radio-field-text::after,
-.custom-switch .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .custom-switch .mwform-checkbox-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-checkbox-field .custom-switch .mwform-radio-field input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .mwform-checkbox-field .custom-switch input[type="checkbox"]:checked ~ .mwform-radio-field-text::after,
-.custom-switch .mwform-radio-field input[type="radio"]:checked ~ .mwform-radio-field-text::after,
-.mwform-radio-field .custom-switch input[type="radio"]:checked ~ .mwform-radio-field-text::after {
+.custom-switch .mwform-radio-field input[type=radio]:checked ~ .custom-control-label::after,
+.custom-switch .mwform-radio-field input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-switch input[type=radio]:checked ~ .custom-control-label::after,
+.mwform-radio-field .custom-switch input[type=radio]:checked ~ .mwform-radio-field-text::after,
+.custom-switch .mwform-checkbox-field .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.custom-switch .mwform-checkbox-field .mwform-radio-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .custom-switch .mwform-checkbox-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-switch .custom-control-input:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-switch .mwform-radio-field input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-switch input[type=radio]:checked ~ .mwform-checkbox-field-text::after,
+.custom-switch .mwform-checkbox-field input[type=checkbox]:checked ~ .custom-control-label::after,
+.custom-switch .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .custom-switch .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.custom-switch .mwform-checkbox-field input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after,
+.mwform-checkbox-field .custom-switch input[type=checkbox]:checked ~ .custom-control-label::after,
+.mwform-checkbox-field .custom-switch .mwform-radio-field input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-radio-field .mwform-checkbox-field .custom-switch input[type=checkbox]:checked ~ .mwform-radio-field-text::after,
+.mwform-checkbox-field .custom-switch input[type=checkbox]:checked ~ .mwform-checkbox-field-text::after {
   background-color: #fff;
   transform: translateX(0.75rem);
 }
 
 .custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before,
-.custom-switch .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.mwform-checkbox-field .custom-switch input[type="checkbox"]:disabled:checked ~ .custom-control-label::before,
-.custom-switch .mwform-radio-field input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.mwform-radio-field .custom-switch input[type="radio"]:disabled:checked ~ .custom-control-label::before,
-.custom-switch .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-switch .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
-.custom-switch .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-switch input[type="checkbox"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.custom-switch .mwform-radio-field .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .custom-switch .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-radio-field .custom-switch .mwform-checkbox-field input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
-.mwform-checkbox-field .mwform-radio-field .custom-switch input[type="radio"]:disabled:checked ~ .mwform-checkbox-field-text::before,
 .custom-switch .mwform-radio-field .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
 .mwform-radio-field .custom-switch .custom-control-input:disabled:checked ~ .mwform-radio-field-text::before,
-.custom-switch .mwform-checkbox-field .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-switch .mwform-checkbox-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-checkbox-field .custom-switch .mwform-radio-field input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .mwform-checkbox-field .custom-switch input[type="checkbox"]:disabled:checked ~ .mwform-radio-field-text::before,
-.custom-switch .mwform-radio-field input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before,
-.mwform-radio-field .custom-switch input[type="radio"]:disabled:checked ~ .mwform-radio-field-text::before {
+.custom-switch .mwform-radio-field input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.custom-switch .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-switch input[type=radio]:disabled:checked ~ .custom-control-label::before,
+.mwform-radio-field .custom-switch input[type=radio]:disabled:checked ~ .mwform-radio-field-text::before,
+.custom-switch .mwform-checkbox-field .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.custom-switch .mwform-checkbox-field .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .custom-switch .mwform-checkbox-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-switch .custom-control-input:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-switch .mwform-radio-field input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-switch input[type=radio]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.custom-switch .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.custom-switch .mwform-checkbox-field .mwform-radio-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .custom-switch .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.custom-switch .mwform-checkbox-field input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before,
+.mwform-checkbox-field .custom-switch input[type=checkbox]:disabled:checked ~ .custom-control-label::before,
+.mwform-checkbox-field .custom-switch .mwform-radio-field input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-radio-field .mwform-checkbox-field .custom-switch input[type=checkbox]:disabled:checked ~ .mwform-radio-field-text::before,
+.mwform-checkbox-field .custom-switch input[type=checkbox]:disabled:checked ~ .mwform-checkbox-field-text::before {
   background-color: rgba(62, 130, 255, 0.5);
 }
 
@@ -4690,7 +4698,7 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: #495057;
   vertical-align: middle;
-  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.8rem center/8px 10px;
+  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.8rem center/8px 10px no-repeat;
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-appearance: none;
@@ -4760,6 +4768,7 @@ input[type="button"].btn-block {
   width: 100%;
   height: calc(1.5em + 1rem + 2px);
   margin: 0;
+  overflow: hidden;
   opacity: 0;
 }
 
@@ -4789,6 +4798,7 @@ input[type="button"].btn-block {
   z-index: 1;
   height: calc(1.5em + 1rem + 2px);
   padding: 0.5rem 0.8rem;
+  overflow: hidden;
   font-weight: 300;
   line-height: 1.5;
   color: #495057;
@@ -4825,7 +4835,7 @@ input[type="button"].btn-block {
 }
 
 .custom-range:focus {
-  outline: none;
+  outline: 0;
 }
 
 .custom-range:focus::-webkit-slider-thumb {
@@ -4978,8 +4988,8 @@ input[type="button"].btn-block {
 }
 
 .custom-control-label::before,
-.mwform-checkbox-field .mwform-checkbox-field-text::before,
 .mwform-radio-field .mwform-radio-field-text::before,
+.mwform-checkbox-field .mwform-checkbox-field-text::before,
 .custom-file-label,
 .custom-select {
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4987,8 +4997,8 @@ input[type="button"].btn-block {
 
 @media (prefers-reduced-motion: reduce) {
   .custom-control-label::before,
-  .mwform-checkbox-field .mwform-checkbox-field-text::before,
   .mwform-radio-field .mwform-radio-field-text::before,
+  .mwform-checkbox-field .mwform-checkbox-field-text::before,
   .custom-file-label,
   .custom-select {
     transition: none;
@@ -5012,14 +5022,26 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
-.card > .list-group:first-child .list-group-item:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.card > .list-group {
+  border-top: inherit;
+  border-bottom: inherit;
 }
 
-.card > .list-group:last-child .list-group-item:last-child {
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+.card > .list-group:first-child {
+  border-top-width: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.card > .list-group:last-child {
+  border-bottom-width: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.card > .card-header + .list-group,
+.card > .list-group + .card-footer {
+  border-top: 0;
 }
 
 .card-body {
@@ -5060,10 +5082,6 @@ input[type="button"].btn-block {
   border-radius: 3px 3px 0 0;
 }
 
-.card-header + .list-group .list-group-item:first-child {
-  border-top: 0;
-}
-
 .card-footer {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
@@ -5093,6 +5111,7 @@ input[type="button"].btn-block {
   bottom: 0;
   left: 0;
   padding: 1.25rem;
+  border-radius: 3px;
 }
 
 .card-img,
@@ -5205,6 +5224,10 @@ input[type="button"].btn-block {
   }
 }
 
+.accordion {
+  overflow-anchor: none;
+}
+
 .accordion > .card {
   overflow: hidden;
 }
@@ -5240,7 +5263,7 @@ input[type="button"].btn-block {
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  display: inline-block;
+  float: left;
   padding-right: 0.5rem;
   color: #6c757d;
   content: "/";
@@ -6662,7 +6685,7 @@ a.badge-dark.focus {
   z-index: 1;
   pointer-events: auto;
   content: "";
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .text-monospace {
@@ -6897,7 +6920,7 @@ a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
 }
 
 .text-reset {
@@ -6936,10 +6959,6 @@ a.text-dark:focus {
   blockquote {
     border: 1px solid #adb5bd;
     page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
   }
 
   tr,
@@ -7027,26 +7046,26 @@ body {
   color: #241E1C;
   word-wrap: break-word;
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   direction: ltr;
   font-weight: 400;
-  font-size: .95rem;
+  font-size: 0.95rem;
   line-height: 165%;
 }
 
 @media (max-width: 991px) {
   body {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 767px) {
   body {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -7086,8 +7105,8 @@ img[src$=".svg"] {
 }
 
 .custom-control-label,
-.mwform-checkbox-field .mwform-checkbox-field-text,
 .mwform-radio-field .mwform-radio-field-text,
+.mwform-checkbox-field .mwform-checkbox-field-text,
 .custom-file-label,
 .col-form-label {
   font-size: 14px;
@@ -7102,19 +7121,11 @@ img[src$=".svg"] {
   font-size: 16px;
 }
 
-.form-control::-webkit-input-placeholder {
-  font-size: 14px;
-}
-
 .form-control::-moz-placeholder {
   font-size: 14px;
 }
 
 .form-control:-ms-input-placeholder {
-  font-size: 14px;
-}
-
-.form-control::-ms-input-placeholder {
   font-size: 14px;
 }
 
@@ -7178,7 +7189,7 @@ img[src$=".svg"] {
 }
 
 @font-face {
-  font-family: 'swiper-icons';
+  font-family: "swiper-icons";
   src: url("data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -7286,19 +7297,19 @@ img[src$=".svg"] {
 }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-right {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 /* CSS Mode */
@@ -7614,6 +7625,7 @@ button.swiper-pagination-bullet {
   letter-spacing: 0;
   text-transform: none;
   font-variant: initial;
+  line-height: 1;
 }
 
 .swiper-button-prev,
@@ -7624,7 +7636,7 @@ button.swiper-pagination-bullet {
 
 .swiper-button-prev:after,
 .swiper-container-rtl .swiper-button-next:after {
-  content: 'prev';
+  content: "prev";
 }
 
 .swiper-button-next,
@@ -7635,7 +7647,7 @@ button.swiper-pagination-bullet {
 
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {
-  content: 'next';
+  content: "next";
 }
 
 .swiper-button-prev.swiper-button-blue,
@@ -7835,7 +7847,7 @@ button.swiper-pagination-bullet {
   display: block;
   pointer-events: none;
   border: solid transparent;
-  content: '';
+  content: "";
   height: 0;
   width: 0;
   left: 22px;
@@ -8557,10 +8569,10 @@ span.flatpickr-weekday {
   width: 100%;
   text-align: left;
   cursor: pointer;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: normal;
   border-bottom: 1px solid #dee2e6;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .c-accordion .c-accordion__trigger:hover,
@@ -8673,13 +8685,13 @@ span.flatpickr-weekday {
 .c-blog__card .c-blog__card--content {
   order: 2;
   max-width: 100%;
-  padding: 10px 0  20px;
+  padding: 10px 0 20px;
 }
 
 .c-blog__card .c-blog__card--content .c-blog__card--title {
   width: 100%;
   margin-bottom: 5px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 767px) {
@@ -8884,7 +8896,7 @@ span.flatpickr-weekday {
 
 .c-blog__single .c-blog__single--bottom .c-blog__single--pagenavi {
   max-width: 100%;
-  flex: 0 0  100%;
+  flex: 0 0 100%;
   padding: 20px 0;
 }
 
@@ -8954,7 +8966,7 @@ span.flatpickr-weekday {
   top: 50%;
   line-height: 100%;
   margin-top: -6px;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: 300;
 }
 
@@ -8985,7 +8997,7 @@ span.flatpickr-weekday {
   top: 50%;
   line-height: 100%;
   margin-top: -6px;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: 300;
 }
 
@@ -9002,7 +9014,7 @@ span.flatpickr-weekday {
   /* easeOutQuart */
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   /* easeOutQuart */
-  transition-property: background,color;
+  transition-property: background, color;
   color: #241E1C;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -9124,7 +9136,7 @@ span.flatpickr-weekday {
 
 .blog-body img,
 #tinymce img {
-  margin: 0 0 .8rem;
+  margin: 0 0 0.8rem;
 }
 
 .blog-body h1,
@@ -9149,7 +9161,7 @@ span.flatpickr-weekday {
 
 .blog-body h5,
 #tinymce h5 {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .blog-body img.alignright,
@@ -9606,12 +9618,12 @@ span.flatpickr-weekday {
 
 .c-section__title .c-section__title-ja {
   line-height: 120%;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 575px) {
   .c-section__title .c-section__title-ja {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -9631,11 +9643,11 @@ span.flatpickr-weekday {
   background: none;
   display: block;
   text-align: left;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid #ced4da;
   border-bottom: none;
   border-right: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .c-tab .c-tab__nav .c-tab__item:hover,
@@ -9704,10 +9716,9 @@ span.flatpickr-weekday {
   left: -26px;
   top: -26px;
   background-color: #F7FFBC;
-  opacity: .1;
+  opacity: 0.1;
   z-index: 2;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
+  filter: blur(5px);
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   /* easeOutCubic */
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -9722,8 +9733,7 @@ span.flatpickr-weekday {
   background-color: #F7FFBC;
   opacity: 0.2;
   z-index: 1;
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  filter: blur(10px);
   transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
   /* easeOutExpo */
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
@@ -9736,7 +9746,7 @@ span.flatpickr-weekday {
   left: -46px;
   top: -46px;
   background-color: #F7FFBC;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .js-mouse-stalker.is-hover .js-mouse-stalker__follower {
@@ -9747,8 +9757,7 @@ span.flatpickr-weekday {
   z-index: 3;
   opacity: 0.6;
   background-color: transparent;
-  -webkit-filter: blur(0);
-          filter: blur(0);
+  filter: blur(0);
 }
 
 .js-mouse-stalker.is-drag .js-mouse-stalker__cursor {
@@ -9757,7 +9766,7 @@ span.flatpickr-weekday {
   left: -56px;
   top: -56px;
   background-color: #F7FFBC;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .js-mouse-stalker.is-drag .js-mouse-stalker__follower {
@@ -9767,8 +9776,7 @@ span.flatpickr-weekday {
   top: -46px;
   z-index: 3;
   background-color: transparent;
-  -webkit-filter: blur(0);
-          filter: blur(0);
+  filter: blur(0);
 }
 
 .js-mouse-stalker.is-drag .js-mouse-stalker__follower::before {
@@ -9809,7 +9817,7 @@ span.flatpickr-weekday {
   /* easeInOutCubic */
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   /* easeInOutCubic */
-  transition-property: opacity,transform;
+  transition-property: opacity, transform;
 }
 
 .js-scroll-to-top.invisible {
@@ -9830,7 +9838,7 @@ span.flatpickr-weekday {
   /* older webkit */
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   /* easeOutBack */
-  transition-property: opacity,transform;
+  transition-property: opacity, transform;
 }
 
 .js-scroll-to-right.invisible {
@@ -9857,7 +9865,7 @@ span.flatpickr-weekday {
   /* older webkit */
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   /* easeOutBack */
-  transition-property: opacity,transform;
+  transition-property: opacity, transform;
 }
 
 .js-scroll-to-left.invisible {
@@ -9895,7 +9903,7 @@ span.flatpickr-weekday {
   /* easeInOutQuart */
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   /* easeInOutQuart */
-  transition-delay: .2s;
+  transition-delay: 0.2s;
 }
 
 .js-scroll-cover:after {
@@ -9927,7 +9935,7 @@ span.flatpickr-weekday {
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   /* easeOutExpo */
   will-change: auto;
-  transition-property: opacity,transform;
+  transition-property: opacity, transform;
 }
 
 .js-scroll-scale.visible {
@@ -9935,12 +9943,12 @@ span.flatpickr-weekday {
   transform: scale(1);
 }
 
-[data-trigger="translateY"] {
+[data-trigger=translateY] {
   overflow: hidden;
   display: flex;
 }
 
-[data-trigger="translateY"] .str__animation {
+[data-trigger=translateY] .str__animation {
   opacity: 0;
 }
 
@@ -15113,7 +15121,6 @@ span.flatpickr-weekday {
 }
 
 .u-text-v-rl {
-  -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   display: inline;
@@ -15130,7 +15137,6 @@ span.flatpickr-weekday {
 }
 
 .u-text-v-lr {
-  -webkit-writing-mode: vertical-lr;
   -ms-writing-mode: tb-lr;
   writing-mode: vertical-lr;
   display: inline;
@@ -15213,8 +15219,8 @@ span.flatpickr-weekday {
   /* easeInOutExpo */
   transition-timing-function: cubic-bezier(1, 0, 0, 1);
   /* easeInOutExpo */
-  transition-delay: .5s;
-  transition-property: transform,width;
+  transition-delay: 0.5s;
+  transition-property: transform, width;
 }
 
 .l-hamburger .l-hamburger__bar::before {
@@ -15305,18 +15311,18 @@ span.flatpickr-weekday {
   }
 
   .l-drawer .l-drawer__wrapper .l-drawer__nav .l-drawer__nav--item {
-    padding: .4rem 0;
+    padding: 0.4rem 0;
     margin-bottom: 1rem;
   }
 
   .l-drawer .l-drawer__wrapper .l-drawer__nav .l-drawer__nav--item .l-drawer__nav--str {
     display: inline-block;
-    font-size: .9rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
   }
 
   .l-drawer .l-drawer__wrapper .l-drawer__nav .l-drawer__nav--item .l-drawer__nav--link {
-    font-size: .9rem;
+    font-size: 0.9rem;
     display: inline-block;
     text-decoration: none;
     color: #FFF;
@@ -15461,7 +15467,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 }
 
 .l-dropdown .l-dropdown__wrapper .l-dropdown__nav .l-dropdown__item .l-dropdown__link {
-  padding: .8rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   display: block;
   color: #e9ecef;
 }
@@ -15527,7 +15533,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 }
 
 #l-footer .l-footer__nav .l-footer__nav--item .l-footer__nav--link {
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
   /* easeOutQuart */
@@ -15545,7 +15551,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 
 #l-footer .l-footer__nav .l-footer__nav--item .l-footer__nav--link[target]:after {
   content: "\F14C";
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-family: "Font Awesome 5 Pro";
   margin-left: 10px;
   speak: none;
@@ -15583,7 +15589,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 
 #l-footer .l-footer__sub .l-footer__subnav .l-footer__subnav--item .l-footer__subnav--link {
   color: #fff;
-  font-size: .75rem;
+  font-size: 0.75rem;
   line-height: 120%;
 }
 
@@ -15596,7 +15602,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 #l-footer #l-copyright {
   text-align: right;
   margin: 0;
-  font-size: .7rem;
+  font-size: 0.7rem;
   line-height: 20px;
   letter-spacing: 1px;
   padding-top: 10px;
@@ -15644,12 +15650,6 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   letter-spacing: 1px;
 }
 
-@media all and (-ms-high-contrast: none) {
-  #l-gnav .l-gnav__nav .l-gnav__item .l-gnav__link {
-    color: #241E1C;
-  }
-}
-
 #l-gnav .l-gnav__nav .l-gnav__item .l-gnav__link span {
   position: relative;
   z-index: 2;
@@ -15669,12 +15669,6 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   /* easeInOutExpo */
   transform: scaleX(0);
   z-index: 1;
-}
-
-@media all and (-ms-high-contrast: none) {
-  #l-gnav .l-gnav__nav .l-gnav__item .l-gnav__link span::before {
-    background-color: #241E1C;
-  }
 }
 
 #l-gnav .l-gnav__nav .l-gnav__item .l-gnav__link:hover,
@@ -15701,7 +15695,6 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   left: 0;
   top: 0;
   z-index: 1000;
-  isolation: auto;
 }
 
 #l-header.headroom--not-top #l-header__bg::before {
@@ -15777,12 +15770,6 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   width: 105px;
 }
 
-@media all and (-ms-high-contrast: none) {
-  #l-header #l-header__logo .l-header__logo--link .l-header__logo--img {
-    opacity: 0;
-  }
-}
-
 @media (max-width: 991px) {
   #l-header #l-header__logo .l-header__logo--link .l-header__logo--img {
     width: 90px;
@@ -15793,11 +15780,6 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   #l-header #l-header__logo .l-header__logo--link .l-header__logo--img {
     width: 75px;
   }
-}
-
-#l-header #l-header__logo .l-header__logo--link .l-header__logo--img .logo-mix-blend {
-  isolation: isolate;
-  mix-blend-mode: normal;
 }
 
 #hero--wrapper {
@@ -15930,7 +15912,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 }
 
 #hero--catch .hero--catch .hero__str {
-  will-change: transform,opacity;
+  will-change: transform, opacity;
   position: relative;
   display: inline-block;
   min-width: 1rem;
@@ -15940,7 +15922,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 
 @media (max-width: 575px) {
   #hero--catch .hero--catch .hero__str {
-    min-width: .5rem;
+    min-width: 0.5rem;
   }
 }
 
@@ -16056,8 +16038,8 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   top: 50%;
   width: 80px;
   height: 90px;
-  margin-left: calc(-80px / 2);
-  margin-top: calc(-90px / 2);
+  margin-left: -40px;
+  margin-top: -45px;
   z-index: 10003;
   opacity: 0;
 }
@@ -16149,7 +16131,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 }
 
 #l-side .l-side__nav--accordion .c-accordion .c-accordion__trigger .l-side__nav--str .l-side__nav--ja {
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 110%;
 }
 
@@ -16194,14 +16176,14 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
 }
 
 #l-side .l-side__nav--accordion .c-accordion .c-accordion__content .l-side__nav--item .l-side__nav--str .l-side__nav--ja {
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 110%;
   display: block;
 }
 
 @media (max-width: 575px) {
   #l-side .l-side__nav--accordion .c-accordion .c-accordion__content .l-side__nav--item .l-side__nav--str .l-side__nav--ja {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -16478,7 +16460,7 @@ body.drawer-opening .l-hamburger .l-hamburger__bar::after {
   text-overflow: ellipsis;
   width: 100%;
   margin-bottom: 5px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 767px) {

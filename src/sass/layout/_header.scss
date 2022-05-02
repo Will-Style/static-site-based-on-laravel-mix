@@ -5,7 +5,6 @@
 	left: 0;
 	top: 0;
     z-index: 1000;
-    isolation: auto;
     
     &.headroom--not-top{
         #l-header__bg{
@@ -71,9 +70,6 @@
            
 	    	.l-header__logo--img{
                 width: 105px;
-	    		@media all and (-ms-high-contrast: none) {
-                    opacity: 0;
-                }
 	    		
                 @media(max-width: 991px){
 	    			width:90px;
@@ -81,10 +77,7 @@
                 @media(max-width: 767px){
 	    			width:75px
                 }
-                .logo-mix-blend{
-                   isolation: isolate;
-                   mix-blend-mode: normal;
-                }
+                
 	    	}
 
 	    }

@@ -89,7 +89,10 @@ export default class{
                 easing: 'easeInExpo',
                 duration : 1000,
                 complete: () =>{
-                    this.mask.style.display = "none"
+                    this.mask = document.querySelector('#js-loading__mask')
+                    if(this.mask){
+                        this.mask.style.display = "none"
+                    }
                     resolve();
                 }
             // 初期読み込み時の待ち時間
@@ -112,7 +115,10 @@ export default class{
     leave(data){
 
         return new Promise(resolve => {
-            this.mask.style.display = "block"
+            this.mask = document.querySelector('#js-loading__mask')
+            if(this.mask){
+                this.mask.style.display = "block"
+            }
             
             data.next.container.style.opacity = 0;
             const timelime = anime.timeline()
@@ -193,7 +199,10 @@ export default class{
                 duration : 600,
                 complete : () => {
 
-                    this.mask.style.display = "none"
+                    this.mask = document.querySelector('#js-loading__mask')
+                    if(this.mask){
+                        this.mask.style.display = "none"
+                    }
                     resolve();
                 }
             },'-=400')

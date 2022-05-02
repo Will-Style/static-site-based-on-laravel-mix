@@ -10,8 +10,7 @@ require('laravel-mix-imagemin')
 require('laravel-mix-ejs')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const webpackPlugins = [new HardSourceWebpackPlugin()];
+const webpackPlugins = [];
 
 const basePath =
     (process.env.MIX_BASE_PATH || '')
