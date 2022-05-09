@@ -74,9 +74,8 @@ const eventHandler = () => {
     new StickySide
 }
 
-
-document.addEventListener('readystatechange', e => {
-    if(document.readyState === "complete"){
-        eventHandler();
-    }
-})
+if (document.readyState !== 'loading') {
+    eventHandler();
+}else{
+    document.addEventListener('DOMContentLoaded', eventHandler, false);
+}
