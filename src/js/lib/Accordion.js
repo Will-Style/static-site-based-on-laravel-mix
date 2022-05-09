@@ -7,7 +7,7 @@ export default class {
         this.accordion_wrapper = "[data-accordion]"
         this.accordion__trigger = "[data-accordion-trigger]"
         this.accordion__content = "[data-accordion-content]"
-        this.active_class = 'c-accordion__active'
+        this.active_class = '-accordion-active'
 
         this.triggers = []
         this.contents = []

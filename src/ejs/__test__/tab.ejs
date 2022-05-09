@@ -1,0 +1,121 @@
+<% var path = '../'; %>
+<% var page = {
+    title : "",
+    description : "",
+    og_title: "",
+    og_type: "",
+    og_url: "",
+    og_image: "",
+    og_site_name: "",
+    tracking_id : "",
+    header : false,
+    footer : false,
+    namespace: "not-loading"
+}; %>
+<%- include(path + 'partials/_header', { path : path, page : page }); %>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="t-side">
+        <%- include(path + 'partials/_test-nav.ejs'); %>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="py-30">
+            <div class="t-wrapper">
+                <div class="mb-20">
+                    <h3>Default</h3>
+                    <div class="c-tab" data-tab>
+                        <div class="c-tab__nav" data-tab-list>
+                            <button data-tab-item aria-controls="tab01" type="button" class="c-tab__nav--item">tab01</button>
+                            <button data-tab-item aria-controls="tab02" type="button" class="c-tab__nav--item">tab02</button>
+                            <button data-tab-item aria-controls="tab03" type="button" class="c-tab__nav--item">tab03</button>
+                        </div>
+                    
+                        <div data-tab-pane id="tab01" class="c-tab__pane">
+                            <h4>Tab01</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+                        </div>
+                        <div data-tab-pane id="tab02" class="c-tab__pane">
+                            <h4>Tab02</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+                        </div>
+                        <div data-tab-pane id="tab03" class="c-tab__pane">
+                            <h4>Tab03</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-20">
+                        <p>
+                            [data-tab]でwrapした要素内にある[data-tab-item]をトリガーとし、[data-tab-item]のaria-controls属性に指定したIDを付与した[data-tab-pane]要素を開閉します。<br>
+                            初期で開いたままにしておきたい場合は data-tab-item と data-tab-pane のどちらにも.-tab-activeを付与します。
+                        </p>
+                    </div>
+                </div>
+<pre class="code">
+<code class="html">&lt;div class=&quot;c-tab&quot; data-tab&gt;
+    &lt;div class=&quot;c-tab__nav&quot; data-tab-list&gt;
+        &lt;button data-tab-item aria-controls=&quot;tab01&quot; type=&quot;button&quot; class=&quot;c-tab__nav--item&quot;&gt;tab01&lt;/button&gt;
+        &lt;button data-tab-item aria-controls=&quot;tab02&quot; type=&quot;button&quot; class=&quot;c-tab__nav--item&quot;&gt;tab02&lt;/button&gt;
+        &lt;button data-tab-item aria-controls=&quot;tab03&quot; type=&quot;button&quot; class=&quot;c-tab__nav--item&quot;&gt;tab03&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div data-tab-pane id=&quot;tab01&quot; class=&quot;c-tab__pane&quot;&gt;
+        &lt;h4&gt;Tab01&lt;/h4&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div data-tab-pane id=&quot;tab02&quot; class=&quot;c-tab__pane&quot;&gt;
+        &lt;h4&gt;Tab02&lt;/h4&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div data-tab-pane id=&quot;tab03&quot; class=&quot;c-tab__pane&quot;&gt;
+        &lt;h4&gt;Tab03&lt;/h4&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+        
+
+<div class="c-tab" data-tab>
+    <div class="c-tab__nav" data-tab-list>
+        <button data-tab-item aria-controls="tab-a" type="button" class="c-tab__nav--item">tab.A</button>
+        <button data-tab-item aria-controls="tab-b" type="button" class="c-tab__nav--item -tab-active">tab.B</button>
+        <button data-tab-item aria-controls="tab-c" type="button" class="c-tab__nav--item">tab.C</button>
+    </div>
+
+    <div data-tab-pane id="tab-a" class="c-tab__pane">
+        <h4>Tab.A</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+    </div>
+    <div data-tab-pane id="tab-b" class="c-tab__pane -tab-active">
+        <h4>Tab.B</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+    </div>
+    <div data-tab-pane id="tab-c" class="c-tab__pane">
+        <h4>Tab.C</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto unde consequatur accusamus quae atque? Distinctio, necessitatibus impedit ipsum, itaque id corrupti error, sunt odio facere architecto suscipit aliquam veniam delectus?</p>
+    </div>
+</div>
+                
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/a11y-light.min.css">
+    <style>
+    .hljs{display:block;overflow-x:auto;padding:.5em;background:#282a36}.hljs-built_in,.hljs-selector-tag,.hljs-section,.hljs-link{color:#8be9fd}.hljs-keyword{color:#ff79c6}.hljs,.hljs-subst{color:#f8f8f2}.hljs-title,.hljs-attr,.hljs-meta-keyword{font-style:italic;color:#50fa7b}.hljs-string,.hljs-meta,.hljs-name,.hljs-type,.hljs-symbol,.hljs-bullet,.hljs-addition,.hljs-variable,.hljs-template-tag,.hljs-template-variable{color:#f1fa8c}.hljs-comment,.hljs-quote,.hljs-deletion{color:#6272a4}.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-title,.hljs-section,.hljs-doctag,.hljs-type,.hljs-name,.hljs-strong{font-weight:700}.hljs-literal,.hljs-number{color:#bd93f9}.hljs-emphasis{font-style:italic}
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        pre.code code{
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+    </style>
+
+</div>
+
+
+<%- include(path + 'partials/_footer', { path : path, page : page }); %>

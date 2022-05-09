@@ -36,7 +36,7 @@ import Slider from "./lib/Slider"
 import Dropdown from "./lib/Dropdown"
 
 import Tab from "./lib/Tab"
-import ObjectFitImages from "./lib/ObjectFitImages"
+// import ObjectFitImages from "./lib/ObjectFitImages"
 import Accordion from "./lib/Accordion"
 import Barba from "./lib/Barba"
 // import MouseStalker from "./lib/MouseStalker"
@@ -50,7 +50,7 @@ const eventHandler = () => {
     new Resources
     // new IeFix
     new Svg
-    new ObjectFitImages
+    // new ObjectFitImages
     new Form
     new Datepicker
     new GA
@@ -74,10 +74,9 @@ const eventHandler = () => {
     new StickySide
 }
 
-if (document.readyState !== 'loading') {
-    eventHandler();
-}else{
-    document.addEventListener('DOMContentLoaded', eventHandler, false);
-}
 
-
+document.addEventListener('readystatechange', e => {
+    if(document.readyState === "complete"){
+        eventHandler();
+    }
+})
