@@ -1,0 +1,125 @@
+<% var path = '../'; %>
+<% var page = {
+    title : "",
+    description : "",
+    og_title: "",
+    og_type: "",
+    og_url: "",
+    og_image: "",
+    og_site_name: "",
+    tracking_id : "",
+    header : false,
+    footer : false,
+    namespace: "not-loading"
+}; %>
+<%- include(path + 'partials/_header', { path : path, page : page }); %>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="t-side">
+        <%- include(path + 'partials/_test-nav.ejs'); %>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="py-30">
+            <div class="t-wrapper">
+                <div class="mb-20">
+                    <h3>Default</h3>
+                    <div class="c-accordion" data-accordion>
+                        <button aria-controls="accordion-1" type="button" class="c-accordion__trigger c-accordion__active" data-accordion-trigger>Accordion01</button>
+                        <div id="accordion-1" data-accordion-content class="c-accordion__content c-accordion__active">
+                            <div class="c-accordion__inner">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+                            </div>
+                        </div>
+                        <button aria-controls="accordion-2" type="button" class="c-accordion__trigger" data-accordion-trigger>Accordion02</button>
+                        <div id="accordion-2" data-accordion-content class="c-accordion__content">
+                            <div class="c-accordion__inner">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-20">
+                        <p>
+                            [data-accordion]でwrapした要素内にある[data-accordion-trigger]をトリガーとし、[data-accordion-trigger]のaria-controls属性に指定したIDを付与した[data-accordion-content]要素を開閉します。<br>
+                            初期で開いたままにしておきたい場合はtriggerとcontentのどちらにも.c-accordion__activeを付与します。
+                        </p>
+                    </div>
+                </div>
+<pre class="code">
+<code class="html">&lt;div class=&quot;c-accordion&quot; data-accordion&gt;
+    &lt;button aria-controls=&quot;accordion-1&quot; type=&quot;button&quot; class=&quot;c-accordion__trigger c-accordion__active&quot; data-accordion-trigger&gt;Accordion01&lt;/button&gt;
+    &lt;div id=&quot;accordion-1&quot; data-accordion-content class=&quot;c-accordion__content c-accordion__active&quot;&gt;
+        &lt;div class=&quot;c-accordion__inner&quot;&gt;
+        Lorem ipsum dolor sit amet consectetur adipisicing ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button aria-controls=&quot;accordion-2&quot; type=&quot;button&quot; class=&quot;c-accordion__trigger&quot; data-accordion-trigger&gt;Accordion01&lt;/button&gt;
+    &lt;div id=&quot;accordion-2&quot; data-accordion-content class=&quot;c-accordion__content&quot;&gt;
+        &lt;div class=&quot;c-accordion__inner&quot;&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+        
+                <div class="mb-30">
+                    <h3>Toggle</h3>
+                    <div class="c-accordion" data-accordion="true">
+                        <button aria-controls="accordion-a" type="button" class="c-accordion__trigger c-accordion__active" data-accordion-trigger>Accordion.A</button>
+                        <div id="accordion-a" data-accordion-content class="c-accordion__content c-accordion__active">
+                            <div class="c-accordion__inner">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+                            </div>
+                        </div>
+                        <button aria-controls="accordion-b" type="button" class="c-accordion__trigger" data-accordion-trigger>Accordion.B</button>
+                        <div id="accordion-b" data-accordion-content class="c-accordion__content">
+                            <div class="c-accordion__inner">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    data-accordionにtrueを入れるとアコーディオンがToggleします。
+                </p>
+<pre class="code">
+<code class="html">&lt;div class=&quot;c-accordion&quot; data-accordion=&quot;true&quot;&gt;
+    &lt;button aria-controls=&quot;accordion-a&quot; type=&quot;button&quot; class=&quot;c-accordion__trigger c-accordion__active&quot; data-accordion-trigger&gt;Accordion.A&lt;/button&gt;
+    &lt;div id=&quot;accordion-a&quot; data-accordion-content class=&quot;c-accordion__content c-accordion__active&quot;&gt;
+        &lt;div class=&quot;c-accordion__inner&quot;&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button aria-controls=&quot;accordion-b&quot; type=&quot;button&quot; class=&quot;c-accordion__trigger&quot; data-accordion-trigger&gt;Accordion.B&lt;/button&gt;
+    &lt;div id=&quot;accordion-b&quot; data-accordion-content class=&quot;c-accordion__content&quot;&gt;
+        &lt;div class=&quot;c-accordion__inner&quot;&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est harum atque sapiente corporis, quis ullam laboriosam debitis veritatis, animi ab omnis placeat temporibus facilis? Cumque excepturi nulla cum earum!
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/a11y-light.min.css">
+    <style>
+    .hljs{display:block;overflow-x:auto;padding:.5em;background:#282a36}.hljs-built_in,.hljs-selector-tag,.hljs-section,.hljs-link{color:#8be9fd}.hljs-keyword{color:#ff79c6}.hljs,.hljs-subst{color:#f8f8f2}.hljs-title,.hljs-attr,.hljs-meta-keyword{font-style:italic;color:#50fa7b}.hljs-string,.hljs-meta,.hljs-name,.hljs-type,.hljs-symbol,.hljs-bullet,.hljs-addition,.hljs-variable,.hljs-template-tag,.hljs-template-variable{color:#f1fa8c}.hljs-comment,.hljs-quote,.hljs-deletion{color:#6272a4}.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-title,.hljs-section,.hljs-doctag,.hljs-type,.hljs-name,.hljs-strong{font-weight:700}.hljs-literal,.hljs-number{color:#bd93f9}.hljs-emphasis{font-style:italic}
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        pre.code code{
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+    </style>
+
+    </div>
+</div>
+
+
+<%- include(path + 'partials/_footer', { path : path, page : page }); %>

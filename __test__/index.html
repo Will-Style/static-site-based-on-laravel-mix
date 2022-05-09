@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>TOP PAGE</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <meta name="description" content="TOP PAGE DESCRIPTION">
+    <meta name="description" content="">
     <!-- OGP -->
-	<meta property="og:title" content="TOP PAGE" />
+	<meta property="og:title" content="" />
 	<meta property="og:type" content="" />
 	<meta property="og:url" content="" />
 	<meta property="og:image" content="" />
@@ -41,34 +41,55 @@
 
 <body data-barba="wrapper">
 
-    <div id="page" data-barba="container" data-barba-namespace="home">
+    <div id="page" data-barba="container" data-barba-namespace="not-loading">
         
         <a class="sr-only sr-only-focusable" href="#content">本文までスキップする</a>
         
         <main id="content">
-        <div id="p-index">
-            <div id="hero--wrapper">
-                <div id="hero--content">
-                    <div id="hero--image">
-                        
-                    </div>
-                </div>
-            </div>
-        </div><!-- / #p-index -->
+<div id="p-test">
+    <div class="container">
+        <div class="py-30">
+            <ul class="t-nav">
+    <li><a href="/__test__/">TOP</a></li>
+    <li><a href="/__test__/accordion.html" class="no-barba">アコーディオン</a></li>
+</ul>
+
+<style>
+.t-wrapper{
+    padding: 0 20px;
+} 
+@media (min-width:992px) {
+    .t-wrapper{
+        padding: 0 40px;
+    }    
+}
+.t-side{
+    padding: 20px 15px;
+}
+.t-nav{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+}
+.t-nav li{
+    margin: 0;
+    border: 1px solid #eee;
+    border-bottom: none;
+}
+.t-nav li a{
+   display: block;
+   padding: 5px 10px;
+}
+</style>
+        </div>
+    </div>
+</div><!-- / #p-test -->
                 </main>
 
                 
             </div>
-    <div id="js-loading__mask" aria-hidden="true">
-    <div class="js-loading__first"></div>
-    <div class="js-loading__second"></div>
-    <div id="js-loading__animation">
-        <div id="logo-animation">
-                  
-        </div> 
-    </div>
-</div>
-
+    
     
 
 </body>

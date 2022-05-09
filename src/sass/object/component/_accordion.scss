@@ -1,6 +1,6 @@
 .c-accordion{
     border: 1px solid $gray-300;
-    border-bottom:none;
+    border-top: none;
 	.c-accordion__trigger{
         position: relative;
         -webkit-appearance: none;
@@ -15,14 +15,17 @@
 		cursor: pointer;
         padding: .5rem 1rem;
 		font-weight: normal;
-        border-bottom: 1px solid $gray-300;
+        border-top: 1px solid $gray-300;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 		&:hover,&:active,&:focus{
             background-color: #fafafa;
-            box-shadow: 0 0 0 0.2rem rgba($gray-500,.25);
-            outline: 0;
             z-index: 2;
 		}
+        &:focus-visible{
+            box-shadow: 0 0 0 0.2rem rgba($gray-500,.25);
+            outline: 0;
+            
+        }
 		&.c-accordion__active{
             background-color: #F3f4f5;
 		}
@@ -32,7 +35,7 @@
 		overflow: hidden;
 		&.c-accordion__active{
 			.c-accordion__inner{
-                border-bottom: 1px solid $gray-300;
+                border-top: 1px solid $gray-300;
 			}
 		}
 		.c-accordion__inner{

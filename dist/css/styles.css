@@ -8553,7 +8553,7 @@ span.flatpickr-weekday {
 
 .c-accordion {
   border: 1px solid #dee2e6;
-  border-bottom: none;
+  border-top: none;
 }
 
 .c-accordion .c-accordion__trigger {
@@ -8571,7 +8571,7 @@ span.flatpickr-weekday {
   cursor: pointer;
   padding: 0.5rem 1rem;
   font-weight: normal;
-  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -8579,9 +8579,12 @@ span.flatpickr-weekday {
 .c-accordion .c-accordion__trigger:active,
 .c-accordion .c-accordion__trigger:focus {
   background-color: #fafafa;
+  z-index: 2;
+}
+
+.c-accordion .c-accordion__trigger:focus-visible {
   box-shadow: 0 0 0 0.2rem rgba(173, 181, 189, 0.25);
   outline: 0;
-  z-index: 2;
 }
 
 .c-accordion .c-accordion__trigger.c-accordion__active {
@@ -8593,7 +8596,7 @@ span.flatpickr-weekday {
 }
 
 .c-accordion .c-accordion__content.c-accordion__active .c-accordion__inner {
-  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
 }
 
 .c-accordion .c-accordion__content .c-accordion__inner {

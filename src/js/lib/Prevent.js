@@ -30,10 +30,18 @@ export default ({el ,event ,href}) => {
     }
     // 該当クラスに属していればBarbaを無効に
     let ignoreClasses = ['ab-item'];
+    let ret = false
     ignoreClasses.forEach((cls) => {
         if (el.classList.contains(cls)) {
             el.setAttribute('target','_blank')
-            return true;
+            ret = true;
         }
     })
+    if(ret){
+        return true
+    }
+    // 該当クラスに属していればBarbaを無効に
+    if (el.classList.contains('no-barba')) {
+        return true;
+    }
 }

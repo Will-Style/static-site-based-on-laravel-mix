@@ -1,8 +1,8 @@
 <% var path = '../'; %>
 <% var page = {
-    title : "TOP PAGE",
-    description : "TOP PAGE DESCRIPTION",
-    og_title: "TOP PAGE",
+    title : "",
+    description : "",
+    og_title: "",
     og_type: "",
     og_url: "",
     og_image: "",
@@ -10,16 +10,14 @@
     tracking_id : "",
     header : false,
     footer : false,
-    namespace: "home"
+    namespace: "not-loading"
 }; %>
 <%- include(path + 'partials/_header', { path : path, page : page }); %>
-        <div id="p-index">
-            <div id="hero--wrapper">
-                <div id="hero--content">
-                    <div id="hero--image">
-                        
-                    </div>
-                </div>
-            </div>
-        </div><!-- / #p-index -->
+<div id="p-test">
+    <div class="container">
+        <div class="py-30">
+            <%- include(path + 'partials/_test-nav', { path : path, page : page }); %>
+        </div>
+    </div>
+</div><!-- / #p-test -->
 <%- include(path + 'partials/_footer', { path : path, page : page }); %>

@@ -30,13 +30,13 @@ export default class{
         const self = this;
         return new Promise(resolve => {
 
+
+            if(data.next.namespace == "not-loading"){
+                resolve()
+            }
+
             let timeline = anime.timeline();
-            anime({
-                targets:"#logo-lightning",
-                rotateY:[0,"3600deg"],
-                duration:4000,
-                easing: 'easeInQuart',
-            })
+            
             timeline
             .add({
                 targets: '#logo-animation',
@@ -68,6 +68,11 @@ export default class{
     afterOnce(data){
 
         return new Promise(resolve => {
+
+            if(data.next.namespace == "not-loading"){
+                resolve();
+            }
+
             const timelime = anime.timeline()
             timelime
             .add({
@@ -120,6 +125,10 @@ export default class{
                 this.mask.style.display = "block"
             }
             
+            if(data.next.namespace == "not-loading"){
+                resolve();
+            }
+
             data.next.container.style.opacity = 0;
             const timelime = anime.timeline()
             timelime
@@ -179,6 +188,14 @@ export default class{
     after(data){
 
         return new Promise(resolve => {
+
+
+            if(data.next.namespace == "not-loading"){
+                this.initialScroll ()
+                data.next.container.style.opacity = 1;
+                resolve();
+            }
+
 
             const timelime = anime.timeline()
             timelime
